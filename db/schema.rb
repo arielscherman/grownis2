@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_05_234052) do
+ActiveRecord::Schema.define(version: 2020_06_05_234520) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,6 +35,16 @@ ActiveRecord::Schema.define(version: 2020_06_05_234052) do
     t.index ["user_id"], name: "index_depots_on_user_id"
   end
 
+  create_table "movements", force: :cascade do |t|
+    t.bigint "depot_id", null: false
+    t.bigint "total_cents"
+    t.date "date", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["date"], name: "index_movements_on_date"
+    t.index ["depot_id"], name: "index_movements_on_depot_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -50,4 +60,5 @@ ActiveRecord::Schema.define(version: 2020_06_05_234052) do
 
   add_foreign_key "depots", "currencies"
   add_foreign_key "depots", "users"
+  add_foreign_key "movements", "depots"
 end
