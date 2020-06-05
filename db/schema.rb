@@ -10,10 +10,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_05_230848) do
+ActiveRecord::Schema.define(version: 2020_06_05_234052) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "currencies", force: :cascade do |t|
+    t.string "symbol", null: false
+    t.string "name", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["name"], name: "index_currencies_on_name", unique: true
+    t.index ["symbol"], name: "index_currencies_on_symbol", unique: true
+  end
+
+  create_table "depots", force: :cascade do |t|
+    t.string "name", null: false
+    t.bigint "cached_total_cents", default: 0, null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "currency_id", null: false
+    t.index ["currency_id"], name: "index_depots_on_currency_id"
+    t.index ["user_id"], name: "index_depots_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -28,4 +48,6 @@ ActiveRecord::Schema.define(version: 2020_06_05_230848) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "depots", "currencies"
+  add_foreign_key "depots", "users"
 end
