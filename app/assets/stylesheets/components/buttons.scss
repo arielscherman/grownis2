@@ -1,0 +1,19 @@
+.ui-button {
+  border: 1px solid;
+  border-radius: 6px;
+  display: inline-block;
+  font-family: $ui-font-family;
+  font-size: $ui-font-size-button;
+  padding: $ui-xsmall $ui-medium;
+  text-align: center;
+  cursor: pointer;
+}
+
+.ui-button.ui-button-primary {
+  background-color: $ui-blue;
+  color: $ui-white;
+
+  &:hover {
+    background-color: $ui-blue-dark;
+  }
+}

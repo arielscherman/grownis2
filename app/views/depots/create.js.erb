@@ -1,0 +1,5 @@
+<% if depot.valid? %>
+document.getElementById("ui-modal-placeholder").innerHTML = "";
+<% else %>
+document.getElementById("ui-modal-placeholder").innerHTML = "<%= j render('depots/modal_form') %>";
+<% end %>
