@@ -164,10 +164,10 @@ textarea {
   margin-bottom: $ui-small;
   padding: $ui-small $ui-medium;
   border: 1px solid $ui-grey-light;
-  -moz-border-radius: $ui-tiny;
-  -o-border-radius: $ui-tiny;
-  -webkit-border-radius: $ui-tiny;
-  border-radius: $ui-tiny;
+  -moz-border-radius: $ui-button-border-radius;
+  -o-border-radius: $ui-button-border-radius;
+  -webkit-border-radius: $ui-button-border-radius;
+  border-radius: $ui-button-border-radius;
   background-color: $ui-white;
   -moz-transition: all 0.2s ease;
   -ms-transition: all 0.2s ease;
