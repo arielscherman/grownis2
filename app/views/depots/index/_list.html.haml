@@ -1,0 +1,8 @@
+- if depots.present?
+  - depots.each do |depot|
+    .depot
+      = link_to depot.name, depot_movements_path(depot)
+      = "#{depot.currency_symbol} #{depot.cached_total_cents}"
+      = link_to "(Editar)", edit_depot_path(depot), remote: true
+- else
+  %p Aún no tenés ninguna billetera.

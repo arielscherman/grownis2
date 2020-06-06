@@ -3,5 +3,9 @@ Rails.application.routes.draw do
 
   root to: "depots#index"
 
-  resources :depots, only: :index
+  resources :depots, shallow: true do
+    scope module: 'depots' do
+      resources :movements
+    end
+  end
 end

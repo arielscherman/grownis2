@@ -1,1 +1,6 @@
-%h1 Hello
+%h1 Mis Billeteras
+
+= link_to "Agregar", new_depot_path, remote: true
+
+.js-depots-list{ "data-refresh-url" => depots_path }
+  = render "depots/index/list", depots: @depots

@@ -1,0 +1,114 @@
+$ui-modal-width-small: 426px;
+$ui-modal-width-medium: 468px;
+$ui-modal-width-large: 787px;
+$ui-modal-shadow-color: rgba(0, 0, 0, 0.2);
+$ui-modal-backdrop-color: rgba(0, 0, 0, 0.5);
+
+.ui-modal-container {
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: $ui-modal-backdrop-color;
+  transition: opacity 0.25s ease;
+  pointer-events: none;
+}
+
+%ui-modal,
+.ui-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  display: flex;
+  flex-direction: column;
+  width: $ui-modal-width-small;
+  max-width: calc(100vw - #{30px * 2});
+  max-height: calc(100vh - #{30px * 2});
+  padding-bottom: 40px;
+  box-shadow: 0 0 3px $ui-modal-shadow-color;
+  background-color: $ui-white;
+  transform: translate(-50%, -50%);
+}
+
+.ui-modal-head {
+  position: relative;
+  flex: none;
+  padding: 30px 60px (30px / 2);
+}
+
+.ui-modal-head-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0;
+  padding: 30px;
+  color: $ui-grey;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: color 0.25s ease;
+
+  &:hover {
+    color: $ui-grey-dark;
+  }
+
+  &:after {
+    content: "X";
+  }
+}
+
+.ui-modal-body {
+  flex: auto;
+  padding: 15px 60px 15px;
+  overflow: auto;
+}
+
+.ui-modal-foot {
+  flex: none;
+  display: flex;
+  padding: 15px 30px 0 60px;
+}
+
+input[type="checkbox"].ui-modal-check {
+  display: none;
+
+  &:checked + .ui-modal-container {
+    opacity: 1;
+    pointer-events: all;
+  }
+}
+
+// Mixin
+
+@mixin ui-modal($width: $ui-modal-width-small) {
+  @extend %ui-modal;
+  width: $width;
+}
+
+// Sizes
+
+.ui-modal-small {
+  @include ui-modal;
+}
+
+.ui-modal-medium {
+  @include ui-modal(
+    $width: $ui-modal-width-medium
+  );
+}
+
+.ui-modal-large {
+  @include ui-modal(
+    $width: $ui-modal-width-large
+  );
+}
+
+// Patterns
+
+.ui-modal-foot .ui-buttons {
+  margin: 0 0 0 auto;
+}

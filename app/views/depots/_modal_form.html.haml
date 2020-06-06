@@ -1,0 +1,16 @@
+%input.ui-modal-check{ type: "checkbox", name: "ui_modal_medium", id: "ui_modal_medium", checked: "checked" }
+.ui-modal-container
+  .ui-modal-medium
+    .ui-modal-head
+      %label.ui-modal-head-close{ for: "ui_modal_medium" }
+    .ui-modal-body
+      - if depot.errors.any?
+        %p= depot.errors.full_messages
+
+      = form_for depot, remote: true do |f|
+        = f.label :name
+        = f.text_field :name
+        = f.label :currency_id
+        = f.select :currency_id, options_for_select(currencies.map { |c| [c.name, c.id] }, depot.currency_id), include_blank: "Moneda"
+        = f.submit "Guardar", data: { "disable-with": "Guardando..." }
+    .ui-modal-foot
