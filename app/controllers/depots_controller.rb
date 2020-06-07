@@ -14,6 +14,12 @@ class DepotsController < ApplicationController
     @depot.save
   end
 
+  def edit; end
+
+  def update
+    depot.update(depot_params)
+  end
+
   private
 
   def depots

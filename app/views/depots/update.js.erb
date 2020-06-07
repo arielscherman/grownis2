@@ -1,0 +1,6 @@
+<% if @depot.valid? %>
+document.getElementById("ui-modal-placeholder").innerHTML = ""; // remove modal
+document.getElementById("depots-list-placeholder").innerHTML = "<%= j render "depots/index/list", depots: depots %>";
+<% else %>
+document.getElementById("ui-modal-placeholder").innerHTML = "<%= j render('depots/modal_form') %>";
+<% end %>
