@@ -30,9 +30,12 @@ rescue ActiveRecord::PendingMigrationError => e
   puts e.to_s.strip
   exit 1
 end
+
+Capybara.server = :puma, { Silent: true }
 RSpec.configure do |config|
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
-  config.fixture_path = "#{::Rails.root}/spec/fixtures"
+  config.include Devise::Test::IntegrationHelpers, type: :system
+  config.include FactoryBot::Syntax::Methods
 
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, remove the following line or assign false
@@ -61,6 +64,13 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
+  config.before(:each, type: :system) do
+    driven_by :rack_test
+  end
+  config.before(:each, type: :system, js: true) do
+    driven_by :selenium, using: :firefox
+    # driven_by :selenium, using: :headless_chrome, screen_size: [1680, 1600], options: { args: ["disable-gpu", "no-sandbox", "disable-dev-shm-usage", "--enable-features=NetworkService,NetworkServiceInProcess"] }
+  end
 end
 
 Shoulda::Matchers.configure do |config|
