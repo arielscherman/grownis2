@@ -1,11 +1,9 @@
 class DepotsController < ApplicationController
   before_action :authenticate_user!
 
-  helper_method :depot, :currencies
+  helper_method :depot, :currencies, :depots
 
-  def index
-    @depots = current_user.depots.includes(:currency).order(created_at: :desc)
-  end
+  def index; end
 
   def new
     @depot = Depot.new
@@ -17,6 +15,10 @@ class DepotsController < ApplicationController
   end
 
   private
+
+  def depots
+    @depots ||= current_user.depots.includes(:currency).order(created_at: :desc)
+  end
 
   def depot_params
     params.require(:depot).permit(:name, :currency_id)

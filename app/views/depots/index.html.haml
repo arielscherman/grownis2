@@ -2,5 +2,5 @@
 
 = link_to "Agregar", new_depot_path, remote: true
 
-.js-depots-list{ "data-refresh-url" => depots_path }
-  = render "depots/index/list", depots: @depots
+#depots-list-placeholder
+  = render "depots/index/list", depots: depots
