@@ -8,11 +8,11 @@ class DepotsCreateTest < ApplicationSystemTestCase
 
     click_on "Agregar"
     fill_in "Nombre", with: "My new depot"
-    select currencies(:btc).name, from: "Moneda"
 
-    within ".modal-content" do
-      click_on "Guardar"
-    end
+    page.find("#depot_currency_id + .choices__list").click
+    page.find(".choices__item--choice[data-value='#{currencies(:btc).id}']").click
+
+    click_on "Guardar"
 
     assert_selector ".depot", text: "My new depot"
   end
