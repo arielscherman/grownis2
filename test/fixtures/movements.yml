@@ -1,0 +1,4 @@
+deposit:
+  depot: national_bank
+  total_cents: <%= rand(100..999999) %>
+  date: <%= rand(1..60).days.ago.to_date %>

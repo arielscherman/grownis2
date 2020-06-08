@@ -1,0 +1,11 @@
+usd:
+  name: Dolar
+  symbol: USD
+
+ars:
+  name: Pesos Argentinos
+  symbol: ARS
+
+btc:
+  name: Bitcoin
+  symbol: BTC
