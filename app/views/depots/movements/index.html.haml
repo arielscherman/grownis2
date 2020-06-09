@@ -1,6 +1,6 @@
 %h1= "#{depot.name} - Movements"
 
-= link_to "Add Movement", new_depot_movement_path(depot), remote: true
+= link_to "Agregar Movimiento", new_depot_movement_path(depot), remote: true
 
 #depots-movements-list-placeholder
   = render "depots/movements/index/list", depot: depot, movements: movements, currency: currency
