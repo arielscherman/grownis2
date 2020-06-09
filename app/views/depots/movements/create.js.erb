@@ -1,0 +1,6 @@
+<% if movement.valid? %>
+document.getElementById("ui-modal-placeholder").innerHTML = ""; // remove modal
+document.getElementById("depots-movements-list-placeholder").innerHTML = "<%= j render "depots/movements/index/list", depot: depot, movements: movements, currency: currency %>";
+<% else %>
+document.getElementById("ui-modal-placeholder").innerHTML = "<%= j render('depots/movements/modal_form') %>";
+<% end %>

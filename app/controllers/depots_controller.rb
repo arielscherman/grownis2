@@ -3,8 +3,6 @@ class DepotsController < ApplicationController
 
   helper_method :depot, :currencies, :depots
 
-  def index; end
-
   def new
     @depot = Depot.new
   end
@@ -13,8 +11,6 @@ class DepotsController < ApplicationController
     @depot = Depot.new(depot_params.merge(user: current_user))
     @depot.save
   end
-
-  def edit; end
 
   def update
     depot.update(depot_params)

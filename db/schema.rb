@@ -24,6 +24,16 @@ ActiveRecord::Schema.define(version: 2020_06_05_234520) do
     t.index ["symbol"], name: "index_currencies_on_symbol", unique: true
   end
 
+  create_table "depot_movements", force: :cascade do |t|
+    t.bigint "depot_id", null: false
+    t.bigint "total_cents"
+    t.date "date", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["date"], name: "index_depot_movements_on_date"
+    t.index ["depot_id"], name: "index_depot_movements_on_depot_id"
+  end
+
   create_table "depots", force: :cascade do |t|
     t.string "name", null: false
     t.bigint "cached_total_cents", default: 0, null: false
@@ -33,16 +43,6 @@ ActiveRecord::Schema.define(version: 2020_06_05_234520) do
     t.bigint "currency_id", null: false
     t.index ["currency_id"], name: "index_depots_on_currency_id"
     t.index ["user_id"], name: "index_depots_on_user_id"
-  end
-
-  create_table "movements", force: :cascade do |t|
-    t.bigint "depot_id", null: false
-    t.bigint "total_cents"
-    t.date "date", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["date"], name: "index_movements_on_date"
-    t.index ["depot_id"], name: "index_movements_on_depot_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -58,7 +58,7 @@ ActiveRecord::Schema.define(version: 2020_06_05_234520) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "depot_movements", "depots"
   add_foreign_key "depots", "currencies"
   add_foreign_key "depots", "users"
-  add_foreign_key "movements", "depots"
 end

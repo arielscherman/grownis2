@@ -1,0 +1,22 @@
+- js_controller = 'depots-movements--modal-form'
+
+%input.ui-modal-check{ type: "checkbox", name: "depot_movement_form_modal", id: "depot_movement_form_modal", checked: "checked" }
+.ui-modal-container.depot-movement-modal-form{ "data-controller" => js_controller }
+  .ui-modal-medium
+    .ui-modal-head
+      %label.ui-modal-head-close{ for: "depot_movement_form_modal" }
+    = form_for movement, remote: true do |f|
+      .ui-modal-body
+        - if movement.errors.any?
+          %p= movement.errors.full_messages
+
+        = f.label :date
+        = f.text_field :date, class: "js-movement-date"
+        = f.label :total
+        = f.text_field :total, value: movement.total || 0, class: "js-movement-total"
+      .ui-modal-foot
+        = f.submit "Guardar", data: { "disable-with": "Guardando..." }, class: "ui-button ui-button-primary"
+
+:javascript
+  $(".js-movement-date").flatpickr()
+  $(".js-movement-total").number(true, 2, ',', '.')

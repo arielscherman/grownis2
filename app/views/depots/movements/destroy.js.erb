@@ -1,0 +1,5 @@
+<% if movement.destroyed? %>
+App.Components.AjaxRefresh.refresh('.js-movements-list')
+<% else %>
+App.Components.Modal.open("<p>No se ha podido eliminar el movimiento. Volvé a intentar y si el error persiste contactá a soporte.</p>")
+<% end %>
