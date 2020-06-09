@@ -15,7 +15,7 @@ class Depots::MovementsCreateTest < ApplicationSystemTestCase
 
     click_on "Guardar"
 
-    assert_selector ".movement", text: "300"
+    assert_selector ".movement", text: amount(300_00)
   end
 
   test "creating a movement causes the balance to update" do
@@ -34,6 +34,6 @@ class Depots::MovementsCreateTest < ApplicationSystemTestCase
 
     click_on "Guardar"
 
-    assert_selector ".balance", text: "300"
+    assert_selector ".balance", text: amount(300_00)
   end
 end

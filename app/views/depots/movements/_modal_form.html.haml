@@ -15,4 +15,4 @@
         = f.label :total
         = f.text_field :total, value: movement.total || 0, data: { "target": "#{js_controller}.totalInput" }
       .ui-modal-foot
-        = f.submit "Guardar", data: { "disable-with": "Guardando..." }, class: "ui-button ui-button-primary"
+        = f.submit "Guardar", data: { "disable-with": "Guardando..." }, class: "ui-button ui-button--primary"

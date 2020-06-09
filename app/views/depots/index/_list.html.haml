@@ -2,7 +2,7 @@
   - depots.each do |depot|
     .depot
       = link_to depot.name, depot_movements_path(depot)
-      = "#{depot.currency_symbol} #{depot.cached_total_cents}"
+      %span.depot__balance= display_amount_with_symbol(depot.cached_total_cents, depot.currency_symbol)
       = link_to "(Editar)", edit_depot_path(depot), remote: true
 - else
   %p Aún no tenés ninguna billetera.

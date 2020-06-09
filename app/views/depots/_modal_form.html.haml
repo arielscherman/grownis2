@@ -15,4 +15,4 @@
         = f.label :currency_id
         = f.select :currency_id, options_for_select(currencies.map { |c| [c.name, c.id] }, depot.currency_id), { include_blank: "Moneda" }, data: { "target": "#{js_controller}.currencySelect" }
       .ui-modal-foot
-        = f.submit "Guardar", data: { "disable-with": "Guardando..." }, class: "ui-button ui-button-primary"
+        = f.submit "Guardar", data: { "disable-with": "Guardando..." }, class: "ui-button ui-button--primary"

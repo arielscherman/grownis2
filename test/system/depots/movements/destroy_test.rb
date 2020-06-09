@@ -12,7 +12,7 @@ class Depots::MovementsDestroyTest < ApplicationSystemTestCase
       find(".movement[data-id='#{movement.id}'] .depot-movement-delete").click
     end
 
-    assert_no_selector ".movement", text: movement.total
+    assert_no_selector ".movement", text: amount_with_currency(movement.total_cents, movement.depot.currency_symbol)
   end
 
   test "deleting a movement causes the balance to update" do
@@ -30,6 +30,6 @@ class Depots::MovementsDestroyTest < ApplicationSystemTestCase
       find(".movement[data-id='#{movement.id}'] .depot-movement-delete").click
     end
 
-    assert_selector ".balance", text: initial_balance_in_cents - movement.total_cents
+    assert_selector ".balance", text: amount_with_currency(initial_balance_in_cents - movement.total_cents, depot.currency_symbol)
   end
 end

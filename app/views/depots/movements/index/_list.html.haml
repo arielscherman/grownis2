@@ -1,8 +1,8 @@
-.balance= "Balance: #{depot.cached_total_cents}"
+.balance= "Balance: #{display_amount_with_symbol(depot.cached_total_cents, depot.currency_symbol)}"
 - if movements.present?
   - movements.each do |movement|
     .movement{ data: { id: movement.id } }
-      = "#{movement.date} - #{currency.symbol}#{movement.total_cents} - "
+      = "#{movement.date} - #{display_amount_with_symbol(movement.total_cents, currency.symbol)} - "
       = link_to 'Eliminar', movement_path(movement), method: :delete, class: "depot-movement-delete", data: { confirm: 'Estás seguro que querés eliminar el movimiento?' }, remote: true
 - else
   %p Aún no tenés ningún movimiento.

@@ -15,5 +15,6 @@ class DepotsCreateTest < ApplicationSystemTestCase
     click_on "Guardar"
 
     assert_selector ".depot", text: "My new depot"
+    assert_selector ".depot__balance", text: amount_with_currency(0, "BTC")
   end
 end
