@@ -1,8 +1,8 @@
 require 'test_helper'
 
-class MovementTest < ActiveSupport::TestCase
+class Depot::MovementTest < ActiveSupport::TestCase
   def test_presence_of_depot
-    movement = movements(:deposit)
+    movement = depot_movements(:deposit)
     movement.depot = nil
 
     movement.valid?
@@ -10,7 +10,7 @@ class MovementTest < ActiveSupport::TestCase
   end
 
   def test_presence_of_date
-    movement = movements(:deposit)
+    movement = depot_movements(:deposit)
     movement.date = nil
 
     movement.valid?
@@ -18,7 +18,7 @@ class MovementTest < ActiveSupport::TestCase
   end
 
   def test_presence_of_total_cents
-    movement = movements(:deposit)
+    movement = depot_movements(:deposit)
     movement.total_cents = nil
 
     movement.valid?

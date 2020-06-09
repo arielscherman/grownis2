@@ -26,7 +26,7 @@ class DepotTest < ActiveSupport::TestCase
   end
 
   def test_has_many_movements
-    assert_instance_of Movement, depots(:national_bank).movements.first
+    assert_instance_of Depot::Movement, depots(:national_bank).movements.first
   end
 
   def test_delegate_symbol_to_currency
