@@ -1,5 +1,5 @@
 <% if movement.destroyed? %>
-App.Components.AjaxRefresh.refresh('.js-movements-list')
+document.getElementById("depots-movements-list-placeholder").innerHTML = "<%= j render "depots/movements/index/list", depot: depot, movements: movements, currency: currency %>";
 <% else %>
-App.Components.Modal.open("<p>No se ha podido eliminar el movimiento. Volvé a intentar y si el error persiste contactá a soporte.</p>")
+alert("No se ha podido eliminar el movimiento. Volvé a intentar y si el error persiste contactá a soporte.")
 <% end %>

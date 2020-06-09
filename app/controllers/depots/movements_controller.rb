@@ -13,6 +13,7 @@ class Depots::MovementsController < ApplicationController
   end
 
   def destroy
+    @depot_id = movement.depot_id # to be able to fetch all depot's movements later
     movement.destroy
   end
 
