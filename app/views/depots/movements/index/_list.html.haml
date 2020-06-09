@@ -1,5 +1,5 @@
+.balance= "Balance: #{depot.cached_total_cents}"
 - if movements.present?
-  .balance = "Balance: #{depot.cached_total_cents}"
   - movements.each do |movement|
     .movement{ data: { id: movement.id } }
       = "#{movement.date} - #{currency.symbol}#{movement.total_cents} - "

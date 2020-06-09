@@ -17,4 +17,23 @@ class Depots::MovementsCreateTest < ApplicationSystemTestCase
 
     assert_selector ".movement", text: "300"
   end
+
+  test "creating a movement causes the balance to update" do
+    depot = depots(:national_bank)
+
+    sign_in users(:valid)
+
+    visit depot_movements_url(depot_id: depot)
+
+    click_on "Agregar Movimiento"
+
+    fill_in "Total", with: "300.00"
+
+    find("#depot_movement_date").click
+    find(".flatpickr-day.today").click
+
+    click_on "Guardar"
+
+    assert_selector ".balance", text: "300"
+  end
 end
