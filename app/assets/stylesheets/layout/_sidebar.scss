@@ -1,0 +1,14 @@
+.ui-sidebar ul li.ui-sidebar-link a {
+  display: flex;
+  text-decoration: none;
+  align-items: center;
+
+  &:hover {
+    background: $ui-blue-lightest;
+  }
+}
+
+.ui-sidebar ul li.ui-sidebar-link a p {
+  width: 100%;
+  margin: 0;
+}

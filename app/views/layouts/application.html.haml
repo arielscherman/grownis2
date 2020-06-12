@@ -7,8 +7,20 @@
     = csp_meta_tag
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
-  %body
-    %p.notice= notice
-    %p.alert= alert
-    = yield
+    %link{ href: "https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&family=Roboto:wght@100;300;400;500;700&display=swap", rel: "stylesheet" }
+  %body.ui-body
+    .ui-brand
+      %span Grownis
+    %header.ui-header
+      %p Salir
+    %aside.ui-sidebar
+      %ul
+        %li.ui-sidebar-link
+          = link_to depots_path do
+            %i.icon-wallet
+            %p Billeteras
+    %section.ui-main
+      %p.notice= notice
+      %p.alert= alert
+      = yield
     #ui-modal-placeholder
