@@ -1,14 +1,35 @@
+.ui-sidebar {
+  padding-top: $ui-large;
+}
+
 .ui-sidebar ul li.ui-sidebar-link a {
   display: flex;
   text-decoration: none;
   align-items: center;
+  color: $ui-black;
+  font-size: $ui-font-size-button;
+  padding-left: $ui-medium;
 
   &:hover {
-    background: $ui-blue-lightest;
+    color: $ui-violet;
   }
 }
 
 .ui-sidebar ul li.ui-sidebar-link a p {
   width: 100%;
   margin: 0;
+  margin-left: $ui-xsmall;
+  color: inherit;
+}
+
+.ui-sidebar ul li.ui-sidebar-link a i {
+  color: inherit;
+}
+
+.ui-sidebar ul li.ui-sidebar-link-category {
+  color: $ui-grey-dark;
+  font-weight: bold;
+  font-size: 11px;
+  text-transform: uppercase;
+  padding-left: $ui-medium;
 }
