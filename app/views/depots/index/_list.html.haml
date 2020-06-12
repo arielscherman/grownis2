@@ -6,7 +6,7 @@
         .ui-card-body
           %span.depot-balance= display_amount_with_symbol(depot.cached_total_cents, depot.currency_symbol)
       .ui-card-footer
-        = link_to "Movimientos", depot_movements_path(depot), remote: true, class: "ui-card-action"
+        = link_to "Movimientos", depot_movements_path(depot), class: "ui-card-action"
         = link_to "Editar", edit_depot_path(depot), remote: true, class: "ui-card-action"
 - else
-  %p Aún no tenés ninguna billetera.
+  %p.no-depots Aún no tenés ninguna billetera.
