@@ -14,6 +14,6 @@ class DepotsUpdateTest < ApplicationSystemTestCase
 
     click_on "Guardar"
 
-    assert_selector ".depot", text: "My cool depot"
+    assert_selector ".depot", text: "MY COOL DEPOT"
   end
 end

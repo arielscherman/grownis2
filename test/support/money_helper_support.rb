@@ -4,6 +4,6 @@ module MoneyHelperSupport
   end
 
   def amount_with_currency(amount_in_cents, currency_symbol)
-    "#{currency_symbol} #{amount(amount_in_cents)}"
+    "#{amount(amount_in_cents)} #{currency_symbol}"
   end
 end
