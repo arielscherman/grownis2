@@ -1,8 +1,8 @@
 .ui-page-header
   %h1 Mis Billeteras
 
-  = link_to "Agregar", new_depot_path, remote: true, class: "ui-button ui-button-primary"
+  = link_to "Agregar Billetera", new_depot_path, remote: true, class: "ui-button ui-button-primary"
   
 .ui-page-content
-  #depots-list-placeholder
+  #depots-list-placeholder.depots-list
     = render "depots/index/list", depots: depots

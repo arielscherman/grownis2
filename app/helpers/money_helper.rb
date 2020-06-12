@@ -4,6 +4,6 @@ module MoneyHelper
   end
 
   def display_amount_with_symbol(amount_in_cents, symbol)
-    "#{symbol} #{display_amount(amount_in_cents)}"
+    "#{display_amount(amount_in_cents)} #{symbol}"
   end
 end

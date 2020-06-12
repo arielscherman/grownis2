@@ -1,0 +1,16 @@
+.depots-list {
+  display: flex;
+  padding: $ui-medium;
+  padding-top: 0;
+}
+
+.depot {
+  flex-grow: 1;
+  flex-shrink: 0;
+  max-width: 350px;
+}
+
+.depot-balance {
+  font-size: $ui-font-size-number-big;
+  font-weight: 600;
+}

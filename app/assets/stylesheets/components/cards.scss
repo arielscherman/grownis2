@@ -1,0 +1,45 @@
+.ui-card {
+  margin-top: $ui-medium;
+  background: $ui-white;
+  border-radius: .25rem;
+  border: 1px solid $ui-grey-lighter;
+  box-shadow: 0 0 10px 0 rgba(183,192,206,.2);
+}
+
+.ui-card .ui-card-content {
+  margin: $ui-medium;
+
+  .ui-card-title {
+    font-weight: 600;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: $ui-black;
+  }
+
+  a.ui-card-title:hover {
+    color: $ui-blue;
+  }
+
+  .ui-card-body {
+    margin-top: $ui-small;
+  }
+}
+
+
+.ui-card  .ui-card-footer {
+  display: flex;
+  border-top: 1px solid $ui-grey-lightest;
+
+  .ui-card-action {
+    padding: $ui-small $ui-medium;
+    flex-grow: 1;
+    flex-shrink: 0;
+    text-decoration: none;
+    text-align: center;
+
+    &:hover {
+      color: $ui-blue;
+      background-color: $ui-blue-lightest;
+    }
+  }
+}

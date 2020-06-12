@@ -14,6 +14,7 @@ $ui-other-grey-darkest: #5f6d88;
 
 $ui-blue: #007bff;
 $ui-blue-dark: #686868;
+$ui-blue-lightest: lighten($ui-blue, 45%);
 
 $ui-light-blue: #66d1d1;
 $ui-light-blue-darker: #49c8c8;
