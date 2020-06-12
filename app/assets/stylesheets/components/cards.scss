@@ -4,27 +4,37 @@
   border-radius: .25rem;
   border: 1px solid $ui-grey-lighter;
   box-shadow: 0 0 10px 0 rgba(183,192,206,.2);
+
+  &.ui-card-full {
+    margin-left: $ui-medium;
+    margin-right: $ui-medium;
+  }
+}
+
+.ui-card .ui-card-header {
+  display: flex;
+  justify-content: space-between;
+  margin: $ui-medium;
 }
 
 .ui-card .ui-card-content {
   margin: $ui-medium;
-
-  .ui-card-title {
-    font-weight: 600;
-    text-transform: uppercase;
-    text-decoration: none;
-    color: $ui-black;
-  }
-
-  a.ui-card-title:hover {
-    color: $ui-blue;
-  }
 
   .ui-card-body {
     margin-top: $ui-small;
   }
 }
 
+.ui-card .ui-card-title {
+  font-weight: 600;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: $ui-black;
+
+  a.ui-card-title:hover {
+    color: $ui-blue;
+  }
+}
 
 .ui-card  .ui-card-footer {
   display: flex;

@@ -1,0 +1,17 @@
+.ui-table .ui-table-row {
+  display: grid;
+  grid-gap: 10px;
+  padding-top: $ui-small;
+  padding-bottom: $ui-small;
+
+  &:not(.header) {
+    border-top: 1px solid $ui-grey-light;
+  }
+
+  &.header .ui-table-column {
+    font-size: 12px;
+    color: $ui-grey-dark;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+}

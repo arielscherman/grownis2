@@ -8,12 +8,13 @@ $ui-grey: #d9d9d9;
 $ui-grey-dark: #686868;
 $ui-grey-darkest: #212529;
 
+$ui-other-grey: #495057;
 $ui-other-grey-dark: #7987a1;
 $ui-other-grey-darker: #64738f;
 $ui-other-grey-darkest: #5f6d88;
 
 $ui-blue: #007bff;
-$ui-blue-dark: #686868;
+$ui-blue-dark: darken($ui-blue, 20%);
 $ui-blue-lightest: lighten($ui-blue, 45%);
 
 $ui-light-blue: #66d1d1;

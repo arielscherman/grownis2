@@ -1,0 +1,24 @@
+.ui-breadcrumb {
+  margin-bottom: 0;
+  padding: $ui-medium;
+  padding-bottom: 0;
+  display: flex;
+
+  li {
+    color: $ui-other-grey;
+    display: block;
+
+    &:not(:first-child) {
+      margin-left: $ui-tiny;
+
+      &:before {
+        margin-right: $ui-tiny;
+        content: "/"
+      }
+    }
+
+    a {
+      text-decoration: none;
+    }
+  }
+}
