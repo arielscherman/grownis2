@@ -1,0 +1,71 @@
+%ui-primary {
+  background-color: $ui-violet;
+  border-color: $ui-violet;
+  color: $ui-white;
+}
+
+%ui-primary-outline {
+  background-color: transparent;
+  border-color: $ui-violet;
+  color: $ui-violet;
+}
+
+%ui-secondary {
+  background-color: $ui-other-grey-dark;
+  border-color: $ui-other-grey-dark;
+  color: $ui-white;
+}
+
+%ui-secondary-outline {
+  background-color: transparent;
+  border-color: $ui-other-grey-dark;
+  color: $ui-other-grey-dark;
+}
+
+%ui-success {
+  background-color: $ui-green;
+  border-color: $ui-green;
+  color: $ui-white;
+}
+
+%ui-success-outline {
+  background-color: transparent;
+  border-color: $ui-green;
+  color: $ui-green;
+}
+
+%ui-danger {
+  background-color: $ui-red;
+  border-color: $ui-red;
+  color: $ui-white;
+}
+
+%ui-danger-outline {
+  background-color: transparent;
+  border-color: $ui-red;
+  color: $ui-red;
+}
+
+%ui-warning {
+  background-color: $ui-yellow;
+  border-color: $ui-yellow;
+  color: $ui-white;
+}
+
+%ui-warning-outline {
+  background-color: transparent;
+  border-color: $ui-yellow;
+  color: $ui-yellow;
+}
+
+%ui-info {
+  background-color: $ui-light-blue;
+  border-color: $ui-light-blue;
+  color: $ui-white;
+}
+
+%ui-info-outline {
+  background-color: transparent;
+  border-color: $ui-light-blue;
+  color: $ui-light-blue;
+}

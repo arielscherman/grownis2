@@ -48,3 +48,14 @@ $ui-header-background: $ui-white;
   grid-area: main;
   background-color: $ui-background;
 }
+
+.ui-page .ui-page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: $ui-large $ui-medium;
+
+  h1 {
+    margin: 0;
+  }
+}

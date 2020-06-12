@@ -20,7 +20,9 @@
             %i.icon-wallet
             %p Billeteras
     %section.ui-main
-      %p.notice= notice
-      %p.alert= alert
-      = yield
+      .ui-page
+        - if notice || alert
+          %p.notice= notice
+          %p.alert= alert
+        = yield
     #ui-modal-placeholder
