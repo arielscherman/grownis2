@@ -16,4 +16,16 @@ class DepotsUpdateTest < ApplicationSystemTestCase
 
     assert_selector ".depot", text: "MY COOL DEPOT"
   end
+
+  test "changing the currency on an existing depot is not allowed" do
+    depot = depots(:national_bank)
+
+    sign_in depot.user
+
+    visit depots_url
+
+    find("a[href='#{edit_depot_path(depot)}']").click
+
+    assert_css "#depot_currency_id[disabled]", visible: false
+  end
 end
