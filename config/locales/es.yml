@@ -17,6 +17,7 @@ es:
         depot: Billetera
         total_cents: Monto
         date: Fecha
+        description: Descripción
     errors:
       messages:
         record_invalid: 'La validación falló: %{errors}'

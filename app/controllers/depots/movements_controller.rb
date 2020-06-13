@@ -40,6 +40,6 @@ class Depots::MovementsController < ApplicationController
   end
 
   def movement_params
-    params.require(:depot_movement).permit(:total, :date)
+    params.require(:depot_movement).permit(:total, :date, :description)
   end
 end

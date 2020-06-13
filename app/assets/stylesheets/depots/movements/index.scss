@@ -3,3 +3,8 @@
     grid-template-columns: repeat(3, 1fr) minmax(100px, 0fr);
   }
 }
+
+.depot-movements-header .depot-balance {
+  margin-top: $ui-small;
+  display: block;
+}

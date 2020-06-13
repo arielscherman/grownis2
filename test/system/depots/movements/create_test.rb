@@ -9,6 +9,7 @@ class Depots::MovementsCreateTest < ApplicationSystemTestCase
     click_on "Agregar Movimiento"
 
     fill_in "Total", with: "300.00"
+    fill_in "Descripción", with: "Personal note"
 
     find("#depot_movement_date").click
     find(".flatpickr-day.today").click
@@ -16,6 +17,7 @@ class Depots::MovementsCreateTest < ApplicationSystemTestCase
     click_on "Guardar"
 
     assert_selector ".movement", text: amount(300_00)
+    assert_selector ".movement", text: "Personal note"
   end
 
   test "creating a movement causes the balance to update" do

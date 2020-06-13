@@ -1,5 +1,5 @@
 .ui-card.ui-card-full
-  .ui-card-header
+  .ui-card-header.depot-movements-header
     .ui-card-header-main
       .ui-card-title= depot.name
       %span.depot-balance= display_amount_with_symbol(depot.cached_total_cents, depot.currency_symbol)
@@ -18,7 +18,7 @@
             .ui-table-row.movement{ data: { id: movement.id } }
               .ui-table-column= display_amount_with_symbol(movement.total_cents, currency.symbol)
               .ui-table-column= I18n.l movement.date
-              .ui-table-column Nota
+              .ui-table-column= movement.description
               .ui-table-column= link_to 'Eliminar', movement_path(movement), method: :delete, class: "depot-movement-delete", data: { confirm: 'Estás seguro que querés eliminar el movimiento?' }, remote: true
       - else
         %p Aún no tenés ningún movimiento.

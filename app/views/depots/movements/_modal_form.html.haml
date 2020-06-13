@@ -19,5 +19,9 @@
         .ui-field
           = f.label :total, class: "ui-label"
           = f.text_field :total, value: movement.total || 0, data: { "target": "#{js_controller}.totalInput" }, class: "ui-input"
+        .ui-field
+          = f.label :description, class: "ui-label"
+          %em opcional
+          = f.text_field :description, class: "ui-input"
       .ui-modal-foot
         = f.submit "Guardar", data: { "disable-with": "Guardando..." }, class: "ui-button ui-button-primary"
