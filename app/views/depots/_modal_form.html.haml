@@ -8,11 +8,16 @@
     = form_for depot, remote: true do |f|
       .ui-modal-body
         - if depot.errors.any?
-          %p= depot.errors.full_messages
+          .ui-alert.ui-alert-danger
+            %ul
+              - depot.errors.full_messages.each do |error_message|
+                %li= error_message
 
-        = f.label :name
-        = f.text_field :name
-        = f.label :currency_id
-        = f.select :currency_id, options_for_select(currencies.map { |c| [c.name, c.id] }, depot.currency_id), { include_blank: "Moneda" }, data: { "target": "#{js_controller}.currencySelect" }
+        .ui-field
+          = f.label :name, class: "ui-label"
+          = f.text_field :name, class: "ui-input"
+        .ui-field
+          = f.label :currency_id, class: "ui-label"
+          = f.select :currency_id, options_for_select(currencies.map { |c| [c.name, c.id] }, depot.currency_id), { include_blank: "Moneda" }, data: { "target": "#{js_controller}.currencySelect" }, class: "ui-input"
       .ui-modal-foot
         = f.submit "Guardar", data: { "disable-with": "Guardando..." }, class: "ui-button ui-button-primary"

@@ -64,7 +64,7 @@ $ui-modal-backdrop-color: rgba(0, 0, 0, 0.5);
 .ui-modal-body {
   flex: auto;
   padding: 15px 60px 15px;
-  overflow: auto;
+  // overflow: auto; // commented out to fix choicesjs from rendering outside
 }
 
 .ui-modal-foot {

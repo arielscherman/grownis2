@@ -17,6 +17,19 @@ $ui-font-size-input: 13px;
     font-size: 11px;
     font-style: normal;
   }
+
+  & + .choices {
+    margin-top: $ui-xsmall;
+
+    .choices__inner {
+      font-size: $ui-font-size-input;
+      background: $ui-white;
+    }
+
+    .choices__list .choices__item {
+      font-size: $ui-font-size-input;
+    }
+  }
 }
 
 .ui-field .ui-input {
