@@ -4,6 +4,6 @@ Currency.create([
 ])
 
 Rate.create!([
-  { name: "USD Blue" },
-  { name: "USD Bolsa" }
+  { name: "Dolar Blue" },
+  { name: "Dolar Bolsa" }
 ])

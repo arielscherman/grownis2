@@ -1,5 +1,6 @@
 class Depot < ApplicationRecord
   belongs_to :currency
+  belongs_to :rate
   belongs_to :user
 
   has_many :movements, dependent: :destroy
