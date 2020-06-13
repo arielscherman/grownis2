@@ -12,7 +12,9 @@
     .ui-brand
       = link_to "Grownis", root_path, class: "ui-brand-link"
     %header.ui-header
-      = link_to "Salir", destroy_user_session_path, method: :delete
+      .ui-header-info
+      .ui-header-actions
+        = link_to "Cerrar Sesión", destroy_user_session_path, method: :delete
     %aside.ui-sidebar
       %ul
         %li.ui-sidebar-link-category Menu
@@ -22,8 +24,7 @@
             %p Billeteras
     %section.ui-main
       .ui-page
-        - if notice || alert
-          %p.notice= notice
-          %p.alert= alert
+        - if alert
+          %p.ui-alert.ui-alert-danger= alert
         = yield
     #ui-modal-placeholder

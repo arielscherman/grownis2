@@ -38,8 +38,18 @@ $ui-header-background: $ui-white;
 .ui-header {
   z-index: 2; // make shadow work
   grid-area: header;
+  display: flex;
   background: $ui-header-background;
   box-shadow: 3px 0 10px 0 rgba(183,192,206,.2);
+  justify-content: space-between;
+
+  .ui-header-actions a {
+    display: flex;
+    padding: $ui-medium;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
 }
 
 .ui-sidebar {
