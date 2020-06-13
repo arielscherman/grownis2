@@ -1,1 +1,28 @@
 $ui-button-border-radius: 3px;
+$ui-font-size-input: 13px;
+
+.ui-field {
+  margin-top: $ui-large;
+}
+
+.ui-field .ui-label{
+  text-transform: uppercase;
+  font-size: $ui-font-size-label;
+  font-weight: bold;
+  color: $ui-grey-darkest;
+  margin-bottom: $ui-xsmall;
+}
+
+.ui-field .ui-input {
+  &:focus {
+    border-color: $ui-blue;
+  }
+}
+
+.ui-field-check {
+  display: flex;
+
+  label {
+    margin-left: $ui-tiny;
+  }
+}

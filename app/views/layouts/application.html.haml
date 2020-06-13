@@ -12,6 +12,7 @@
     .ui-brand
       = link_to "Grownis", root_path, class: "ui-brand-link"
     %header.ui-header
+      = link_to "Salir", destroy_user_session_path, method: :delete
     %aside.ui-sidebar
       %ul
         %li.ui-sidebar-link-category Menu

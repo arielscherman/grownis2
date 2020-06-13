@@ -1,17 +1,28 @@
-%h2 Ingresar
-= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .field
-    = f.label :password
-    %br/
-    = f.password_field :password, autocomplete: "current-password"
-  - if devise_mapping.rememberable?
-    .field
-      = f.check_box :remember_me
-      = f.label :remember_me
-  .actions
-    = f.submit "Ingresar"
-= render "devise/shared/links"
+.ui-card.public-form
+  .public-form-content
+    %h3.brand Grownis
+    - if notice
+      %p.ui-alert.ui-alert-info= notice
+    - if alert
+      %p.ui-alert.ui-alert-danger= alert
+    = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+      .ui-field
+        = f.label :email, class: "ui-label"
+        = f.email_field :email, autofocus: true, autocomplete: "email", class: "ui-input"
+      .ui-field
+        = f.label :password, class: "ui-label"
+        = f.password_field :password, autocomplete: "current-password", class: "ui-input"
+      - if devise_mapping.rememberable?
+        .grouped-fields
+          .ui-field-check
+            = f.check_box :remember_me
+            = f.label :remember_me
+
+          = link_to "Olvidaste tu contraseña?", new_password_path(resource_name)
+      .actions
+        = f.submit "Ingresar", class: "ui-button ui-button-primary ui-button-full"
+    %p.ui-separator O si todavía no estás registrado:
+    = link_to "Crear Cuenta", new_registration_path(resource_name), class: "ui-button ui-button-success outline ui-button-full"
+  .public-form-brand
+    %h1 Administrá tus ahorros e inversiones de manera inteligente.
+    %p Grownis te permite llevar un control de tus ahorros e inversiones, y obtener información respecto a variaciones en los precios (como la devaluación de monedas) para que puedas tomar decisiones informadas.

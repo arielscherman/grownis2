@@ -9,6 +9,12 @@ $ui-header-background: $ui-white;
   grid-template-areas: 
     "brand header header header"
     "sidebar main main main";
+
+  .ui-body.no-sidebar {
+    grid-template-areas: 
+      "brand header header header"
+      "main main main main";
+  }
 }
 
 .ui-brand {

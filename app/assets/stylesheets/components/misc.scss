@@ -1,0 +1,26 @@
+$ui-separator-color: $ui-grey;
+
+.ui-separator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1 1 auto;
+  width: 100%;
+  color: $ui-grey-dark;
+
+  &:before {
+    background: $ui-separator-color;
+    flex: 1 1 auto;
+    height: 1px;
+    content: "";
+    margin-right: $ui-xsmall;
+  }
+
+  &:after {
+    background: $ui-separator-color;
+    flex: 1 1 auto;
+    height: 1px;
+    content: "";
+    margin-left: $ui-xsmall;
+  }
+}

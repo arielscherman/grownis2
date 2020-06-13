@@ -55,6 +55,7 @@ a {
   padding: 0;
   background: transparent;
   font-size: 100%;
+  text-decoration: none;
 }
 
 del {
@@ -174,6 +175,8 @@ textarea {
   -ms-transition: all 0.2s ease;
   -webkit-transition: all 0.2s ease;
   transition: all 0.2s ease;
+  font-family: $ui-font-family;
+  font-size: $ui-font-size-input;
 }
 
 input[type=text]:focus,

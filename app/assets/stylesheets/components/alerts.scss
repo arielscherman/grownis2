@@ -1,0 +1,13 @@
+.ui-alert {
+  border: 1px solid $ui-grey;
+  padding: $ui-small $ui-medium;
+  border-radius: .25rem;
+}
+
+.ui-alert.ui-alert-danger {
+  @extend %ui-danger-outline;
+}
+
+.ui-alert.ui-alert-info {
+  @extend %ui-info-outline;
+}
