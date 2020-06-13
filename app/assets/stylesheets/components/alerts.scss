@@ -2,10 +2,29 @@
   border: 1px solid $ui-grey;
   padding: $ui-small $ui-medium;
   border-radius: .25rem;
+
+  h2 {
+    margin: 0;
+    text-align: left;
+  }
+
+  ul, li {
+    margin: 0;
+
+    li {
+      list-style-type: none;
+      margin: 0;
+      margin-top: $ui-tiny;
+    }
+  }
 }
 
 .ui-alert.ui-alert-danger {
   @extend %ui-danger-outline;
+
+  h2, ul li, p {
+    color: $ui-red;
+  }
 }
 
 .ui-alert.ui-alert-info {

@@ -20,9 +20,9 @@
 
           = link_to "Olvidaste tu contraseña?", new_password_path(resource_name)
       .actions
-        = f.submit "Ingresar", class: "ui-button ui-button-primary ui-button-full"
+        = f.submit "Ingresar", class: "ui-button ui-button-primary full big"
     %p.ui-separator O si todavía no estás registrado:
-    = link_to "Crear Cuenta", new_registration_path(resource_name), class: "ui-button ui-button-success outline ui-button-full"
+    = link_to "Crear Cuenta", new_registration_path(resource_name), class: "ui-button ui-button-info outline full"
   .public-form-brand
     %h1 Administrá tus ahorros e inversiones de manera inteligente.
     %p Grownis te permite llevar un control de tus ahorros e inversiones, y obtener información respecto a variaciones en los precios (como la devaluación de monedas) para que puedas tomar decisiones informadas.

@@ -1,25 +1,28 @@
-%h2 Registrarse
-= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-  = render "devise/shared/error_messages", resource: resource
-  .field
-    = f.label :username
-    %br/
-    = f.text_field :username, autofocus: true, autocomplete: "username"
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autocomplete: "email"
-  .field
-    = f.label :password
-    - if @minimum_password_length
-      %em
-        (#{@minimum_password_length} characters minimum)
-    %br/
-    = f.password_field :password, autocomplete: "new-password"
-  .field
-    = f.label :password_confirmation
-    %br/
-    = f.password_field :password_confirmation, autocomplete: "new-password"
-  .actions
-    = f.submit "Registrarse"
-= render "devise/shared/links"
+.ui-card.public-form
+  .public-form-content
+    %h3.brand Grownis
+    = render "devise/shared/error_messages", resource: resource
+    = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+      .ui-field
+        = f.label :username, class: "ui-label"
+        = f.text_field :username, autofocus: true, autocomplete: "username", class: "ui-input"
+      .ui-field
+        = f.label :email, class: "ui-label"
+        = f.email_field :email, autocomplete: "email", class: "ui-input"
+      .ui-field
+        = f.label :password, class: "ui-label"
+        - if @minimum_password_length
+          %em
+            (#{@minimum_password_length} caracteres mínimo)
+        = f.password_field :password, autocomplete: "new-password", class: "ui-input"
+      .ui-field
+        = f.label :password_confirmation, class: "ui-label"
+        = f.password_field :password_confirmation, autocomplete: "new-password", class: "ui-input"
+
+      .actions
+        = f.submit "Registrarse", class: "ui-button ui-button-primary full big"
+    %p.ui-separator O si todavía no estás registrado:
+    = link_to "Ingresar", new_session_path(resource_name), class: "ui-button ui-button-info outline full"
+  .public-form-brand
+    %h1 Administrá tus ahorros e inversiones de manera inteligente.
+    %p Grownis te permite llevar un control de tus ahorros e inversiones, y obtener información respecto a variaciones en los precios (como la devaluación de monedas) para que puedas tomar decisiones informadas.

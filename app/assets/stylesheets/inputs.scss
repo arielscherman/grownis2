@@ -10,10 +10,17 @@ $ui-font-size-input: 13px;
   font-size: $ui-font-size-label;
   font-weight: bold;
   color: $ui-grey-darkest;
-  margin-bottom: $ui-xsmall;
+
+  & + em {
+    display: block;
+    margin-top: $ui-xtiny;
+    font-size: 11px;
+    font-style: normal;
+  }
 }
 
 .ui-field .ui-input {
+  margin-top: $ui-xsmall;
   &:focus {
     border-color: $ui-blue;
   }
