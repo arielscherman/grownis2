@@ -29,6 +29,14 @@ class DepotTest < ActiveSupport::TestCase
     assert_instance_of Depot::Movement, depots(:national_bank).movements.first
   end
 
+  def test_presence_of_rate
+    depot = depots(:national_bank)
+    depot.rate = nil
+
+    depot.valid?
+    assert depot.errors.details.has_key?(:rate)
+  end
+
   def test_delegate_symbol_to_currency
     assert_equal depots(:national_bank).currency_symbol, "ARS"
   end

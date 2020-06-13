@@ -2,3 +2,4 @@ national_bank:
   name: BBVA
   user: valid
   currency: ars
+  rate: dolar_blue
