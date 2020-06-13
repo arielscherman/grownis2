@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_13_154519) do
+ActiveRecord::Schema.define(version: 2020_06_13_210933) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,6 +48,16 @@ ActiveRecord::Schema.define(version: 2020_06_13_154519) do
     t.index ["user_id"], name: "index_depots_on_user_id"
   end
 
+  create_table "rate_values", force: :cascade do |t|
+    t.bigint "currency_id", null: false
+    t.bigint "rate_id", null: false
+    t.decimal "value", precision: 15, scale: 7
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["currency_id"], name: "index_rate_values_on_currency_id"
+    t.index ["rate_id"], name: "index_rate_values_on_rate_id"
+  end
+
   create_table "rates", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
@@ -71,4 +81,6 @@ ActiveRecord::Schema.define(version: 2020_06_13_154519) do
   add_foreign_key "depots", "currencies"
   add_foreign_key "depots", "rates"
   add_foreign_key "depots", "users"
+  add_foreign_key "rate_values", "currencies"
+  add_foreign_key "rate_values", "rates"
 end
