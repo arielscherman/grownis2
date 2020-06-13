@@ -34,6 +34,6 @@ class Depots::MovementsCreateTest < ApplicationSystemTestCase
 
     click_on "Guardar"
 
-    assert_selector ".balance", text: amount(300_00)
+    assert_selector ".depot-balance", text: amount(300_00)
   end
 end

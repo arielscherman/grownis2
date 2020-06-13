@@ -30,6 +30,6 @@ class Depots::MovementsDestroyTest < ApplicationSystemTestCase
       find(".movement[data-id='#{movement.id}'] .depot-movement-delete").click
     end
 
-    assert_selector ".balance", text: amount_with_currency(initial_balance_in_cents - movement.total_cents, depot.currency_symbol)
+    assert_selector ".depot-balance", text: amount_with_currency(initial_balance_in_cents - movement.total_cents, depot.currency_symbol)
   end
 end

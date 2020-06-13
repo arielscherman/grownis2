@@ -12,7 +12,7 @@ es:
       currency:
         name: Nombre
         symbol: Simbolo
-      movement:
+      depot/movement:
         depot_id: Billetera
         depot: Billetera
         total_cents: Monto
