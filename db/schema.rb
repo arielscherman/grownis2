@@ -51,7 +51,8 @@ ActiveRecord::Schema.define(version: 2020_06_13_210933) do
   create_table "rate_values", force: :cascade do |t|
     t.bigint "currency_id", null: false
     t.bigint "rate_id", null: false
-    t.decimal "value", precision: 15, scale: 7
+    t.decimal "value", precision: 15, scale: 7, null: false
+    t.date "date", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["currency_id"], name: "index_rate_values_on_currency_id"
