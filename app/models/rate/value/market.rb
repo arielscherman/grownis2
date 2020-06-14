@@ -30,6 +30,9 @@ class Rate::Value::Market
     MAPPINGS.fetch(rate_key)
   end
 
+  # Returns the instance for the given endpoint (if initialized already)
+  # to prevent triggering multiple requests to each.
+  #
   def endpoints(klass)
     @endpoints ||= Hash.new { |h, key| h[key] = key.new }
     @endpoints[klass]
