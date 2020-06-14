@@ -3,7 +3,8 @@ class Rate::Value::Market
   VALUE_NOT_FOUND_ERROR_MESSAGE = "We couldn't find the value for %s on any Endpoint"
 
   MAPPINGS = {
-    dolar_blue: { DolarsiEndpoint => "Dolar Blue" },
+    dolar_blue: { DolarsiEndpoint    => "Dolar Blue",
+                  BluelyticsEndpoint => "blue" },
     dolar_ccl:  { DolarsiEndpoint => "Dolar Contado con Liqui" },
     dolar_mep:  { DolarsiEndpoint => "Dolar Bolsa" }
   }.freeze
