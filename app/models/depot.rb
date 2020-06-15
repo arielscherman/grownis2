@@ -1,6 +1,6 @@
 class Depot < ApplicationRecord
   belongs_to :currency
-  belongs_to :rate
+  belongs_to :rate, optional: true
   belongs_to :user
   belongs_to :latest_daily_balance, class_name: "Depot::DailyBalance", optional: true
 
