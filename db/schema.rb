@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_15_003017) do
+ActiveRecord::Schema.define(version: 2020_06_15_181659) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,23 @@ ActiveRecord::Schema.define(version: 2020_06_15_003017) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["name"], name: "index_currencies_on_name", unique: true
     t.index ["symbol"], name: "index_currencies_on_symbol", unique: true
+  end
+
+  create_table "depot_daily_balances", force: :cascade do |t|
+    t.date "date", null: false
+    t.bigint "depot_id", null: false
+    t.float "cached_rate_value"
+    t.bigint "previous_daily_balance_id"
+    t.integer "cached_depot_total_in_cents"
+    t.integer "cached_depot_total_by_rate_in_cents"
+    t.integer "cached_difference_in_cents"
+    t.integer "cached_difference_by_rate_in_cents"
+    t.float "cached_difference_in_percentage"
+    t.float "cached_difference_by_rate_in_percentage"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["depot_id"], name: "index_depot_daily_balances_on_depot_id"
+    t.index ["previous_daily_balance_id"], name: "index_depot_daily_balances_on_previous_daily_balance_id"
   end
 
   create_table "depot_movements", force: :cascade do |t|
@@ -43,14 +60,16 @@ ActiveRecord::Schema.define(version: 2020_06_15_003017) do
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "currency_id", null: false
     t.bigint "rate_id", null: false
+    t.bigint "latest_daily_balance_id"
     t.index ["currency_id"], name: "index_depots_on_currency_id"
+    t.index ["latest_daily_balance_id"], name: "index_depots_on_latest_daily_balance_id"
     t.index ["rate_id"], name: "index_depots_on_rate_id"
     t.index ["user_id"], name: "index_depots_on_user_id"
   end
 
   create_table "rate_values", force: :cascade do |t|
     t.bigint "rate_id", null: false
-    t.decimal "value", precision: 15, scale: 7, null: false
+    t.float "value", null: false
     t.date "date", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -79,8 +98,11 @@ ActiveRecord::Schema.define(version: 2020_06_15_003017) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "depot_daily_balances", "depot_daily_balances", column: "previous_daily_balance_id"
+  add_foreign_key "depot_daily_balances", "depots"
   add_foreign_key "depot_movements", "depots"
   add_foreign_key "depots", "currencies"
+  add_foreign_key "depots", "depot_daily_balances", column: "latest_daily_balance_id"
   add_foreign_key "depots", "rates"
   add_foreign_key "depots", "users"
   add_foreign_key "rate_values", "rates"
