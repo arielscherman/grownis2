@@ -3,7 +3,7 @@ class Rate::Value::Market::DolarsiEndpoint
 
   def fetch!(value_to_fetch)
     if(raw_value = values_for_key(value_to_fetch).fetch("compra", nil))
-      parse_number(raw_value)
+      1 / parse_number(raw_value)
     end
   end
 

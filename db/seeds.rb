@@ -1,10 +1,8 @@
-Currency.create([
-  { name: "Dolar", symbol: "USD" },
-  { name: "Peso Argentino", symbol: "ARS" }
-])
+usd = Currency.create!(name: "Dolar", symbol: "USD")
+ars = Currency.create!(name: "Peso Argentino", symbol: "ARS")
 
 Rate.create!([
-  { name: "Dolar Blue", key: "dolar_blue" },
-  { name: "Dolar CCL", key: "dolar_ccl" },
-  { name: "Dolar MEP", key: "dolar_mep" },
+  { name: "Dolar Blue", key: "ars_in_dolar_blue", currency: ars },
+  { name: "Dolar CCL", key: "ars_in_dolar_ccl", currency: ars },
+  { name: "Dolar MEP", key: "ars_in_dolar_mep", currency: ars },
 ])

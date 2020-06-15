@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_14_145154) do
+ActiveRecord::Schema.define(version: 2020_06_15_003017) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,13 +49,11 @@ ActiveRecord::Schema.define(version: 2020_06_14_145154) do
   end
 
   create_table "rate_values", force: :cascade do |t|
-    t.bigint "currency_id", null: false
     t.bigint "rate_id", null: false
     t.decimal "value", precision: 15, scale: 7, null: false
     t.date "date", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["currency_id"], name: "index_rate_values_on_currency_id"
     t.index ["rate_id"], name: "index_rate_values_on_rate_id"
   end
 
@@ -64,6 +62,8 @@ ActiveRecord::Schema.define(version: 2020_06_14_145154) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "key", null: false
+    t.bigint "currency_id", null: false
+    t.index ["currency_id"], name: "index_rates_on_currency_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -83,6 +83,6 @@ ActiveRecord::Schema.define(version: 2020_06_14_145154) do
   add_foreign_key "depots", "currencies"
   add_foreign_key "depots", "rates"
   add_foreign_key "depots", "users"
-  add_foreign_key "rate_values", "currencies"
   add_foreign_key "rate_values", "rates"
+  add_foreign_key "rates", "currencies"
 end

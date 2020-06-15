@@ -1,11 +1,9 @@
 dolar_blue_1_day_ago:
   date: <%= 1.day.ago.to_date %>
-  currency: ars
   rate: dolar_blue
   value: <%= 1 / 120 %>
 
 dolar_blue_2_days_ago:
   date: <%= 2.days.ago.to_date %>
-  currency: ars
   rate: dolar_blue
   value: <%= 1 / 110 %>

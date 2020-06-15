@@ -1,3 +1,4 @@
 dolar_blue:
   name: "Dolar Blue"
-  key: "dolar_blue"
+  key: "ars_in_dolar_blue"
+  currency: ars
