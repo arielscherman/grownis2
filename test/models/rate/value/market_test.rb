@@ -34,7 +34,7 @@ class Rate::Value::MarketTest < ActiveSupport::TestCase
   end
 
   def test_raises_error_when_rate_key_not_defined
-    new_rate     = rates(:dolar_blue)
+    new_rate     = rates(:ars_in_dolar_blue)
     new_rate.key = :not_defined_key
 
     assert_raises KeyError do

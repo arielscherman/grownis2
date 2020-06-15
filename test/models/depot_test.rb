@@ -25,16 +25,12 @@ class DepotTest < ActiveSupport::TestCase
     assert_instance_of User, depots(:national_bank).user
   end
 
-  def test_has_many_movements
-    assert_instance_of Depot::Movement, depots(:national_bank).movements.first
+  def test_belongs_to_rate
+    assert_instance_of Rate, depots(:national_bank).rate
   end
 
-  def test_presence_of_rate
-    depot = depots(:national_bank)
-    depot.rate = nil
-
-    depot.valid?
-    assert depot.errors.details.has_key?(:rate)
+  def test_has_many_movements
+    assert_instance_of Depot::Movement, depots(:national_bank).movements.first
   end
 
   def test_delegate_symbol_to_currency

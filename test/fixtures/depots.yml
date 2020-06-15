@@ -3,3 +3,9 @@ national_bank:
   user: valid
   currency: ars
   rate: ars_in_dolar_blue
+
+fresh:
+  name: Just created depot
+  user: valid
+  currency: ars
+  rate: ars_in_dolar_blue
