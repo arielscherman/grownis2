@@ -4,7 +4,7 @@ class Rate::Value::MarketTest < ActiveSupport::TestCase
   def described_class; Rate::Value::Market; end
 
   def test_returns_first_result_without_trying_a_secondary
-    dolar_blue = rates(:dolar_blue)
+    dolar_blue = rates(:ars_in_dolar_blue)
 
     described_class::DolarsiEndpoint.any_instance.stubs(:fetch!).returns(115.50)
 
@@ -14,7 +14,7 @@ class Rate::Value::MarketTest < ActiveSupport::TestCase
   end
 
   def test_returns_secondary_result_if_first_endpoint_fails
-    dolar_blue = rates(:dolar_blue)
+    dolar_blue = rates(:ars_in_dolar_blue)
 
     described_class::DolarsiEndpoint.any_instance.stubs(:fetch!).returns(nil)
     described_class::BluelyticsEndpoint.any_instance.stubs(:fetch!).returns(115.50)
@@ -23,7 +23,7 @@ class Rate::Value::MarketTest < ActiveSupport::TestCase
   end
 
   def test_raises_error_if_no_endpoint_works
-    dolar_blue = rates(:dolar_blue)
+    dolar_blue = rates(:ars_in_dolar_blue)
 
     described_class::DolarsiEndpoint.any_instance.stubs(:fetch!).returns(nil)
     described_class::BluelyticsEndpoint.any_instance.stubs(:fetch!).returns(nil)

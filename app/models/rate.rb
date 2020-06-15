@@ -7,10 +7,8 @@ class Rate < ApplicationRecord
   validates :key, presence: true
 
   def fetch_daily_value!(market = ::Rate::Value::Market.new)
-    daily_value = market.fetch_daily_value_for_rate(self)
-
     Rate::Value.find_or_create_by!(rate: self, date: Time.zone.today) do |new_rate_value|
-      new_rate_value.value = daily_value
+      new_rate_value.value = market.fetch_daily_value_for_rate(self)
     end
   end
 end
