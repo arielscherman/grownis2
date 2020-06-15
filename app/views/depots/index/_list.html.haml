@@ -5,6 +5,10 @@
         = link_to depot.name, depot_movements_path(depot), class: "ui-card-title"
         .ui-card-body
           %span.depot-balance= display_amount_with_symbol(depot.cached_total_cents, depot.currency_symbol)
+          - if depot.latest_daily_balance
+            .depot-results
+              %p{ class: css_color_for(depot.latest_daily_balance.cached_difference_by_rate_in_percentage) }
+                = display_percentage(depot.latest_daily_balance.cached_difference_by_rate_in_percentage)
       .ui-card-footer
         = link_to "Movimientos", depot_movements_path(depot), class: "ui-card-action"
         = link_to "Editar", edit_depot_path(depot), remote: true, class: "ui-card-action"

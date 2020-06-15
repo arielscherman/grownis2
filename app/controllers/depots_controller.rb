@@ -19,7 +19,7 @@ class DepotsController < ApplicationController
   private
 
   def depots
-    @depots ||= current_user.depots.includes(:currency).order(created_at: :desc)
+    @depots ||= current_user.depots.includes(:currency, :latest_daily_balance).order(created_at: :desc)
   end
 
   def depot_params
