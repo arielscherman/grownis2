@@ -8,7 +8,7 @@ class Rate::Value::Market::DolarsiEndpointTest < ActiveSupport::TestCase
   def test_fetch_returns_parsed_value
     stub_request(:any, described_class::URL).to_return(body: VALID_RESPONSE_EXAMPLE)
 
-    assert_equal described_class.new.fetch!("Dolar Blue"), 116.450
+    assert_equal described_class.new.fetch!("Dolar Blue"), (1/116.450)
   end
 
   def test_fetching_multiple_values_does_not_trigger_new_request
