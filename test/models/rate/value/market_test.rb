@@ -32,4 +32,13 @@ class Rate::Value::MarketTest < ActiveSupport::TestCase
       described_class.new.fetch_daily_value_for_rate(dolar_blue)
     end
   end
+
+  def test_raises_error_when_rate_key_not_defined
+    new_rate     = rates(:dolar_blue)
+    new_rate.key = :not_defined_key
+
+    assert_raises KeyError do
+      described_class.new.fetch_daily_value_for_rate(new_rate)
+    end
+  end
 end
