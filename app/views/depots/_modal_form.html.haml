@@ -16,7 +16,7 @@
         .ui-field
           = f.label :name, class: "ui-label"
           = f.text_field :name, class: "ui-input"
-        .ui-field
+        .ui-field{ class: depot.persisted? ? "ui-placeholder-disabled" : "" }
           = f.label :currency_id, class: "ui-label"
           = f.select :currency_id, options_for_select(currencies.map { |c| [c.name, c.id] }, depot.currency_id), { include_blank: "Moneda" }, disabled: depot.persisted?, data: { "target": "#{js_controller}.currencySelect" }, class: "ui-input"
         .ui-field{ class: !depot.rate_required? ? "ui-placeholder-disabled" : "", "data-target" => "#{js_controller}.rateSelectPlaceholder" }
