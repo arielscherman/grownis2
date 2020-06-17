@@ -4,6 +4,11 @@ national_bank:
   currency: ars
   rate: ars_in_dolar_blue
 
+american_bank:
+  name: Wells Fargo
+  user: valid
+  currency: usd
+
 fresh:
   name: Just created depot
   user: valid

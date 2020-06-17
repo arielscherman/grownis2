@@ -19,9 +19,9 @@
         .ui-field
           = f.label :currency_id, class: "ui-label"
           = f.select :currency_id, options_for_select(currencies.map { |c| [c.name, c.id] }, depot.currency_id), { include_blank: "Moneda" }, disabled: depot.persisted?, data: { "target": "#{js_controller}.currencySelect" }, class: "ui-input"
-        .ui-field{ class: "ui-hidden", "data-target" => "#{js_controller}.rateSelectPlaceholder" }
+        .ui-field{ class: !depot.rate_required? ? "ui-placeholder-disabled" : "", "data-target" => "#{js_controller}.rateSelectPlaceholder" }
           = f.label :rate_id, class: "ui-label"
           %em Éste es el valor que usaremos para calcular la devaluación/apreciación de tu billetera.
-          = f.select :rate_id, options_for_select(rates.map { |c| [c.name, c.id] }, depot.rate_id), { include_blank: "Valuación" }, disabled: depot.persisted?, data: { "target": "#{js_controller}.rateSelect" }, class: "ui-input"
+          = f.select :rate_id, options_for_select(rates.map { |c| [c.name, c.id] }, depot.rate_id), { prompt: ""}, disabled: !depot.rate_required?, data: { "target": "#{js_controller}.rateSelect" }, class: "ui-input"
       .ui-modal-foot
         = f.submit "Guardar", data: { "disable-with": "Guardando..." }, class: "ui-button ui-button-primary"

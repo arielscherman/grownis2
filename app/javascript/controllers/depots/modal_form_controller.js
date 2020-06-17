@@ -20,7 +20,7 @@ export default class extends Controller {
   _fetchRates(currencyId) {
     fetch(this.data.get('ratesUrl') + `?currency_id=${currencyId}`).then(response => response.json()).then(rates => {
       if(rates.length > 0) {
-        const parsedRates = rates.map((rate, i) => { return { value: rate.id, label: rate.name, selected: i == 0 } })
+        const parsedRates = rates.map((rate, i) => { return { value: rate.id, label: rate.name, } })
         this.rateChoices.setChoices(parsedRates, 'value', 'label', true).enable();
         this._showRatePlaceholder();
       }
@@ -28,11 +28,11 @@ export default class extends Controller {
   }
 
   _hideRatePlaceholder() {
-    this.rateSelectPlaceholderTarget.classList.add('ui-hidden');
+    this.rateSelectPlaceholderTarget.classList.add('ui-placeholder-disabled');
   }
 
   _showRatePlaceholder() {
-    this.rateSelectPlaceholderTarget.classList.remove('ui-hidden');
+    this.rateSelectPlaceholderTarget.classList.remove('ui-placeholder-disabled');
   }
 
   _resetRateChoices() {
