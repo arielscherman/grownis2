@@ -1,6 +1,8 @@
 ENV['RAILS_ENV'] ||= 'test'
 require_relative '../config/environment'
 require 'rails/test_help'
+require 'webmock/minitest'
+require 'mocha/minitest'
 
 require 'support/money_helper_support'
 

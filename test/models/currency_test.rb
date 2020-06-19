@@ -20,4 +20,8 @@ class CurrencyTest < ActiveSupport::TestCase
   def test_has_many_depots
     assert_instance_of Depot, currencies(:ars).depots.first
   end
+
+  def test_has_many_rates
+    assert_instance_of Rate, currencies(:ars).rates.first
+  end
 end

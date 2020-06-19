@@ -1,7 +1,7 @@
 - js_controller = 'depots--modal-form'
 
 %input.ui-modal-check{ type: "checkbox", name: "depot_form_modal", id: "depot_form_modal", checked: "checked" }
-.ui-modal-container.depot-modal-form{ "data-controller" => js_controller }
+.ui-modal-container.depot-modal-form{ "data-controller" => js_controller, "data-#{js_controller}-rates-url" => api_rates_path }
   .ui-modal-medium
     .ui-modal-head
       %label.ui-modal-head-close{ for: "depot_form_modal" }
@@ -16,8 +16,12 @@
         .ui-field
           = f.label :name, class: "ui-label"
           = f.text_field :name, class: "ui-input"
-        .ui-field
+        .ui-field{ class: depot.persisted? ? "ui-placeholder-disabled" : "" }
           = f.label :currency_id, class: "ui-label"
           = f.select :currency_id, options_for_select(currencies.map { |c| [c.name, c.id] }, depot.currency_id), { include_blank: "Moneda" }, disabled: depot.persisted?, data: { "target": "#{js_controller}.currencySelect" }, class: "ui-input"
+        .ui-field{ class: !depot.rate_required? ? "ui-placeholder-disabled" : "", "data-target" => "#{js_controller}.rateSelectPlaceholder" }
+          = f.label :rate_id, class: "ui-label"
+          %em Éste es el valor que usaremos para calcular la devaluación/apreciación de tu billetera.
+          = f.select :rate_id, options_for_select(rates.map { |c| [c.name, c.id] }, depot.rate_id), { prompt: ""}, disabled: !depot.rate_required?, data: { "target": "#{js_controller}.rateSelect" }, class: "ui-input"
       .ui-modal-foot
         = f.submit "Guardar", data: { "disable-with": "Guardando..." }, class: "ui-button ui-button-primary"

@@ -1,0 +1,9 @@
+ars_in_dolar_blue:
+  name: "Dolar Blue"
+  key: "ars_in_dolar_blue"
+  currency: ars
+
+ars_in_dolar_mep:
+  name: "Dolar Mep"
+  key: "ars_in_dolar_mep"
+  currency: ars

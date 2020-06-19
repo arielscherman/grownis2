@@ -1,7 +1,7 @@
 class DepotsController < ApplicationController
   before_action :authenticate_user!
 
-  helper_method :depot, :currencies, :depots
+  helper_method :depot, :currencies, :depots, :rates
 
   def new
     @depot = Depot.new
@@ -19,11 +19,11 @@ class DepotsController < ApplicationController
   private
 
   def depots
-    @depots ||= current_user.depots.includes(:currency).order(created_at: :desc)
+    @depots ||= current_user.depots.includes(:currency, :latest_daily_balance).order(created_at: :desc)
   end
 
   def depot_params
-    params.require(:depot).permit(:name, :currency_id)
+    params.require(:depot).permit(:name, :currency_id, :rate_id)
   end
 
   def depot
@@ -32,5 +32,9 @@ class DepotsController < ApplicationController
 
   def currencies
     @currencies ||= Currency.all
+  end
+
+  def rates
+    @rates ||= Rate.all
   end
 end

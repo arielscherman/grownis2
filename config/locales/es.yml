@@ -9,6 +9,8 @@ es:
         currency_id: Moneda
         currency: Moneda
         cached_total_cents: Balance
+        rate_id: Valor de referencia
+        rate: Valor de referencia
       currency:
         name: Nombre
         symbol: Simbolo

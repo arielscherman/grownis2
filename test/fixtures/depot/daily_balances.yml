@@ -1,0 +1,24 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+balance_for_national_bank_1_day_ago:
+  depot: national_bank
+  date: <%= 1.day.ago.to_date %>
+  cached_rate_value: 0.00909
+  previous_daily_balance: balance_for_national_bank_2_days_ago
+  cached_depot_total_in_cents: 1500_00
+  cached_depot_total_by_rate_in_cents: <%= 1500_00 * 0.00909 %>
+  cached_difference_in_cents: 100_00
+  cached_difference_by_rate_in_cents: <%= (1400_00 * 0.00909) - (1400_00 * 0.00925) %>
+  cached_difference_in_percentage: 7.1428
+  cached_difference_by_rate_in_percentage: <%= (1500_00 * 0.00909) - (1400_00 * 0.00925) %>
+
+balance_for_national_bank_2_days_ago:
+  depot: national_bank
+  date: <%= 2.days.ago.to_date %>
+  cached_rate_value: 0.00925
+  cached_depot_total_in_cents: 1400_00
+  cached_depot_total_by_rate_in_cents: <%= 1400_00 * 0.00925 %>
+  cached_difference_in_cents: 0
+  cached_difference_by_rate_in_cents: 0
+  cached_difference_in_percentage: 0.00
+  cached_difference_by_rate_in_percentage: 0.00

@@ -19,5 +19,8 @@ module Grownis2
 
     # Don't generate system test files.
     config.i18n.default_locale = :es
+    config.time_zone = "America/Argentina/Buenos_Aires"
+
+    config.active_job.queue_adapter = :sidekiq
   end
 end

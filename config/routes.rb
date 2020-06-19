@@ -3,6 +3,10 @@ Rails.application.routes.draw do
 
   root to: "depots#index"
 
+  namespace :api, constraints: { format: :json } do
+    resources :rates, only: :index
+  end
+
   resources :depots, shallow: true do
     scope module: 'depots' do
       resources :movements
