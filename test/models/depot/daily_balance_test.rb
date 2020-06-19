@@ -38,7 +38,7 @@ class Depot::DailyBalanceTest < ActiveSupport::TestCase
   end
 
   def test_difference_in_percentage
-    assert_equal build_balance.cached_difference_in_percentage, ((16_000_00 / 15_000_00.to_f) - 1) * 100
+    assert_equal build_balance.cached_difference_in_percentage, ((16_000_00 / 15_000_00.to_r) - 1) * 100
   end
 
   def test_difference_by_rate_in_cents
@@ -50,6 +50,6 @@ class Depot::DailyBalanceTest < ActiveSupport::TestCase
   def test_difference_by_rate_in_percentage
     yesterday_by_rate_in_cents = (15_000_00 * (1/115.0)).to_i
     today_by_rate_in_cents     = (16_000_00 * (1/120.0)).to_i
-    assert_equal build_balance.cached_difference_by_rate_in_percentage, ((today_by_rate_in_cents / yesterday_by_rate_in_cents.to_f) - 1) * 100
+    assert_equal build_balance.cached_difference_by_rate_in_percentage, ((today_by_rate_in_cents / yesterday_by_rate_in_cents.to_r) - 1) * 100
   end
 end
