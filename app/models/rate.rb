@@ -1,5 +1,6 @@
 class Rate < ApplicationRecord
   belongs_to :currency
+  belongs_to :to_currency, class_name: "Currency"
   has_many :values, class_name: "Rate::Value", inverse_of: :rate, dependent: :destroy
   has_many :depots, inverse_of: :rate, dependent: :restrict_with_exception
 

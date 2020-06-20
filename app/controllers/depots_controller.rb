@@ -16,6 +16,8 @@ class DepotsController < ApplicationController
     depot.update(depot_params)
   end
 
+  def show; end
+
   private
 
   def depots

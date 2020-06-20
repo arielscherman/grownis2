@@ -5,6 +5,10 @@ class Depot::DailyBalance < ApplicationRecord
   before_create :calculate_balance
   before_update :calculate_balance, if: :cached_rate_value_changed?
 
+  def absolute_rate_value
+    (1 / cached_rate_value).round(2)
+  end
+
   private
 
   def calculate_balance

@@ -2,7 +2,7 @@
   - depots.each do |depot|
     .ui-card.depot
       .ui-card-content
-        = link_to depot.name, depot_movements_path(depot), class: "ui-card-title"
+        = link_to depot.name, depot_path(depot), class: "ui-card-title"
         .ui-card-body
           %span.depot-balance= display_amount_with_symbol(depot.cached_total_cents, depot.currency_symbol)
           - if depot.latest_daily_balance && depot.rate_id

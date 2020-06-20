@@ -1,0 +1,30 @@
+.depot-dashboard {
+  display: grid;
+  margin: 0 $ui-medium;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-areas: 
+    "depot-balance depot-rated-balance rate-value"
+    "depot-graph depot-graph depot-graph";
+  column-gap: $ui-medium;
+}
+
+.depot-dashboard .depot-card-balance{
+  grid-area: depot-balance;
+}
+
+.depot-dashboard .depot-card-rated-balance{
+  grid-area: depot-rated-balance;
+}
+
+.depot-dashboard .rate-card-value{
+  grid-area: rate-value;
+  background: $ui-blue-dark;
+  color: $ui-white;
+
+  .ui-card-title { color: $ui-white; }
+  .depot-balance { color: $ui-white; }
+}
+
+.depot-dashboard .depot-card-graph{
+  grid-area: depot-graph;
+}
