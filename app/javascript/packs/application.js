@@ -20,6 +20,3 @@ require("apexcharts")
 // const imagePath = (name) => images(name, true)
 
 import "controllers"
-
-import ApexCharts from 'apexcharts'
-window.ApexCharts = ApexCharts

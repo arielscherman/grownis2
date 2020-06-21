@@ -1,5 +1,3 @@
-- async_card_controller = "async-card"
-
 .ui-page-header
   %h1= depot.name
 
@@ -25,4 +23,7 @@
             %span.depot-balance= display_raw_amount_with_symbol(depot.latest_daily_balance.absolute_rate_value, depot.currency.symbol)
 
     .ui-card.depot-card-graph
-      %div{ "data-controller" => async_card_controller, "data-#{async_card_controller}-url" => "url-to-fetch" }
+      .ui-card-content
+        .ui-card-title Evolución del balance
+        .ui-card-body
+          = async_loader("depot-card-graph", charts_daily_balances_path(depot, format: :js))

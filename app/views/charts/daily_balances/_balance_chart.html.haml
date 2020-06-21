@@ -1,0 +1,6 @@
+- js_controller = 'charts--daily-balance'
+.daily-balance-chart{ "data-controller" => js_controller,
+                      "data-target" => "#{js_controller}.placeholder",
+                      "data-#{js_controller}-categories" => @chart.categories.to_json,
+                      "data-#{js_controller}-series" => @chart.series.to_json,
+                      "data-#{js_controller}-titles" => @chart.titles.to_json}

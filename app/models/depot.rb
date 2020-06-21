@@ -5,6 +5,7 @@ class Depot < ApplicationRecord
   belongs_to :latest_daily_balance, class_name: "Depot::DailyBalance", optional: true
 
   has_many :movements, dependent: :destroy
+  has_many :daily_balances, dependent: :destroy
 
   validates :name, presence: true
   validates :rate, presence: true, if: :currency_has_rates?

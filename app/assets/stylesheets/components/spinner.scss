@@ -1,0 +1,80 @@
+$loader-color:              $ui-blue-dark !default;
+$loader-size:                  56px !default;
+$loader-height:                20px !default;
+$loader-border-size:            8px !default;
+$loader-gap:                   12px !default;
+$loader-animation-duration:      1s !default;
+
+@mixin loader-rotate {
+  @keyframes loader-rotate {
+    0% {
+      transform: rotate(0);
+    }
+
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+}
+
+@mixin loader-scale {
+  @keyframes loader-scale {
+    0% {
+      transform: scale(0);
+      opacity: 0;
+    }
+
+    50% {
+      opacity: 1;
+    }
+
+    100% {
+      transform: scale(1);
+      opacity: 0;
+    }
+  }
+}
+
+@mixin loader02(
+  $size: $loader-size,
+  $color: $loader-color,
+  $border-size: $loader-border-size,
+  $duration: $loader-animation-duration,
+  $align: null
+) {
+  width: $size;
+  height: $size;
+  border: $border-size solid rgba($color, 0.25);
+  border-top-color: $color;
+  border-radius: 50%;
+  position: relative;
+  animation: loader-rotate $duration linear infinite;
+  @if ($align == center) {
+    margin: 0 auto;
+  }
+  @if ($align == middle) {
+    top: 50%;
+    margin: -$size / 2 auto 0;
+  }
+  @include loader-rotate;
+}
+
+.ui-spinner {
+  @include loader02($align: middle, $size: 30px, $border-size: 4px);
+}
+
+.ui-loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  p {
+    margin: 0;
+    color: $ui-blue-dark;
+    margin-left: $ui-small;
+  }
+
+  i {
+    margin: 0;
+  }
+}
