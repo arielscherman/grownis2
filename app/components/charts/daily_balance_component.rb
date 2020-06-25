@@ -10,20 +10,20 @@ class Charts::DailyBalanceComponent < ViewComponent::Base
 
   def json_series
     [{
-      name: "Balance en #{@depot.currency.symbol}",
+      name: title_currency,
       data: formatted_data.map { |daily_data| daily_data[:total] }
     }, {
-      name: "Equivalente en #{@depot.rate.to_currency.symbol}",
+      name: title_rate,
       data: formatted_data.map { |daily_data| daily_data[:total_by_rate] }
     }].to_json
   end
 
   def title_currency
-    @title1 ||= "Balance en #{currency_symbol}"
+    @title_currency ||= "Balance en #{currency_symbol}"
   end
 
   def title_rate
-    @title2 ||= "Equivalente en #{rate_symbol}"
+    @title_rate ||= "Equivalente en #{rate_symbol}"
   end
 
   private

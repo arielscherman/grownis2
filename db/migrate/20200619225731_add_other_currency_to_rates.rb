@@ -10,7 +10,9 @@ class AddOtherCurrencyToRates < ActiveRecord::Migration[6.0]
       self.table_name = "rates"
     end
 
-    rate_class.update_all(to_currency_id: currency_class.find_or_create_by!(symbol: "USD").id)
+    if rate_class.any?
+      rate_class.update_all(to_currency_id: currency_class.find_or_create_by!(symbol: "USD").id)
+    end
 
     change_column_null :rates, :to_currency_id, false
   end
