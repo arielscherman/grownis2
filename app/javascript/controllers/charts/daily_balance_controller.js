@@ -22,36 +22,36 @@ export default class extends Controller {
       xaxis: {
         categories: JSON.parse(this.data.get('categories'))
       },
-      yaxis: [{
-        title: {
-          text: this.data.get('titleCurrency'),
-          style: {
-            color: this.colors.primary
-          }
-        },
-        labels: {
-          style: {
-            colors: this.colors.primary
-          }
-        }
-      }, {
-        title: {
-          text: this.data.get('titleRate'),
-          style: {
-            color: this.colors.secondary
-          }
-        },
-        opposite: true,
-        labels: {
-          style: {
-            colors: this.colors.secondary
-          }
-        }
-      }]
+      yaxis: this._buildTitles()
     };
 
     var chart = new ApexCharts(this.placeholderTarget, options);
 
     chart.render();
+  }
+
+  _buildTitles() {
+    var titles = [this._buildTitle(this.data.get('titleCurrency'), this.colors.primary)]
+
+    if(this.data.get('titleRate')) {
+      titles = titles.concat(this._buildTitle(this.data.get('titleRate'), this.colors.secondary, true))
+    }
+
+    return titles
+  }
+
+  _buildTitle(title, color, opposite=false) {
+    return {
+      title: {
+        text:  title,
+        style: { color: color }
+      },
+      opposite: opposite,
+      labels: {
+        style: {
+          colors: color
+        }
+      }
+    }
   }
 }

@@ -3,7 +3,7 @@ class Charts::DailyBalancesController < ApplicationController
 
   LIMIT = 30.freeze
 
-  helper_method :placeholder_id
+  helper_method :placeholder_id, :chart
 
   def index
     @depot          = Depot.find(params.require(:depot_id))
@@ -12,5 +12,9 @@ class Charts::DailyBalancesController < ApplicationController
 
   def placeholder_id
     @placeholder_id ||= params.require(:placeholder_id)
+  end
+
+  def chart
+    @depot.rate_id ? Charts::DailyBalanceWithRateComponent : Charts::DailyBalanceComponent
   end
 end
