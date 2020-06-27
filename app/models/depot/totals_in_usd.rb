@@ -7,6 +7,7 @@ class Depot::TotalsInUsd
   end
 
   def add(depot)
+    return unless depot.latest_daily_balance_id
     if depot.currency.usd?
       @total_in_cents      += depot.latest_daily_balance.cached_depot_total_in_cents
       @difference_in_cents += depot.latest_daily_balance.cached_difference_in_cents

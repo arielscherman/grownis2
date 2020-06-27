@@ -1,8 +1,9 @@
 .depots-list {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+  grid-template-rows: auto;
   padding: $ui-medium;
-  padding-top: 0;
+  grid-gap: $ui-medium;
 }
 
 .dashboard-balance {
@@ -19,14 +20,10 @@
 }
 
 .depot {
-  flex-grow: 1;
-  flex-shrink: 0;
-  max-width: 350px;
-  flex-basis: 330px;
+  margin-top: 0;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  margin-right: $ui-medium;
 }
 
 .depot-balance {
