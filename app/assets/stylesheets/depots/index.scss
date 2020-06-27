@@ -1,16 +1,32 @@
 .depots-list {
   display: flex;
+  flex-wrap: wrap;
   padding: $ui-medium;
   padding-top: 0;
+}
+
+.dashboard-balance {
+  background: $ui-violet-darkest;
+  color: $ui-white;
+
+  .ui-card-title {
+    color: $ui-white;
+  }
+
+  .ui-card-body .depot-balance {
+    color: $ui-white;
+  }
 }
 
 .depot {
   flex-grow: 1;
   flex-shrink: 0;
   max-width: 350px;
+  flex-basis: 330px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  margin-right: $ui-medium;
 }
 
 .depot-balance {

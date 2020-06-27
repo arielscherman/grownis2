@@ -5,4 +5,12 @@
   
 .ui-page-content
   #depots-list-placeholder.depots-list
+    .ui-card.depot.dashboard-balance
+      .ui-card-content
+        .ui-card-title Resumen del último balance
+        .ui-card-body
+          %span.depot-balance= display_amount_with_symbol(@totals_in_usd.total_in_cents, "USD")
+          .depot-results
+            %p{ class: css_color_for(@totals_in_usd.difference_in_cents) }
+              = display_amount_with_symbol(@totals_in_usd.difference_in_cents, "USD")
     = render "depots/index/list", depots: depots

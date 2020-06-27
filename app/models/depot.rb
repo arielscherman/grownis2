@@ -12,6 +12,16 @@ class Depot < ApplicationRecord
 
   delegate :symbol, to: :currency, prefix: true
 
+  class << self
+    def totals_in_usd
+      result = TotalsInUsd.new
+
+      includes(:currency, :rate, :latest_daily_balance).each { |depot| result.add(depot) }
+
+      result
+    end
+  end
+
   def update_total!(amount_in_cents)
     update!(cached_total_cents: cached_total_cents + amount_in_cents)
   end

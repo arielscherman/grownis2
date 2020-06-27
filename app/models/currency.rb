@@ -4,4 +4,8 @@ class Currency < ApplicationRecord
 
   validates :name, presence: true, uniqueness: true
   validates :symbol, presence: true, uniqueness: true
+
+  def usd?
+    symbol == "USD"
+  end
 end
