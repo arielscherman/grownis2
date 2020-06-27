@@ -5,8 +5,26 @@ class Depot::DailyBalance < ApplicationRecord
   before_create :calculate_balance
   before_update :calculate_balance, if: :cached_rate_value_changed?
 
+  class << self
+    def consolidated_by_date
+      consolidated = ConsolidatedByDate.new
+
+      includes(depot: :currency).each { |daily_balance| consolidated.add(daily_balance) }
+
+      consolidated.result
+    end
+  end
+
   def absolute_rate_value
     (1 / cached_rate_value).round(2)
+  end
+
+  def cents_in_usd
+    depot.currency.usd? ? cached_depot_total_in_cents : cached_depot_total_by_rate_in_cents
+  end
+
+  def difference_cents_in_usd
+    depot.currency.usd? ? cached_difference_in_cents : cached_difference_by_rate_in_cents
   end
 
   private

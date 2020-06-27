@@ -4,7 +4,7 @@ class DepotsController < ApplicationController
   helper_method :depot, :currencies, :depots, :rates
 
   def index
-    @totals_in_usd = depots.totals_in_usd
+    @consolidated = depots.consolidated
   end
 
   def new

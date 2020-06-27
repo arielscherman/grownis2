@@ -17,6 +17,14 @@
   .ui-card-body .depot-balance {
     color: $ui-white;
   }
+
+  .ui-card-footer {
+    border: 0;
+  }
+
+  .user-totals-card-graph {
+    width: 100%;
+  }
 }
 
 .depot {

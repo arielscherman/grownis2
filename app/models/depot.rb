@@ -13,8 +13,8 @@ class Depot < ApplicationRecord
   delegate :symbol, to: :currency, prefix: true
 
   class << self
-    def totals_in_usd
-      result = TotalsInUsd.new
+    def consolidated
+      result = Consolidated.new
 
       includes(:currency, :rate, :latest_daily_balance).each { |depot| result.add(depot) }
 
