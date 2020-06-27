@@ -3,7 +3,7 @@ class Depot::TotalsInUsd
 
   def initialize
     @total_in_cents      = 0
-    @difference_in_cents = 0.0
+    @difference_in_cents = 0
   end
 
   def add(depot)
