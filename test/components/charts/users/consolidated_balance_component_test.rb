@@ -30,7 +30,7 @@ class Charts::Users::ConsolidatedBalanceComponentTest < ViewComponent::TestCase
     assert_includes result.at_css(".user-consolidated-balance-chart").get_attribute("data-charts--users--consolidated-balance-series"), expected_data.to_json
   end
 
-  test "renders the amounts data in the rate currency when depot's currency is not usd" do
+  test "renders the amounts data in usd even if depot's currency is not" do
     depot = depots(:national_bank)
     daily_balances = depot.daily_balances.order(:date)
     result = render_inline(Charts::Users::ConsolidatedBalanceComponent.new(daily_balances))
