@@ -5,7 +5,7 @@
   
 .ui-page-content
   #depots-list-placeholder.depots-list
-    .ui-card.depot.dashboard-balance
+    .ui-card.dashboard-balance
       .ui-card-content
         .ui-card-title Resumen del último balance
         .ui-card-body
@@ -16,4 +16,7 @@
       .ui-card-footer
         = async_loader("user-totals-card-graph", charts_users_consolidated_balance_path(format: :js))
 
-    = render "depots/index/list", depots: depots
+    - if depots.present?
+      = render(Depot::CardComponent.with_collection(depots))
+    - else
+      %p.no-depots Aún no tenés ninguna billetera.
