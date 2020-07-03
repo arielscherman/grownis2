@@ -58,4 +58,13 @@ class Depot::ConsolidatedTest < ActiveSupport::TestCase
     assert_equal consolidated.in_cents, 0
     assert_equal consolidated.difference_in_cents, 0
   end
+
+  test "tracks max date of added depots" do
+    consolidated = described_class.new
+    depot_in_ars = depots(:national_bank)
+
+    consolidated.add(depot_in_ars)
+
+    assert_equal consolidated.max_date, depot_in_ars.latest_daily_balance.created_at
+  end
 end
