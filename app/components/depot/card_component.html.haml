@@ -4,9 +4,8 @@
     .ui-card-body
       %span.depot-balance= helpers.display_amount_with_symbol(@depot.cached_total_cents, @depot.currency_symbol)
       - if @depot.latest_daily_balance && @depot.rate_id
-        .depot-results
-          %p{ class: helpers.css_color_for(@depot.latest_daily_balance.cached_difference_by_rate_in_percentage) }
-            = helpers.display_percentage(@depot.latest_daily_balance.cached_difference_by_rate_in_percentage)
+        = render(DifferenceComponent.new(@depot.latest_daily_balance.cached_difference_by_rate_in_percentage)) do
+          = helpers.display_percentage(@depot.latest_daily_balance.cached_difference_by_rate_in_percentage)
   .ui-card-footer
     = link_to "Ver", depot_path(@depot), class: "ui-card-action"
     = link_to "Movimientos", depot_movements_path(@depot), class: "ui-card-action"

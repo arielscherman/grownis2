@@ -11,9 +11,9 @@
         .ui-card-subtitle= "Generado el #{l(@consolidated.max_date, format: :short)}" if @consolidated.max_date
         .ui-card-body
           %span.depot-balance= display_amount_with_symbol(@consolidated.in_cents, "USD")
-          .depot-results
-            %p{ class: css_color_for(@consolidated.difference_in_cents) }
-              = display_amount_with_symbol(@consolidated.difference_in_cents, "USD")
+
+          = render(DifferenceComponent.new(@consolidated.difference_in_cents)) do
+            = display_amount_with_symbol(@consolidated.difference_in_cents, "USD")
       .ui-card-footer
         = async_loader("user-totals-card-graph", charts_users_consolidated_balance_path(format: :js))
 

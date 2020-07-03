@@ -1,0 +1,14 @@
+.difference-component {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  i {
+    margin-right: $ui-xtiny;
+    font-size: 12px;
+  }
+
+  .difference-component-value {
+    margin: 0;
+  }
+}
