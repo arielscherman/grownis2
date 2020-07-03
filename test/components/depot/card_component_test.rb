@@ -39,4 +39,11 @@ class Depot::CardComponentTest < ViewComponent::TestCase
 
     assert_selector ".difference-component"
   end
+
+  test "displays the percentage of difference from latest daily balance" do
+    depot = depots(:national_bank)
+    render_inline(Depot::CardComponent.new(depot: depot))
+
+    assert_text percentage(depot.latest_daily_balance.cached_difference_by_rate_in_percentage)
+  end
 end
