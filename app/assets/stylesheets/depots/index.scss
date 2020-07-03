@@ -22,6 +22,14 @@
     color: $ui-white;
   }
 
+  .ui-card-subtitle {
+    color: $ui-violet;
+  }
+
+  .ui-card-content .ui-card-body{
+    margin-top: $ui-tiny;
+  }
+
   .ui-card-body .depot-balance {
     color: $ui-white;
   }

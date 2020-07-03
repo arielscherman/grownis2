@@ -1,11 +1,11 @@
 class Depot < ApplicationRecord
-  belongs_to :currency
+  belongs_to :currency, inverse_of: :depots
   belongs_to :rate, optional: true
   belongs_to :user
-  belongs_to :latest_daily_balance, class_name: "Depot::DailyBalance", optional: true
+  belongs_to :latest_daily_balance, class_name: "Depot::DailyBalance", optional: true, inverse_of: :depot
 
   has_many :movements, dependent: :destroy
-  has_many :daily_balances, dependent: :destroy
+  has_many :daily_balances, inverse_of: :depot, dependent: :destroy
 
   validates :name, presence: true
   validates :rate, presence: true, if: :currency_has_rates?
@@ -16,7 +16,7 @@ class Depot < ApplicationRecord
     def consolidated
       result = Consolidated.new
 
-      includes(:currency, :rate, :latest_daily_balance).each { |depot| result.add(depot) }
+      includes(:currency, :rate, latest_daily_balance: { depot: :currency }).each { |depot| result.add(depot) }
 
       result
     end

@@ -1,5 +1,5 @@
 class Currency < ApplicationRecord
-  has_many :depots, dependent: :restrict_with_error
+  has_many :depots, dependent: :restrict_with_error, inverse_of: :currency
   has_many :rates, dependent: :destroy
 
   validates :name, presence: true, uniqueness: true

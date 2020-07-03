@@ -8,6 +8,7 @@
     .ui-card.dashboard-balance
       .ui-card-content
         .ui-card-title Resumen del último balance
+        .ui-card-subtitle= "Generado el #{l(@consolidated.max_date, format: :short)}"
         .ui-card-body
           %span.depot-balance= display_amount_with_symbol(@consolidated.in_cents, "USD")
           .depot-results

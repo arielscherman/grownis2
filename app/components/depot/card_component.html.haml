@@ -8,5 +8,6 @@
           %p{ class: helpers.css_color_for(@depot.latest_daily_balance.cached_difference_by_rate_in_percentage) }
             = helpers.display_percentage(@depot.latest_daily_balance.cached_difference_by_rate_in_percentage)
   .ui-card-footer
+    = link_to "Ver", depot_path(@depot), class: "ui-card-action"
     = link_to "Movimientos", depot_movements_path(@depot), class: "ui-card-action"
     = link_to "Editar", edit_depot_path(@depot), remote: true, class: "ui-card-action"

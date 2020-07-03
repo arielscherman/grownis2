@@ -21,4 +21,8 @@
       text-decoration: none;
     }
   }
+
+  + .ui-page-header {
+    padding-top: $ui-xsmall;
+  }
 }

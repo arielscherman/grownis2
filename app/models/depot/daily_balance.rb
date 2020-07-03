@@ -1,6 +1,6 @@
 class Depot::DailyBalance < ApplicationRecord
   belongs_to :previous_daily_balance, class_name: "Depot::DailyBalance", optional: true
-  belongs_to :depot
+  belongs_to :depot, inverse_of: :daily_balances
 
   before_create :calculate_balance
   before_update :calculate_balance, if: :cached_rate_value_changed?
