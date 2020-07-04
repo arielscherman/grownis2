@@ -28,4 +28,15 @@ class DepotsTest < ApplicationSystemTestCase
       assert_selector ".depot-balance", text: amount_with_currency(depot.cached_total_cents, depot.currency_symbol)
     end
   end
+
+  test "displays the empty depot for user that has only one fresh" do
+    user = users(:valid_with_fresh_depot)
+    depot = user.depots.first
+    sign_in user
+
+    visit depots_url
+
+    assert_selector ".ui-card-title", text: depot.name.upcase
+    assert_selector ".depot-balance", text: amount_with_currency(depot.cached_total_cents, depot.currency_symbol)
+  end
 end

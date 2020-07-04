@@ -13,6 +13,6 @@ american_bank:
 
 fresh:
   name: Just created depot
-  user: valid
+  user: valid_with_fresh_depot
   currency: ars
   rate: ars_in_dolar_blue
