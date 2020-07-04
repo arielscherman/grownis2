@@ -1,13 +1,50 @@
 .depots-list {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+  grid-template-rows: auto;
   padding: $ui-medium;
-  padding-top: 0;
+  grid-gap: $ui-medium;
+}
+
+.dashboard-balance {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-top: 0;
+  background: $ui-violet-darkest;
+  color: $ui-white;
+
+  .ui-card-content {
+    margin-bottom: $ui-tiny;
+  }
+
+  .ui-card-title {
+    color: $ui-white;
+  }
+
+  .ui-card-subtitle {
+    color: $ui-violet;
+  }
+
+  .ui-card-content .ui-card-body{
+    margin-top: $ui-tiny;
+  }
+
+  .ui-card-body .depot-balance {
+    color: $ui-white;
+  }
+
+  .ui-card-footer {
+    border: 0;
+  }
+
+  .user-totals-card-graph {
+    width: 100%;
+  }
 }
 
 .depot {
-  flex-grow: 1;
-  flex-shrink: 0;
-  max-width: 350px;
+  margin-top: 0;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -23,8 +60,4 @@
   color: $ui-grey;
   font-weight: 200;
   font-size: 40px;
-}
-
-.depot-results p {
-  margin-bottom: 0;
 }

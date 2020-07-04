@@ -1,0 +1,33 @@
+%ol.ui-breadcrumb
+  %li= link_to "Depots", depots_path
+  %li= depot.name
+
+.ui-page-header
+  %h1= depot.name
+
+.ui-page-content
+  .depot-dashboard
+    .ui-card.depot-card-balance
+      .ui-card-content
+        .ui-card-title Balance
+        .ui-card-body
+          %span.depot-balance= display_amount_with_symbol(depot.cached_total_cents, depot.currency_symbol)
+
+    - if depot.latest_daily_balance && depot.rate_id
+      .ui-card.depot-card-rated-balance
+        .ui-card-content
+          .ui-card-title= "Equivalente en #{depot.rate.name}"
+          .ui-card-body
+            %span.depot-balance= display_amount_with_symbol(depot.latest_daily_balance.cached_depot_total_by_rate_in_cents, depot.rate.to_currency.symbol)
+
+      .ui-card.rate-card-value
+        .ui-card-content
+          .ui-card-title= depot.rate.name
+          .ui-card-body
+            %span.depot-balance= display_raw_amount_with_symbol(depot.latest_daily_balance.absolute_rate_value, depot.currency.symbol)
+
+    .ui-card.depot-card-graph
+      .ui-card-content
+        .ui-card-title Evolución del balance
+        .ui-card-body
+          = async_loader("depot-card-graph", charts_daily_balances_path(depot, format: :js))

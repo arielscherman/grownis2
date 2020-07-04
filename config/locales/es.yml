@@ -60,7 +60,7 @@ es:
     formats:
       default: "%d %b %Y"
       long: "%-d de %B de %Y"
-      short: "%-d de %b"
+      short: "%-d de %B"
     month_names:
     - 
     - enero

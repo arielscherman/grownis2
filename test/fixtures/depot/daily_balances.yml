@@ -22,3 +22,29 @@ balance_for_national_bank_2_days_ago:
   cached_difference_by_rate_in_cents: 0
   cached_difference_in_percentage: 0.00
   cached_difference_by_rate_in_percentage: 0.00
+
+balance_for_national_bank_3_days_ago:
+  depot: national_bank
+  date: <%= 3.days.ago.to_date %>
+  cached_rate_value: 0.00925
+  cached_depot_total_in_cents: 1400_00
+  cached_depot_total_by_rate_in_cents: <%= 1400_00 * 0.00925 %>
+  cached_difference_in_cents: 0
+  cached_difference_by_rate_in_cents: 0
+  cached_difference_in_percentage: 0.00
+  cached_difference_by_rate_in_percentage: 0.00
+
+balance_for_american_bank_1_day_ago:
+  depot: american_bank
+  date: <%= 1.day.ago.to_date %>
+  previous_daily_balance: balance_for_american_bank_2_days_ago
+  cached_depot_total_in_cents: 1700_00
+  cached_difference_in_cents: 200_00
+  cached_difference_in_percentage: 13.33333
+
+balance_for_american_bank_2_days_ago:
+  depot: american_bank
+  date: <%= 2.days.ago.to_date %>
+  cached_depot_total_in_cents: 1500_00
+  cached_difference_in_cents: 0
+  cached_difference_in_percentage: 0.00

@@ -3,6 +3,10 @@ class DepotsController < ApplicationController
 
   helper_method :depot, :currencies, :depots, :rates
 
+  def index
+    @consolidated = depots.consolidated
+  end
+
   def new
     @depot = Depot.new
   end
@@ -15,6 +19,8 @@ class DepotsController < ApplicationController
   def update
     depot.update(depot_params)
   end
+
+  def show; end
 
   private
 

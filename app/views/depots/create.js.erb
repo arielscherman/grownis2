@@ -1,6 +1,7 @@
 <% if @depot.valid? %>
 document.getElementById("ui-modal-placeholder").innerHTML = ""; // remove modal
-document.getElementById("depots-list-placeholder").innerHTML = "<%= j render "depots/index/list", depots: depots %>";
+placeholder = document.getElementById("depots-list-placeholder")
+placeholder.innerHTML = placeholder.innerHTML + "<%= j render Depot::CardComponent.new(depot: @depot) %>";
 <% else %>
 document.getElementById("ui-modal-placeholder").innerHTML = "<%= j render('depots/modal_form') %>";
 <% end %>

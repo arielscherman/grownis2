@@ -3,14 +3,16 @@ national_bank:
   user: valid
   currency: ars
   rate: ars_in_dolar_blue
+  latest_daily_balance: balance_for_national_bank_1_day_ago
 
 american_bank:
   name: Wells Fargo
   user: valid
   currency: usd
+  latest_daily_balance: balance_for_american_bank_1_day_ago
 
 fresh:
   name: Just created depot
-  user: valid
+  user: valid_with_fresh_depot
   currency: ars
   rate: ars_in_dolar_blue
