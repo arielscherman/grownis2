@@ -16,3 +16,9 @@ fresh:
   user: valid_with_fresh_depot
   currency: ars
   rate: ars_in_dolar_blue
+
+depot_with_one_movement:
+  name: Single depot
+  user: valid_with_one_depot
+  currency: ars
+  rate: ars_in_dolar_blue

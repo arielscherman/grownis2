@@ -22,3 +22,8 @@ usd_deposit:
   depot: american_bank
   total_cents: <%= rand(100..999999) %>
   date: <%= 10.days.ago.to_date %>
+
+single_depot_deposit:
+  depot: depot_with_one_movement
+  total_cents: <%= rand(100..999999) %>
+  date: <%= 10.days.ago.to_date %>

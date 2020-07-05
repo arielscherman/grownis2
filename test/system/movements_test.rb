@@ -25,6 +25,17 @@ class MovementsTest < ApplicationSystemTestCase
     end
   end
 
+  test "does not display movements from other user's depots" do
+    user = users(:valid)
+    other_user_movement = users(:valid_with_one_depot).depots.first.movements.first
+
+    sign_in user
+
+    visit movements_url
+
+    assert_no_selector ".movement[data-id='#{other_user_movement.id}']"
+  end
+
   test "displays the empty depot for user that has only one fresh" do
     user = users(:valid_with_fresh_depot)
     sign_in user
