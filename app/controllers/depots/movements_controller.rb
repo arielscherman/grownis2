@@ -36,7 +36,7 @@ class Depots::MovementsController < ApplicationController
   end
 
   def movements
-    @movements ||= depot.movements.order(date: :desc)
+    @movements ||= depot.movements.order(date: :desc, id: :desc)
   end
 
   def movement_params

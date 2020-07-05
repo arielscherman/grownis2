@@ -22,4 +22,6 @@ Rails.application.routes.draw do
       resources :movements
     end
   end
+
+  resources :movements, only: :index
 end
