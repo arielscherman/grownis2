@@ -1,11 +1,15 @@
 import { Controller } from "stimulus"
 
 export default class extends Controller {
-  static targets = [ "dateInput", "totalInput" ]
+  static targets = [ "dateInput", "totalInput", "depotSelect" ]
 
   connect() {
     flatpickr(this.dateInputTarget, { maxDate: 'today', dateFormat: "d/m/Y", defaultDate: 'today' })
     this.setInputFilter(this.totalInputTarget, (value) => { return /^-?\d*[.,]?\d{0,2}$/.test(value) })
+
+    if(this.targets.find("depotSelect")) {
+      new Choices(this.depotSelectTarget, { searchPlaceholderValue: "Busca una Billetera" })
+    }
   }
 
   setInputFilter(textbox, inputFilter) {

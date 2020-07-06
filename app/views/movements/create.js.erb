@@ -1,0 +1,6 @@
+<% if movement.valid? %>
+document.getElementById("ui-modal-placeholder").innerHTML = ""; // remove modal
+document.querySelector(".movements-list-component").outerHTML = "<%= j render(Movement::ListComponent.new(movements: movements, show_depot: true)) %>";
+<% else %>
+document.getElementById("ui-modal-placeholder").innerHTML = "<%= j render(Movement::ModalFormComponent.new(movement, depot, url, current_user)) %>";
+<% end %>

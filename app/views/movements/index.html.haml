@@ -1,11 +1,11 @@
 .ui-page-header
   %h1 Movimientos
 
-  -# = link_to "Agregar Movimiento", new_movement_path, remote: true, class: "ui-button ui-button-primary"
+  - if depots.any?
+    = link_to "Agregar Movimiento", new_movement_path, remote: true, class: "ui-button ui-button-primary"
 
 .ui-page-content
-  #movements-list-placeholder
-    .ui-card.ui-card-full
-      .ui-card-content
-        .ui-card-body
-          = render(Movement::ListComponent.new(movements: movements, show_depot: true))
+  .ui-card.ui-card-full
+    .ui-card-content
+      .ui-card-body
+        = render(Movement::ListComponent.new(movements: movements, show_depot: true))
