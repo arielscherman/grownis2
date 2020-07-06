@@ -4,7 +4,7 @@
       .ui-card-title= depot.name
       %span.depot-balance= display_amount_with_symbol(depot.cached_total_cents, depot.currency_symbol)
     .ui-card-header-secondary
-      = link_to "Agregar Movimiento", new_depot_movement_path(depot), remote: true, class: "ui-button ui-button-primary"
+      = link_to "Agregar Movimiento", new_movement_path(depot_id: depot), remote: true, class: "ui-button ui-button-primary"
   .ui-card-content
     .ui-card-body
       = render(Movement::ListComponent.new(movements: movements))

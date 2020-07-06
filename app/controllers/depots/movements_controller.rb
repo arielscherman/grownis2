@@ -3,10 +3,6 @@ class Depots::MovementsController < ApplicationController
 
   helper_method :currency, :depot, :movement, :movements
 
-  def new
-    @movement = Depot::Movement.new
-  end
-
   def create
     @movement = Depot::Movement.new(movement_params.merge(depot_id: depot_id))
     @movement.save

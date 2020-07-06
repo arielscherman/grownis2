@@ -1,7 +1,7 @@
 class Movement::ModalFormComponent < ViewComponent::Base
-  def initialize(movement, depot, url, current_user)
+  def initialize(movement, depot_id, url, current_user)
     @movement     = movement
-    @depot        = depot
+    @depot_id     = depot_id
     @url          = url 
     @current_user = current_user
   end
