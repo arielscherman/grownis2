@@ -21,7 +21,7 @@ Rails.application.routes.draw do
 
   resources :depots, shallow: true do
     scope module: 'depots' do
-      resources :movements
+      resources :movements, only: [:index, :destroy]
     end
   end
 end
