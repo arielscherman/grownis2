@@ -13,13 +13,17 @@ class MovementsController < ApplicationController
     @movement = Depot::Movement.new({ depot_id: depot_id }.merge(movement_params))
     @movement.save
 
-    render :create, locals: { movement: @movement, depot_id: depot_id, url: movements_path, movements: depot_id.present? ? depot_movements : movements }
+    if depot_id.present?
+      render "depots/movements/create.js.erb", locals: { movement: @movement, depot: depot, movements: depot_movements }
+    else
+      render :create, locals: { movement: @movement, depot_id: depot_id, movements:  movements }
+    end
   end
 
   private
 
   def depot_movements
-    @depot_movements ||= Depot::Movement.where(depot_id: depot_id).order(date: :desc, id: :desc)
+    @depot_movements ||= movements.where(depot_id: depot_id)
   end
 
   def movements
@@ -36,5 +40,9 @@ class MovementsController < ApplicationController
 
   def depot_id
     @depot_id ||= params.permit(:depot_id)[:depot_id]
+  end
+
+  def depot
+    @depot ||= Depot.find(depot_id)
   end
 end

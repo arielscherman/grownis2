@@ -3,11 +3,6 @@ class Depots::MovementsController < ApplicationController
 
   helper_method :currency, :depot, :movement, :movements
 
-  def create
-    @movement = Depot::Movement.new(movement_params.merge(depot_id: depot_id))
-    @movement.save
-  end
-
   def destroy
     @depot_id = movement.depot_id # to be able to fetch all depot's movements later
     movement.destroy
@@ -33,9 +28,5 @@ class Depots::MovementsController < ApplicationController
 
   def movements
     @movements ||= depot.movements.order(date: :desc, id: :desc)
-  end
-
-  def movement_params
-    params.require(:depot_movement).permit(:total, :date, :description)
   end
 end

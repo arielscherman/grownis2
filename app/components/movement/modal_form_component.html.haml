@@ -5,7 +5,7 @@
   .ui-modal-medium
     .ui-modal-head
       %label.ui-modal-head-close{ for: "depot_movement_form_modal" }
-    = form_for @movement, url: @url, remote: true do |f|
+    = form_for @movement, url: movements_path, remote: true do |f|
       = hidden_field_tag :depot_id, @depot_id
       .ui-modal-body
         - if @movement.errors.any?
