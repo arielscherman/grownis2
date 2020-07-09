@@ -12,5 +12,5 @@
       .ui-card-header-secondary
         = link_to "Agregar Movimiento", new_movement_path(depot_id: depot), remote: true, class: "ui-button ui-button-primary"
     .ui-card-content
-      .ui-card-body
+      .ui-card-body#movements-list-component-placeholder
         = render(Movement::ListComponent.new(movements: movements))

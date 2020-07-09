@@ -18,4 +18,4 @@
         .ui-table-column= movement.description
         .ui-table-column= link_to 'Eliminar', movement_path(movement, depot_id: @show_depot ? nil : movement.depot_id), method: :delete, class: "depot-movement-delete", data: { confirm: 'Estás seguro que querés eliminar el movimiento?' }, remote: true
 - else
-  %p Aún no tenés ningún movimiento.
+  %p.no-movements Aún no tenés ningún movimiento.
