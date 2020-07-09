@@ -16,6 +16,6 @@
           .ui-table-column= link_to movement.depot.name, depot_path(movement.depot)
         .ui-table-column= I18n.l movement.date
         .ui-table-column= movement.description
-        .ui-table-column= link_to 'Eliminar', movement_path(movement), method: :delete, class: "depot-movement-delete", data: { confirm: 'Estás seguro que querés eliminar el movimiento?' }, remote: true
+        .ui-table-column= link_to 'Eliminar', movement_path(movement, depot_id: @show_depot ? nil : movement.depot_id), method: :delete, class: "depot-movement-delete", data: { confirm: 'Estás seguro que querés eliminar el movimiento?' }, remote: true
 - else
   %p Aún no tenés ningún movimiento.

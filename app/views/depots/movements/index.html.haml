@@ -1,7 +1,16 @@
 %ol.ui-breadcrumb
-  %li= link_to "Depots", depots_path
-  %li= depot.name
+  %li= link_to "Billeteras", depots_path
+  %li= link_to depot.name, depot_path(depot)
+  %li Movimientos
 
 .ui-page-content
-  #depots-movements-list-placeholder
-    = render "depots/movements/index/list", depot: depot, movements: movements, currency: currency
+  .ui-card.ui-card-full
+    .ui-card-header.depot-movements-header
+      .ui-card-header-main
+        .ui-card-title= depot.name
+        %span.depot-balance= display_amount_with_symbol(depot.cached_total_cents, depot.currency_symbol)
+      .ui-card-header-secondary
+        = link_to "Agregar Movimiento", new_movement_path(depot_id: depot), remote: true, class: "ui-button ui-button-primary"
+    .ui-card-content
+      .ui-card-body
+        = render(Movement::ListComponent.new(movements: movements))

@@ -1,6 +1,5 @@
 <% if movement.destroyed? %>
 document.querySelector(".movement[data-id='<%= movement.id %>']").remove()
-document.querySelector(".depot-balance").innerHTML = "<%= display_amount_with_symbol(depot.cached_total_cents, depot.currency_symbol) %>";
 <% else %>
 alert("No se ha podido eliminar el movimiento. Volvé a intentar y si el error persiste contactá a soporte.")
 <% end %>

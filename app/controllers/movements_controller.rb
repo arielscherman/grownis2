@@ -20,6 +20,17 @@ class MovementsController < ApplicationController
     end
   end
 
+  def destroy
+    @movement = Depot::Movement.find(movement_id)
+    @movement.destroy
+
+    if depot_id.present?
+      render "depots/movements/destroy.js.erb", locals: { movement: @movement, depot: depot }
+    else
+      render :destroy, locals: { movement: @movement }
+    end
+  end
+
   private
 
   def depot_movements
@@ -28,6 +39,10 @@ class MovementsController < ApplicationController
 
   def movements
     @movements ||= Depot::Movement.includes(depot: :currency).where(depots: { user_id: current_user.id }).order(date: :desc, id: :desc)
+  end
+
+  def movement_id
+    @movement_id ||= params.require(:id)
   end
 
   def movement_params
