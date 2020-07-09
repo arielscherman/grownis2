@@ -13,9 +13,10 @@
 ActiveRecord::Schema.define(version: 2020_06_19_225731) do
 
   # These are extensions that must be enabled in order to support this database
+  enable_extension "pgcrypto"
   enable_extension "plpgsql"
 
-  create_table "currencies", force: :cascade do |t|
+  create_table "currencies", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "symbol", null: false
     t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -24,11 +25,11 @@ ActiveRecord::Schema.define(version: 2020_06_19_225731) do
     t.index ["symbol"], name: "index_currencies_on_symbol", unique: true
   end
 
-  create_table "depot_daily_balances", force: :cascade do |t|
+  create_table "depot_daily_balances", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.date "date", null: false
-    t.bigint "depot_id", null: false
+    t.uuid "depot_id", null: false
     t.float "cached_rate_value"
-    t.bigint "previous_daily_balance_id"
+    t.uuid "previous_daily_balance_id"
     t.integer "cached_depot_total_in_cents"
     t.integer "cached_depot_total_by_rate_in_cents"
     t.integer "cached_difference_in_cents"
@@ -41,8 +42,8 @@ ActiveRecord::Schema.define(version: 2020_06_19_225731) do
     t.index ["previous_daily_balance_id"], name: "index_depot_daily_balances_on_previous_daily_balance_id"
   end
 
-  create_table "depot_movements", force: :cascade do |t|
-    t.bigint "depot_id", null: false
+  create_table "depot_movements", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "depot_id", null: false
     t.bigint "total_cents"
     t.date "date", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -52,23 +53,23 @@ ActiveRecord::Schema.define(version: 2020_06_19_225731) do
     t.index ["depot_id"], name: "index_depot_movements_on_depot_id"
   end
 
-  create_table "depots", force: :cascade do |t|
+  create_table "depots", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "name", null: false
     t.bigint "cached_total_cents", default: 0, null: false
-    t.bigint "user_id", null: false
+    t.uuid "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "currency_id", null: false
-    t.bigint "rate_id"
-    t.bigint "latest_daily_balance_id"
+    t.uuid "currency_id", null: false
+    t.uuid "rate_id"
+    t.uuid "latest_daily_balance_id"
     t.index ["currency_id"], name: "index_depots_on_currency_id"
     t.index ["latest_daily_balance_id"], name: "index_depots_on_latest_daily_balance_id"
     t.index ["rate_id"], name: "index_depots_on_rate_id"
     t.index ["user_id"], name: "index_depots_on_user_id"
   end
 
-  create_table "rate_values", force: :cascade do |t|
-    t.bigint "rate_id", null: false
+  create_table "rate_values", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "rate_id", null: false
     t.float "value", null: false
     t.date "date", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -76,18 +77,18 @@ ActiveRecord::Schema.define(version: 2020_06_19_225731) do
     t.index ["rate_id"], name: "index_rate_values_on_rate_id"
   end
 
-  create_table "rates", force: :cascade do |t|
+  create_table "rates", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "key", null: false
-    t.bigint "currency_id", null: false
-    t.bigint "to_currency_id", null: false
+    t.uuid "currency_id", null: false
+    t.uuid "to_currency_id", null: false
     t.index ["currency_id"], name: "index_rates_on_currency_id"
     t.index ["to_currency_id"], name: "index_rates_on_to_currency_id"
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "users", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
