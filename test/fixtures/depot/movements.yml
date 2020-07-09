@@ -1,4 +1,29 @@
 deposit:
   depot: national_bank
   total_cents: <%= rand(100..999999) %>
-  date: <%= rand(1..60).days.ago.to_date %>
+  date: <%= 10.days.ago.to_date %>
+
+old_deposit:
+  depot: national_bank
+  total_cents: <%= rand(100..999999) %>
+  date: <%= 3.months.ago.to_date %>
+
+withdrawal:
+  depot: national_bank
+  total_cents: <%= -rand(100..999999) %>
+  date: <%= 5.days.ago.to_date %>
+
+old_withdrawal:
+  depot: national_bank
+  total_cents: <%= -rand(100..999999) %>
+  date: <%= 2.months.ago.to_date %>
+
+usd_deposit:
+  depot: american_bank
+  total_cents: <%= rand(100..999999) %>
+  date: <%= 10.days.ago.to_date %>
+
+single_depot_deposit:
+  depot: depot_with_one_movement
+  total_cents: <%= rand(100..999999) %>
+  date: <%= 10.days.ago.to_date %>

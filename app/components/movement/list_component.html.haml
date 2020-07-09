@@ -1,0 +1,21 @@
+- if @movements.present?
+  .ui-table.movements-list-component
+    .ui-table-row.header{ class: ("with-depot" if @show_depot) }
+      .ui-table-column Monto
+      - if @show_depot
+        .ui-table-column Billetera
+      .ui-table-column Fecha
+      .ui-table-column Descripción
+      .ui-table-column Acciones
+    - @movements.each do |movement|
+      .ui-table-row.movement{ class: ("with-depot" if @show_depot), data: { id: movement.id } }
+        .ui-table-column
+          = render(DifferenceComponent.new(movement.total_cents)) do
+            = helpers.display_amount_with_symbol(movement.total_cents, movement.depot.currency_symbol)
+        - if @show_depot
+          .ui-table-column= link_to movement.depot.name, depot_path(movement.depot)
+        .ui-table-column= I18n.l movement.date
+        .ui-table-column= movement.description
+        .ui-table-column= link_to 'Eliminar', movement_path(movement, depot_id: @show_depot ? nil : movement.depot_id), method: :delete, class: "depot-movement-delete", data: { confirm: 'Estás seguro que querés eliminar el movimiento?' }, remote: true
+- else
+  %p Aún no tenés ningún movimiento.

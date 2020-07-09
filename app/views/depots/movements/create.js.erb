@@ -1,6 +1,7 @@
 <% if movement.valid? %>
 document.getElementById("ui-modal-placeholder").innerHTML = ""; // remove modal
-document.getElementById("depots-movements-list-placeholder").innerHTML = "<%= j render "depots/movements/index/list", depot: depot, movements: movements, currency: currency %>";
+document.querySelector(".movements-list-component").outerHTML = "<%= j render(Movement::ListComponent.new(movements: movements, show_depot: false)) %>";
+document.querySelector(".depot-balance").innerHTML = "<%= display_amount_with_symbol(depot.cached_total_cents, depot.currency_symbol) %>";
 <% else %>
-document.getElementById("ui-modal-placeholder").innerHTML = "<%= j render('depots/movements/modal_form') %>";
+document.getElementById("ui-modal-placeholder").innerHTML = "<%= j render(Movement::ModalFormComponent.new(movement, depot.id, current_user)) %>";
 <% end %>

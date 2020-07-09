@@ -29,6 +29,16 @@ class DepotsTest < ApplicationSystemTestCase
     end
   end
 
+  test "does not display another user's depots" do
+    user        = users(:valid)
+    other_depot = users(:valid_with_one_depot).depots.first
+    sign_in user
+
+    visit depots_url
+
+    assert_no_selector ".ui-card-title", text: other_depot.name.upcase
+  end
+
   test "displays the empty depot for user that has only one fresh" do
     user = users(:valid_with_fresh_depot)
     depot = user.depots.first

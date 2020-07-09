@@ -1,21 +1,9 @@
 class Depots::MovementsController < ApplicationController
   before_action :authenticate_user!
 
-  helper_method :currency, :depot, :movement, :movements
+  helper_method :depot, :movements
 
-  def new
-    @movement = Depot::Movement.new
-  end
-
-  def create
-    @movement = Depot::Movement.new(movement_params.merge(depot_id: depot_id))
-    @movement.save
-  end
-
-  def destroy
-    @depot_id = movement.depot_id # to be able to fetch all depot's movements later
-    movement.destroy
-  end
+  def index; end
 
   private
 
@@ -27,19 +15,7 @@ class Depots::MovementsController < ApplicationController
     @depot_id ||= params.require(:depot_id)
   end
 
-  def currency
-    @currency ||= depot.currency
-  end
-
-  def movement
-    @movement ||= Depot::Movement.find(params.require(:id))
-  end
-
   def movements
-    @movements ||= depot.movements.order(date: :desc)
-  end
-
-  def movement_params
-    params.require(:depot_movement).permit(:total, :date, :description)
+    @movements ||= depot.movements.order(date: :desc, id: :desc)
   end
 end

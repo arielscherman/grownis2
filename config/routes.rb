@@ -17,9 +17,11 @@ Rails.application.routes.draw do
     resources :rates, only: :index
   end
 
+  resources :movements, only: [:index, :new, :create, :destroy]
+
   resources :depots, shallow: true do
     scope module: 'depots' do
-      resources :movements
+      resources :movements, only: [:index]
     end
   end
 end
