@@ -11,7 +11,7 @@ export default class extends Controller {
 
   _onCurrencyChange(selectedCurrencyId) {
     this._hideRatePlaceholder();
-    if(selectedCurrencyId > 0) {
+    if(selectedCurrencyId) {
       this._fetchRates(selectedCurrencyId);
     }
     this._resetRateChoices();

@@ -1,6 +1,6 @@
 class AddOtherCurrencyToRates < ActiveRecord::Migration[6.0]
   def change
-    add_reference :rates, :to_currency, foreign_key: { to_table: :currencies }
+    add_reference :rates, :to_currency, type: :uuid, foreign_key: { to_table: :currencies }
 
     currency_class = Class.new(ApplicationRecord) do
       self.table_name = "currencies"
