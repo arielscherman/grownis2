@@ -22,6 +22,12 @@ class DepotsController < ApplicationController
 
   def show; end
 
+  def destroy
+    depot.destroy
+
+    render :destroy, locals: { depot: depot }
+  end
+
   private
 
   def depots

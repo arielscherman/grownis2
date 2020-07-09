@@ -51,5 +51,18 @@
       color: $ui-blue;
       background-color: $ui-blue-lightest;
     }
+
+    &.red {
+      i {
+        position: relative;
+        top: 1px;
+        color: $ui-red;
+      }
+
+      &:hover {
+        color: $ui-red;
+        background-color: $ui-red-lightest;
+      }
+    }
   }
 }

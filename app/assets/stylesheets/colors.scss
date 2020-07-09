@@ -33,6 +33,7 @@ $ui-green-darkest: #0c8842;
 $ui-red: #ff3366;
 $ui-red-darker: #ff0d49;
 $ui-red-darkest: #ff0040;
+$ui-red-lightest: lighten($ui-red, 35%);
 
 $ui-yellow: #fbbc06;
 $ui-yellow-darker: #d7a103;

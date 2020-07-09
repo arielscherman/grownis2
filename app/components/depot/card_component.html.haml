@@ -10,3 +10,5 @@
     = link_to "Ver", depot_path(@depot), class: "ui-card-action"
     = link_to "Movimientos", depot_movements_path(@depot), class: "ui-card-action"
     = link_to "Editar", edit_depot_path(@depot), remote: true, class: "ui-card-action"
+    = link_to depot_path(@depot), method: :delete, class: "ui-card-action red depot-delete", data: { confirm: 'Estás seguro que querés eliminar la billetera?' }, remote: true do
+      %i.icon-trash
