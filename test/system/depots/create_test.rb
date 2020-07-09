@@ -18,6 +18,24 @@ class DepotsCreateTest < ApplicationSystemTestCase
     assert_selector ".depot-balance", text: amount_with_currency(0, "USD")
   end
 
+  test "creating a depot removes the \"no depots\" message from the page" do
+    sign_in users(:valid_without_depots)
+
+    visit depots_url
+
+    assert_selector ".no-depots"
+
+    click_on "Agregar"
+    fill_in "Nombre", with: "My new depot"
+
+    page.find("#depot_currency_id + .choices__list").click
+    page.find(".choices__item--choice[data-value='#{currencies(:usd).id}']").click
+
+    click_on "Guardar"
+
+    assert_no_selector ".no-depots"
+  end
+
   test "allows selecting a rate when currency has at least one" do
     sign_in users(:valid)
 

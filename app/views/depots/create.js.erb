@@ -1,4 +1,8 @@
 <% if @depot.valid? %>
+if(document.querySelector(".no-depots")){
+  document.querySelector(".no-depots").remove()
+}
+
 document.getElementById("ui-modal-placeholder").innerHTML = ""; // remove modal
 placeholder = document.getElementById("depots-list-placeholder")
 placeholder.innerHTML = placeholder.innerHTML + "<%= j render Depot::CardComponent.new(depot: @depot) %>";
