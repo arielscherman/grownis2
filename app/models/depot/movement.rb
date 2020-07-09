@@ -2,7 +2,7 @@ class Depot::Movement < ApplicationRecord
   belongs_to :depot
 
   validates :date, presence: true
-  validates :total_cents, presence: true
+  validates :total_cents, presence: true, numericality: { other_than: 0 }
 
   before_save :update_depot
   before_destroy :substract_from_depot

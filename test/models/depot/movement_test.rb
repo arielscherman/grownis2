@@ -28,4 +28,12 @@ class Depot::MovementTest < ActiveSupport::TestCase
   def test_belongs_to_currency
     assert_instance_of Currency, depots(:national_bank).currency
   end
+
+  def test_valid_total_cents
+    movement = depot_movements(:deposit)
+    movement.total_cents = 0
+
+    movement.valid?
+    assert movement.errors.details.has_key?(:total_cents)
+  end
 end
