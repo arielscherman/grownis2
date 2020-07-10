@@ -17,13 +17,13 @@ class DepotsTest < ApplicationSystemTestCase
     assert_selector "h1", text: "Billeteras"
   end
 
-  test "displays all depots for user" do
+  test "displays all active depots for user" do
     user = users(:valid)
     sign_in user
 
     visit depots_url
 
-    user.depots.find_each do |depot|
+    user.depots.active.find_each do |depot|
       assert_selector ".ui-card-title", text: depot.name.upcase
       assert_selector ".depot-balance", text: amount_with_currency(depot.cached_total_cents, depot.currency_symbol)
     end
@@ -37,6 +37,16 @@ class DepotsTest < ApplicationSystemTestCase
     visit depots_url
 
     assert_no_selector ".ui-card-title", text: other_depot.name.upcase
+  end
+
+  test "does not display soft deleted depots" do
+    deleted_depot = depots(:deleted_depot)
+
+    sign_in deleted_depot.user
+
+    visit depots_url
+
+    assert_no_selector ".ui-card-title", text: deleted_depot.name.upcase
   end
 
   test "displays the empty depot for user that has only one fresh" do

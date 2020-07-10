@@ -1,4 +1,6 @@
 class Depot < ApplicationRecord
+  include SoftDeletable
+
   belongs_to :currency, inverse_of: :depots
   belongs_to :rate, optional: true
   belongs_to :user

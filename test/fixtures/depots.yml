@@ -22,3 +22,10 @@ depot_with_one_movement:
   user: valid_with_one_depot
   currency: ars
   rate: ars_in_dolar_blue
+
+deleted_depot:
+  name: Deleted depot
+  user: valid
+  currency: ars
+  rate: ars_in_dolar_blue
+  deleted_at: <%= 1.day.ago %>

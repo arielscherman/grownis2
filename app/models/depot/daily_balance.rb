@@ -5,6 +5,8 @@ class Depot::DailyBalance < ApplicationRecord
   before_create :calculate_balance
   before_update :calculate_balance, if: :cached_rate_value_changed?
 
+  scope :for_user, ->(user) { joins(depot: :user).where(depots: { user: user }).merge(Depot.active) }
+
   class << self
     def consolidated_by_date
       consolidated = ConsolidatedByDate.new

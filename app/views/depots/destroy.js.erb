@@ -1,4 +1,4 @@
-<% if depot.destroyed? %>
+<% if depot.soft_deleted? %>
 document.querySelector(".depot[data-id='<%= depot.id %>']").remove()
 <% else %>
 alert("No se ha podido eliminar la billetera. Volvé a intentar y si el error persiste contactá a soporte.")

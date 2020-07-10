@@ -20,10 +20,12 @@ class DepotsController < ApplicationController
     depot.update(depot_params)
   end
 
-  def show; end
+  def show
+    render :show, locals: { depot: depot }
+  end
 
   def destroy
-    depot.destroy
+    depot.soft_delete!
 
     render :destroy, locals: { depot: depot }
   end
@@ -31,7 +33,7 @@ class DepotsController < ApplicationController
   private
 
   def depots
-    @depots ||= current_user.depots.includes(:currency, :latest_daily_balance).order(created_at: :desc)
+    @depots ||= current_user.depots.active.includes(:currency, :latest_daily_balance).order(created_at: :desc)
   end
 
   def depot_params
@@ -39,7 +41,7 @@ class DepotsController < ApplicationController
   end
 
   def depot
-    @depot ||= Depot.find(params.require(:id))
+    @depot ||= Depot.active.find(params.require(:id))
   end
 
   def currencies

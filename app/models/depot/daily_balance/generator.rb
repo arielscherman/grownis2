@@ -2,7 +2,7 @@ class Depot::DailyBalance::Generator
   def generate!
     Rate.find_each { |rate| daily_rate_values[rate.id] = rate.fetch_daily_value!(market).value }
 
-    Depot.includes(:latest_daily_balance).find_each do |depot|
+    Depot.active.includes(:latest_daily_balance).find_each do |depot|
       latest_balance = depot.latest_daily_balance
 
       created_balance = Depot::DailyBalance.find_or_create_by!(depot: depot, date: Time.zone.today) do |daily_balance|

@@ -27,3 +27,8 @@ single_depot_deposit:
   depot: depot_with_one_movement
   total_cents: <%= rand(100..999999) %>
   date: <%= 10.days.ago.to_date %>
+
+deposit_in_deleted_depot:
+  depot: deleted_depot
+  total_cents: <%= rand(100..999999) %>
+  date: <%= 10.days.ago.to_date %>

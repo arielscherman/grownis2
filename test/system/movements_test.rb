@@ -36,6 +36,16 @@ class MovementsTest < ApplicationSystemTestCase
     assert_no_selector ".movement[data-id='#{other_user_movement.id}']"
   end
 
+  test "does not display movements from deleted depots" do
+    movement = depot_movements(:deposit_in_deleted_depot)
+
+    sign_in movement.depot.user
+
+    visit movements_url
+
+    assert_no_selector ".movement[data-id='#{movement.id}']"
+  end
+
   test "displays the empty depot for user that has only one fresh" do
     user = users(:valid_with_fresh_depot)
     sign_in user

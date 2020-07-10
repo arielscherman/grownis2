@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_19_225731) do
+ActiveRecord::Schema.define(version: 2020_07_09_222034) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -62,7 +62,9 @@ ActiveRecord::Schema.define(version: 2020_06_19_225731) do
     t.uuid "currency_id", null: false
     t.uuid "rate_id"
     t.uuid "latest_daily_balance_id"
+    t.datetime "deleted_at"
     t.index ["currency_id"], name: "index_depots_on_currency_id"
+    t.index ["deleted_at"], name: "index_depots_on_deleted_at"
     t.index ["latest_daily_balance_id"], name: "index_depots_on_latest_daily_balance_id"
     t.index ["rate_id"], name: "index_depots_on_rate_id"
     t.index ["user_id"], name: "index_depots_on_user_id"

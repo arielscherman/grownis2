@@ -3,10 +3,8 @@ class Charts::Users::ConsolidatedBalancesController < ApplicationController
 
   LIMIT = 20.freeze
 
-  helper_method :placeholder_id
-
   def show
-    @daily_balances = Depot::DailyBalance.joins(depot: :user).where(depots: { user_id: current_user.id }).order(date: :desc).limit(LIMIT)
+    render :show, locals: { daily_balances: Depot::DailyBalance.for_user(current_user).order(date: :desc).limit(LIMIT), placeholder_id: placeholder_id }
   end
 
   def placeholder_id

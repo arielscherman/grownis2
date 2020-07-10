@@ -16,6 +16,16 @@ class Depot::DailyBalanceTest < ActiveSupport::TestCase
     current_balance
   end
 
+  def test_for_user_does_not_include_inactive_depots_balances
+    depot = depots(:deleted_depot)
+
+    result = Depot::DailyBalance.for_user(depot.user)
+
+    depot.daily_balances.each do |daily_balance|
+      assert_not_includes result, daily_balance
+    end
+  end
+
   def test_first_balance_starts_in_zero
     depot = depots(:fresh)
     balance = Depot::DailyBalance.create!(depot: depot,

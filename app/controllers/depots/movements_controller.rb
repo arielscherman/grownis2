@@ -8,7 +8,7 @@ class Depots::MovementsController < ApplicationController
   private
 
   def depot
-    @depot ||= Depot.includes(:currency).references(:currency).where(user_id: current_user.id).find(depot_id)
+    @depot ||= Depot.includes(:currency).references(:currency).where(user_id: current_user.id).active.find(depot_id)
   end
 
   def depot_id

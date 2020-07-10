@@ -38,7 +38,7 @@ class MovementsController < ApplicationController
   end
 
   def movements
-    @movements ||= Depot::Movement.includes(depot: :currency).where(depots: { user_id: current_user.id }).order(date: :desc, id: :desc)
+    @movements ||= Depot::Movement.includes(depot: :currency).where(depots: { user_id: current_user.id }).merge(Depot.active).order(date: :desc, id: :desc)
   end
 
   def movement_id
@@ -50,7 +50,7 @@ class MovementsController < ApplicationController
   end
 
   def depots
-    @depots ||= Depot.where(user: current_user)
+    @depots ||= Depot.where(user: current_user).active
   end
 
   def depot_id
