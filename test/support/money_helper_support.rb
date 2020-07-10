@@ -1,6 +1,8 @@
 module MoneyHelperSupport
+  include ActionView::Helpers::NumberHelper
+
   def amount(amount_in_cents)
-    sprintf("%.2f", amount_in_cents / 100.0)
+    number_to_currency(amount_in_cents / 100.0, unit: "").strip
   end
 
   def percentage(number)

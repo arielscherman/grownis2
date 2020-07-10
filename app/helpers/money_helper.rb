@@ -4,7 +4,7 @@ module MoneyHelper
   end
 
   def display_raw_amount(raw_amount)
-    sprintf("%.2f", raw_amount)
+    number_to_currency(raw_amount, unit: "").strip
   end
 
   def display_percentage(number)
