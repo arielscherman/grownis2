@@ -3,6 +3,12 @@ class Charts::Users::ConsolidatedBalanceComponent < ViewComponent::Base
     @daily_balances = daily_balances
   end
 
+  # It doesn't make sense to render just one day, so let's not do that
+  #
+  def render?
+    data.count > 1
+  end
+
   def json_categories
     formatted_data.map { |daily_data| daily_data[:date] }.to_json
   end

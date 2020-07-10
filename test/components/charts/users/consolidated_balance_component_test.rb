@@ -45,10 +45,10 @@ class Charts::Users::ConsolidatedBalanceComponentTest < ViewComponent::TestCase
     assert_includes result.at_css(".user-consolidated-balance-chart").get_attribute("data-charts--users--consolidated-balance-series"), expected_data.to_json
   end
 
-  test "renders an empty collection if depot has no balances" do
+  test "does not render if there are no balances" do
     depot = depots(:fresh)
-    result = render_inline(Charts::Users::ConsolidatedBalanceComponent.new(depot.daily_balances))
+    render_inline(Charts::Users::ConsolidatedBalanceComponent.new(depot.daily_balances))
 
-    assert_includes result.at_css(".user-consolidated-balance-chart").get_attribute("data-charts--users--consolidated-balance-series"), [{ name: "Total en USD", data: [] }].to_json
+    assert_no_selector ".user-consolidated-balance-chart"
   end
 end
