@@ -10,7 +10,10 @@
     %link{ href: "https://fonts.googleapis.com/css2?family=Overpass:wght@100;200;300;400;600;700;800;900&display=swap", rel: "stylesheet" }
   %body.ui-body
     .ui-brand
-      = link_to "Grownis", root_path, class: "ui-brand-link"
+      = link_to root_path, class: "ui-brand-link" do
+        %span Grown
+        %i.icon-jump
+        %span s
     %header.ui-header
       .ui-header-info
       .ui-header-actions

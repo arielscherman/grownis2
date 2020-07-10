@@ -25,13 +25,25 @@ $ui-header-background: $ui-white;
   border-right: 1px solid $ui-grey-lighter;
   border-bottom: 1px solid $ui-grey-lighter;
   padding-left: $ui-medium;
+  font-family: $ui-font-family-title;
+  font-size: 25px;
+  color: $ui-violet-darkest;
+  font-weight: 900;
 
   .ui-brand-link {
-    font-family: $ui-font-family-title;
-    font-size: 25px;
-    color: $ui-violet-darkest;
-    font-weight: 900;
     text-decoration: none;
+    color: inherit;
+  }
+
+  span {
+    color: inherit;
+  }
+
+  i {
+    color: inherit;
+    margin-left: -5px;
+    margin-right: -5px;
+    font-size: 20px;
   }
 }
 
