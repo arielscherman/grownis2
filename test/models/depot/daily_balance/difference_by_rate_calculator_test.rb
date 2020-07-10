@@ -12,10 +12,10 @@ class Depot::DailyBalance::DifferenceByRateCalculatorTest < ActiveSupport::TestC
     assert_equal described_class.new(previous_balance, nil, 0.0083333).in_cents, -13_63
   end
 
-  test "#in_cents returns zero if there is no previous balance" do
+  test "#in_cents returns new balance if there is no previous balance" do
     balance = Depot::DailyBalance.new(cached_depot_total_in_cents: 20_000_00)
 
-    assert_equal described_class.new(nil, balance, 0.0083333).in_cents, 0
+    assert_equal described_class.new(nil, balance, 0.0083333).in_cents, (20_000_00*0.0083333).to_i
   end
 
   test "#in_cents returns nil if there is no rate" do

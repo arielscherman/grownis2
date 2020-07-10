@@ -10,7 +10,7 @@ class Depot::DailyBalance::DifferenceCalculator < Depot::DailyBalance::Calculato
   end
 
   def in_cents
-    return 0 if @previous_balance.nil?
+    return balance_in_cents if @previous_balance.nil?
     balance_in_cents - previous_balance_in_cents
   end
 

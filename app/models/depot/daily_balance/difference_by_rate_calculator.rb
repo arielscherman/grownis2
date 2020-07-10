@@ -6,14 +6,14 @@ class Depot::DailyBalance::DifferenceByRateCalculator < Depot::DailyBalance::Cal
   end
 
   def in_percentage
-    return 0.0 if @previous_balance.nil?
     return if @rate_value.nil?
+    return 0.0 if @previous_balance.nil?
     variation_between(previous_converted_balance, converted_balance)
   end
 
   def in_cents
-    return 0 if @previous_balance.nil?
     return if @rate_value.nil?
+    return convert(@balance.cached_depot_total_in_cents).to_i if @previous_balance.nil?
     (convert(@previous_balance.cached_depot_total_in_cents) - previous_converted_balance).to_i
   end
 

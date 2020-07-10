@@ -26,15 +26,16 @@ class Depot::DailyBalanceTest < ActiveSupport::TestCase
     end
   end
 
-  def test_first_balance_starts_in_zero
+  def test_first_balance_starts_in_total_cents
     depot = depots(:fresh)
     balance = Depot::DailyBalance.create!(depot: depot,
                                           date: Time.zone.today,
-                                          cached_depot_total_in_cents: 1500_00)
+                                          cached_depot_total_in_cents: 1500_00,
+                                          cached_rate_value: 2)
 
-    assert_nil   balance.cached_depot_total_by_rate_in_cents
-    assert_equal balance.cached_difference_in_cents, 0
-    assert_equal balance.cached_difference_by_rate_in_cents, 0
+    assert_equal balance.cached_depot_total_by_rate_in_cents, 3000_00
+    assert_equal balance.cached_difference_in_cents, 1500_00
+    assert_equal balance.cached_difference_by_rate_in_cents, 3000_00
     assert_equal balance.cached_difference_in_percentage, 0.00
     assert_equal balance.cached_difference_by_rate_in_percentage, 0.00
   end
