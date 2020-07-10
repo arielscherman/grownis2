@@ -1,12 +1,13 @@
 require "application_system_test_case"
 
 class MovementsTest < ApplicationSystemTestCase
-  test "visiting the index" do
+  test "shows the page and highlight nav link" do
     sign_in users(:valid)
 
     visit movements_url
 
     assert_selector "h1", text: "Movimientos"
+    assert_selector ".active[href='#{movements_path}']"
   end
 
   test "displays all movements from multiple depots" do

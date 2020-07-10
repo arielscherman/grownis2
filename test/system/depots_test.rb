@@ -1,12 +1,13 @@
 require "application_system_test_case"
 
 class DepotsTest < ApplicationSystemTestCase
-  test "visiting the index" do
+  test "shows the page and highlight nav link" do
     sign_in users(:valid)
 
     visit depots_url
 
     assert_selector "h1", text: "Billeteras"
+    assert_selector ".active[href='#{depots_path}']"
   end
 
   test "shows an empty collection for a fresh users" do

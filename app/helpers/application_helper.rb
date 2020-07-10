@@ -11,4 +11,16 @@ module ApplicationHelper
       concat content_tag(:p, "Cargando", class: "ui-spin")
     end
   end
+
+  def current_page?(controller:, action:)
+    if action.present?
+      Array(controller).include?(controller_name) && action_name == action
+    else
+      Array(controller).include?(controller_name)
+    end
+  end
+
+  def active_class_for(controller:, action: nil)
+    "active" if current_page?(controller: controller.to_s, action: action.to_s)
+  end
 end

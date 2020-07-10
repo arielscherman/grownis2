@@ -13,6 +13,11 @@
   &:hover {
     color: $ui-violet;
   }
+
+  &.active {
+    color: $ui-violet-dark;
+    font-weight: bold;
+  }
 }
 
 .ui-sidebar ul li.ui-sidebar-link a p {

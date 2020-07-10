@@ -5,6 +5,10 @@
 .ui-page-header
   %h1= depot.name
 
+  = link_to depot_movements_path(depot), class: "ui-button ui-button-primary outline" do
+    %i.icon-tab
+    %span Ver Movimientos
+
 .ui-page-content
   .depot-dashboard
     .ui-card.depot-card-balance

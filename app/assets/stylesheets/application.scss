@@ -11,3 +11,9 @@
 @import "depots/**/*";
 @import "choices_overrides";
 @import "theme";
+
+// override position of all icons in the iconset
+[class^="icon-"], [class*=" icon-"] {
+  position: relative;
+  top: 1px;
+}

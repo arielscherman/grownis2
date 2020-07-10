@@ -144,3 +144,13 @@ $ui-button-padding-big: 14px 20px;
     }
   }
 }
+
+// make inherit of basic classes colors
+.ui-button i,
+.ui-button span {
+  color: inherit;
+}
+
+.ui-button i {
+  margin-right: $ui-tiny;
+}

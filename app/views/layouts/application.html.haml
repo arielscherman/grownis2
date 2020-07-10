@@ -19,11 +19,11 @@
       %ul
         %li.ui-sidebar-link-category Menu
         %li.ui-sidebar-link
-          = link_to depots_path do
+          = link_to depots_path, class: active_class_for(controller: :depots) do
             %i.icon-wallet
             %p Billeteras
         %li.ui-sidebar-link
-          = link_to movements_path do
+          = link_to movements_path, class: active_class_for(controller: :movements, action: :index) do
             %i.icon-tab
             %p Movimientos
     %section.ui-main

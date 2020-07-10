@@ -17,6 +17,16 @@
   margin: $ui-medium;
 }
 
+.ui-card .ui-card-header-secondary {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  .ui-button:not(first-child) {
+    margin-left: $ui-small;
+  }
+}
+
 .ui-card .ui-card-content {
   margin: $ui-medium;
 
