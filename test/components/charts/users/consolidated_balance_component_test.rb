@@ -11,7 +11,7 @@ class Charts::Users::ConsolidatedBalanceComponentTest < ViewComponent::TestCase
   test "render the data attributes for titles and categories" do
     depot = depots(:american_bank)
     render_inline(Charts::Users::ConsolidatedBalanceComponent.new(depot.daily_balances))
-    dates = depot.daily_balances.map { |daily_balance| I18n.l(daily_balance.date, format: :short) }.sort
+    dates = depot.daily_balances.order(date: :asc).map { |daily_balance| I18n.l(daily_balance.date, format: :short) }
 
     assert_selector(".user-consolidated-balance-chart[data-charts--users--consolidated-balance-categories='#{dates.to_json}']")
   end

@@ -21,8 +21,8 @@ class Charts::DailyBalanceWithRateComponent < Charts::DailyBalanceComponent
   def formatted_data
     @formatted_data ||= data.map do |daily_data|
       { date:          I18n.l(daily_data.first, format: :short),
-        total:         helpers.display_amount_with_symbol(daily_data.second, currency_symbol),
-        total_by_rate: helpers.display_amount_with_symbol(daily_data.last, rate_symbol) }
+        total:         helpers.display_amount_for_chart(daily_data.second),
+        total_by_rate: helpers.display_amount_for_chart(daily_data.last) }
     end
   end
 

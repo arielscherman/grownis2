@@ -33,7 +33,7 @@ class Charts::DailyBalanceComponent < ViewComponent::Base
 
   def format_daily_data(daily_data)
     { date:  I18n.l(daily_data.first, format: :short),
-      total: helpers.display_amount_with_symbol(daily_data.second, currency_symbol) }
+      total: helpers.display_amount_for_chart(daily_data.second) }
   end
 
   def currency_symbol

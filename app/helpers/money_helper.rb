@@ -7,6 +7,10 @@ module MoneyHelper
     number_to_currency(raw_amount, unit: "").strip
   end
 
+  def display_amount_for_chart(amount_in_cents)
+    "#{sprintf("%.2f", amount_in_cents / 100.0)}"
+  end
+
   def display_percentage(number)
     "#{sprintf("%.2f", number)}%"
   end

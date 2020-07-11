@@ -27,14 +27,14 @@ class Charts::DailyBalanceWithRateComponentTest < ViewComponent::TestCase
 
     expected_data = [{
       name: "Balance en ARS",
-      data: [amount_with_currency(daily_balances.first.cached_depot_total_in_cents, "ARS"),
-             amount_with_currency(daily_balances.second.cached_depot_total_in_cents, "ARS"),
-             amount_with_currency(daily_balances.last.cached_depot_total_in_cents, "ARS")]
+      data: [amount_for_chart(daily_balances.first.cached_depot_total_in_cents),
+             amount_for_chart(daily_balances.second.cached_depot_total_in_cents),
+             amount_for_chart(daily_balances.last.cached_depot_total_in_cents)]
     }, {
       name: "Equivalente en USD",
-      data: [amount_with_currency(daily_balances.first.cached_depot_total_by_rate_in_cents, "USD"),
-             amount_with_currency(daily_balances.second.cached_depot_total_by_rate_in_cents, "USD"),
-             amount_with_currency(daily_balances.last.cached_depot_total_by_rate_in_cents, "USD")]
+      data: [amount_for_chart(daily_balances.first.cached_depot_total_by_rate_in_cents),
+             amount_for_chart(daily_balances.second.cached_depot_total_by_rate_in_cents),
+             amount_for_chart(daily_balances.last.cached_depot_total_by_rate_in_cents)]
     }]
 
     assert_includes result.at_css(".daily-balance-chart").get_attribute("data-charts--daily-balance-series"), expected_data.to_json

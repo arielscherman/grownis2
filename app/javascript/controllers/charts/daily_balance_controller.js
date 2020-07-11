@@ -48,6 +48,9 @@ export default class extends Controller {
       },
       opposite: opposite,
       labels: {
+        formatter: function(value) {
+          return value.toLocaleString('es-AR', { style: 'decimal' })
+        },
         style: {
           colors: color
         }

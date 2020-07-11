@@ -12,4 +12,8 @@ module MoneyHelperSupport
   def amount_with_currency(amount_in_cents, currency_symbol)
     "#{amount(amount_in_cents)} #{currency_symbol}"
   end
+
+  def amount_for_chart(amount_in_cents)
+    "#{sprintf("%.2f", amount_in_cents / 100.0)}"
+  end
 end
