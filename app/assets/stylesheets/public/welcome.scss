@@ -1,0 +1,115 @@
+.how-it-works {
+  margin-top: $ui-xlarge;
+  display: grid;
+  grid-template-columns: 1fr $content-size 1fr;
+  grid-template-areas: ". content .";
+
+  .how-it-works-content {
+    grid-area: content;
+    margin-top: $ui-medium;
+
+    .how-it-works-title {
+      display: flex;
+      justify-content: flex-start;
+      align-items: baseline;
+
+      h2 {
+        margin: 0;
+        margin-left: $ui-small;
+        text-align: left;
+        font-size: 30px;
+        color: $ui-violet;
+      }
+
+      i {
+        top: 0;
+        color: $ui-violet;
+        font-size: 24px;
+      }
+    }
+  }
+}
+
+.how-it-works-steps {
+  display: flex;
+  justify-content: space-between;
+
+  .how-it-works-step {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    margin-top: $ui-xxlarge;
+    text-align: center;
+    max-width: 320px;
+
+    h3 {
+      margin-bottom: $ui-small;
+      color: $ui-red-darker;
+      font-size: 18px;
+    }
+
+    svg, p {
+      margin-bottom: $ui-xlarge;
+    }
+  }
+}
+
+.currencies {
+  margin-top: $ui-xlarge;
+  display: grid;
+  grid-template-columns: 1fr $content-size 1fr;
+  grid-template-areas: ". content .";
+  background: $ui-violet-lightest;
+
+  .currencies-content {
+    grid-area: content;
+    margin-top: $ui-medium;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.currency-title {
+  display: flex;
+  align-items: baseline;
+  
+  h3 {
+    color: $ui-violet;
+    margin-left: $ui-small;
+    font-size: 30px;
+  }
+
+  i {
+    font-weight: bold;
+    color: $ui-violet;
+    font-size: 24px;
+  }
+}
+
+.currency-items {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+  .currency {
+    position: relative;
+    margin-left: $ui-xlarge;
+
+    svg {
+      width: 80px;
+    }
+
+    p {
+      position: absolute;
+      top: 65%;
+      right: 0;
+      border: 1px solid $ui-yellow;
+      color: $ui-yellow-darker;
+      background: $ui-yellow-lightest;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-radius: 5px;
+    }
+  }
+}

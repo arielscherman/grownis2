@@ -1,0 +1,136 @@
+$content-size: minmax(800px, 1120px);
+
+@import "colors";
+@import "colors/mixins";
+@import "sizes";
+@import "typography";
+@import "inputs";
+@import "normalize";
+@import "font-icons";
+@import "components/**/*";
+@import "public/welcome";
+
+.ui-body {
+  font-family: $ui-font-family;
+  display: flex;
+  flex-direction: column;
+}
+
+nav.ui-nav {
+  background: $ui-violet;
+  display: grid;
+  grid-template-columns: 1fr $content-size 1fr;
+  grid-template-rows: 80px;
+  grid-template-areas: ". content .";
+
+  .ui-nav-content {
+    grid-area: content;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .ui-brand {
+      font-size: 24px;
+    }
+
+    .ui-nav-content-right {
+      display: flex;
+      align-items: center;
+
+      .ui-button {
+        border-radius: 50px;
+
+        &:not(first-child) {
+          margin-left: $ui-small;
+        }
+      }
+    }
+  }
+}
+
+.ui-brand {
+  font-weight: bold;
+  color: $ui-white;
+
+  a, span, i {
+    color: inherit;
+  }
+
+  i {
+    color: inherit;
+    margin-left: -5px;
+    margin-right: -5px;
+    font-size: 20px;
+  }
+}
+
+nav.ui-header {
+}
+
+header.ui-header {
+  grid-area: header;
+  background: linear-gradient($ui-violet, darken($ui-violet, 10%));
+  min-height: 400px;
+  text-align: left;
+
+  display: grid;
+  grid-template-columns: 1fr $content-size 1fr;
+  grid-template-rows: 400px;
+  grid-template-areas: ". content .";
+
+  .ui-header-content {
+    grid-area: content;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .ui-header-content-left {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      color: $ui-white;
+
+      h1 {
+        font-size: 32px;
+        margin: 0;
+        margin-bottom: $ui-small;
+        color: inherit;
+      }
+
+      p {
+        text-align: center;
+        color: inherit;
+        margin-bottom: $ui-xlarge;
+      }
+
+      .ui-button {
+        align-self: center;
+        font-size: 18px;
+        border-width: 2px;
+
+        i {
+          font-weight: bold;
+        }
+      }
+    }
+
+    .ui-header-content-right {
+      flex-grow: 1;
+      height: 100%;
+      min-width: 600px;
+
+      svg {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        top: 85px;
+      }
+    }
+  }
+}
+
+// override position of all icons in the iconset
+[class^="icon-"], [class*=" icon-"] {
+  position: relative;
+  top: 1px;
+}

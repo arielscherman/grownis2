@@ -1,0 +1,25 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title Grownis
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag 'landing', media: 'all', 'data-turbolinks-track': 'reload'
+    %link{ href: "https://fonts.googleapis.com/css2?family=Overpass:wght@100;200;300;400;600;700;800;900&display=swap", rel: "stylesheet" }
+  %body.ui-body
+    %nav.ui-nav
+      .ui-nav-content
+        .ui-brand
+          = link_to root_path, class: "ui-brand-link" do
+            %span Grown
+            %i.icon-jump
+            %span s
+        .ui-nav-content-right
+          = link_to new_session_path("user"), class: "ui-button ui-button-white outline" do
+            %i.icon-enter-right
+            %span Ingresá
+          = link_to new_registration_path("user"), class: "ui-button ui-button-white" do
+            %i.icon-user-plus
+            %span Registrate
+    = yield

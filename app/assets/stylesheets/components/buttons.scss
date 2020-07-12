@@ -145,6 +145,22 @@ $ui-button-padding-big: 14px 20px;
   }
 }
 
+.ui-button.ui-button-white {
+  background: $ui-white;
+  color: $ui-violet-darkest;
+
+  &.outline {
+    background: transparent;
+    color: $ui-white;
+    border: 1px solid $ui-white;
+
+    &:hover {
+      color: $ui-violet-darkest;
+      background: $ui-white;
+    }
+  }
+}
+
 // make inherit of basic classes colors
 .ui-button i,
 .ui-button span {

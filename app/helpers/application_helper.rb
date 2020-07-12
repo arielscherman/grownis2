@@ -23,4 +23,12 @@ module ApplicationHelper
   def active_class_for(controller:, action: nil)
     "active" if current_page?(controller: controller.to_s, action: action.to_s)
   end
+
+  def svg_tag(filename, options = {})
+    path = image_path filename
+    path += "##{filename.rpartition('/').last.gsub(/\.svg+$/, '')}"
+    content_tag :svg, options do
+      content_tag :use, nil, "xlink:href": path
+    end
+  end
 end

@@ -1,0 +1,48 @@
+%header.ui-header
+  .ui-header-content
+    .ui-header-content-left
+      %h1 Administrá tus ahorros e inversiones de manera inteligente.
+      %p Llevá un control de tus ahorros e inversiones, y obtené información respecto a variaciones en los precios (como la devaluación de monedas) para que puedas tomar decisiones informadas.
+      = link_to new_registration_path("user"), class: "ui-button ui-button-white outline" do
+        %i.icon-user-plus
+        %span Registrate Gratis
+    .ui-header-content-right
+      = svg_tag "finances_landing"
+
+%section.how-it-works
+  .how-it-works-content
+    .how-it-works-title
+      %i.icon-hammer-wrench
+      %h2 Cómo funciona?
+    .how-it-works-steps
+      .how-it-works-step
+        = svg_tag "manage_assets"
+        %h3 1. Administrás tus activos
+        %p Ingresá tus ahorros en distintas monedas e inversiones en acciones, para que podamos calcular totales y variaciones periódicas.
+      .how-it-works-step
+        %h3 2. Analizamos variaciones de precios
+        %p Periódicamente analizamos los precios de las monedas y acciones para entender cómo afecta tu portafolio, calculando variaciones y totales.
+        = svg_tag "fetch_rates"
+      .how-it-works-step
+        = svg_tag "reports"
+        %h3 3. Obtenés tus reportes
+        %p Verás información sobre tu portafolio, como cuántos dólares tenés, cómo se fueron apreciando/depreciando tus ahorros en otras monedas, y más!
+
+%section.currencies
+  .currencies-content
+    .currency-title
+      %i.icon-wallet
+      %h3 Monedas que integramos
+    .currency-items
+      .currency{ title: "Pesos Argentinos" }
+        = svg_tag "currencies/ars"
+        %p ars
+      .currency{ title: "Dólares" }
+        = svg_tag "currencies/usd"
+        %p usd
+      .currency{ title: "Bitcoin" }
+        = svg_tag "currencies/btc"
+        %p btc
+      .currency{ title: "Ethereum" }
+        = svg_tag "currencies/eth"
+        %p eth
