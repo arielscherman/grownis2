@@ -1,32 +1,30 @@
 .how-it-works {
+  @include grid-template-column($content-size);
   margin-top: $ui-xlarge;
-  display: grid;
-  grid-template-columns: 1fr $content-size 1fr;
-  grid-template-areas: ". content .";
 
   .how-it-works-content {
     grid-area: content;
     margin-top: $ui-medium;
+  }
+}
 
-    .how-it-works-title {
-      display: flex;
-      justify-content: flex-start;
-      align-items: baseline;
+.how-it-works-title {
+  display: flex;
+  justify-content: flex-start;
+  align-items: baseline;
 
-      h2 {
-        margin: 0;
-        margin-left: $ui-small;
-        text-align: left;
-        font-size: 30px;
-        color: $ui-violet;
-      }
+  h2 {
+    margin: 0;
+    margin-left: $ui-small;
+    text-align: left;
+    font-size: 30px;
+    color: $ui-violet;
+  }
 
-      i {
-        top: 0;
-        color: $ui-violet;
-        font-size: 24px;
-      }
-    }
+  i {
+    top: 0;
+    color: $ui-violet;
+    font-size: 24px;
   }
 }
 
@@ -55,10 +53,9 @@
 }
 
 .currencies {
+  @include grid-template-column($content-size);
+
   margin-top: $ui-xlarge;
-  display: grid;
-  grid-template-columns: 1fr $content-size 1fr;
-  grid-template-areas: ". content .";
   background: $ui-violet-lightest;
 
   .currencies-content {
