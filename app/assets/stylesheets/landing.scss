@@ -129,6 +129,45 @@ header.ui-header {
   }
 }
 
+.ui-footer {
+  background: $ui-violet-dark;
+  display: grid;
+  grid-template-columns: 1fr $content-size 1fr;
+  grid-template-areas: ". content .";
+
+  .ui-footer-content {
+    grid-area: content;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: $ui-large 0;
+
+    .ui-footer-content-title {
+      display: flex;
+      align-items: baseline;
+      color: $ui-violet-lighter;
+      font-size: 18px;
+
+      h4 {
+        margin: 0;
+        margin-left: $ui-xsmall;
+        color: inherit;
+        margin-bottom: $ui-small;
+      }
+
+      i {
+        font-weight: bold;
+        color: inherit;
+      }
+    }
+
+    p {
+      margin-bottom: 0;
+      color: $ui-violet-lighter;
+    }
+  }
+}
+
 // override position of all icons in the iconset
 [class^="icon-"], [class*=" icon-"] {
   position: relative;

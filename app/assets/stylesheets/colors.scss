@@ -25,6 +25,7 @@ $ui-violet: #727cf5;
 $ui-violet-dark: #4e5bf2;
 $ui-violet-darker: #4250f2;
 $ui-violet-darkest: #031a61;
+$ui-violet-lighter: lighten($ui-violet, 19%);
 $ui-violet-lightest: lighten($ui-violet, 26%);
 
 $ui-green: #10b759;
