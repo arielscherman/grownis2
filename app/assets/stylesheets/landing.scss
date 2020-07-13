@@ -1,4 +1,4 @@
-$content-size: minmax(600px, 1180px);
+$content-size: minmax(200px, 1180px);
 
 @mixin grid-template-column($width) {
   display: grid;

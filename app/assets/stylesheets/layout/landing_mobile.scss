@@ -1,2 +1,40 @@
 @media (max-width: $ui-mobile-max-width) {
+  header.ui-header .ui-header-content {
+    .ui-header-content-right {
+      display: none;
+    }
+  }
+
+  .how-it-works-steps {
+    .how-it-works-step {
+      column-gap: $ui-small;
+      row-gap: $ui-xsmall;
+      grid-template-columns: 100px 1fr;
+      grid-template-rows: auto 1fr;
+
+      svg {
+        max-width: 100px;
+        max-height: 80px;
+      }
+
+      &.inverted {
+        grid-template-columns: 100px 1fr;
+        grid-template-rows: auto 1fr;
+        grid-template-areas:
+          "image title"
+          "image description";
+        }
+    }
+  }
+
+  .ui-footer {
+    .ui-footer-content {
+      flex-direction: column;
+
+      .ui-footer-content-right {
+        text-align: center;
+        margin-top: $ui-large;
+      }
+    }
+  }
 }

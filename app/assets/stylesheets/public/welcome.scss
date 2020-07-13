@@ -34,19 +34,38 @@
 
   .how-it-works-step {
     flex-grow: 1;
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 320px;
+    grid-template-areas:
+      "image"
+      "title"
+      "description";
+    place-content: center;
+
     margin-top: $ui-xxlarge;
     text-align: center;
-    max-width: 320px;
+
+    &.inverted {
+      grid-template-areas:
+        "title"
+        "description"
+        "image";
+    }
 
     h3 {
+      grid-area: title;
       margin-bottom: $ui-small;
       color: $ui-red-darker;
       font-size: 18px;
     }
 
-    svg, p {
+    svg {
+      grid-area: image;
+      margin-bottom: $ui-xlarge;
+    }
+
+    p {
+      grid-area: description;
       margin-bottom: $ui-xlarge;
     }
   }
