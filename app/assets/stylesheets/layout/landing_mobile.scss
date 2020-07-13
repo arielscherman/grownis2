@@ -1,0 +1,18 @@
+@media (max-width: $ui-mobile-max-width) {
+  header.ui-header .ui-header-content {
+    .ui-header-content-right {
+      display: none;
+    }
+  }
+
+  .ui-footer {
+    .ui-footer-content {
+      flex-direction: column;
+
+      .ui-footer-content-right {
+        text-align: center;
+        margin-top: $ui-large;
+      }
+    }
+  }
+}
