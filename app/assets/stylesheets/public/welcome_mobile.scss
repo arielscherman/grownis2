@@ -1,0 +1,23 @@
+@media (max-width: $ui-mobile-max-width) {
+  .how-it-works-steps {
+    .how-it-works-step {
+      column-gap: $ui-small;
+      row-gap: $ui-xsmall;
+      grid-template-columns: 100px 1fr;
+      grid-template-rows: auto 1fr;
+
+      svg {
+        max-width: 100px;
+        max-height: 80px;
+      }
+
+      &.inverted {
+        grid-template-columns: 100px 1fr;
+        grid-template-rows: auto 1fr;
+        grid-template-areas:
+          "image title"
+          "image description";
+        }
+    }
+  }
+}
