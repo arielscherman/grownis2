@@ -50,9 +50,6 @@ nav.ui-nav {
   }
 }
 
-nav.ui-header {
-}
-
 header.ui-header {
   @include grid-template-column($content-size);
 
