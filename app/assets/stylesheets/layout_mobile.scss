@@ -1,0 +1,19 @@
+@media (max-width: $ui-mobile-max-width) {
+  .ui-body {
+    grid-template-columns: 240px 1fr 1fr 1fr;
+    grid-template-rows: 60px auto 1fr;
+    grid-template-areas: 
+      "brand header header header"
+      "sidebar sidebar sidebar sidebar"
+      "main main main main";
+  }
+
+  .ui-brand {
+    border-right: 0;
+  }
+
+  .ui-header {
+    box-shadow: none;
+    border-bottom: 1px solid $ui-grey-lighter;
+  }
+}

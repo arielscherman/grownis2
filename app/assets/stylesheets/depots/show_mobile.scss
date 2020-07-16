@@ -1,0 +1,45 @@
+@media (max-width: $ui-tight-max-width) {
+  .depot-dashboard {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas: 
+      "depot-balance depot-rated-balance"
+      "rate-value rate-value"
+      "depot-graph depot-graph";
+
+    .depot-balance {
+      font-size: 1.3em;
+    }
+
+    .rate-card-value .ui-card-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .ui-card-body {
+        margin: 0;
+      }
+    }
+  }
+}
+
+@media (max-width: $ui-mobile-max-width) {
+  .depot-dashboard {
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+      "depot-balance"
+      "depot-rated-balance"
+      "rate-value"
+      "depot-graph";
+
+    .depot-card-balance .ui-card-content,
+    .depot-card-rated-balance .ui-card-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .ui-card-body {
+        margin: 0;
+      }
+    }
+  }
+}
