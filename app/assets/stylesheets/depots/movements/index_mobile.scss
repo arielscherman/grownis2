@@ -1,0 +1,18 @@
+@media (max-width: $ui-tight-max-width) {
+  .card-actions {
+    grid-template-columns: auto;
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: 0;
+    grid-row-gap: $ui-small;
+  }
+}
+
+@media (max-width: $ui-mobile-max-width) {
+  .card-actions {
+    padding-bottom: $ui-large;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+    grid-row-gap: 0;
+    grid-column-gap: $ui-medium;
+  }
+}

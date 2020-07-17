@@ -1,0 +1,52 @@
+@media (max-width: $ui-tight-max-width) {
+  .ui-table.movements-list-component {
+    .ui-table-row {
+      &:nth-child(2) { // first item is header, so second is first row
+        padding-top: 0;
+        border-top: 0;
+      }
+
+      grid-template-columns: 1fr 100px;
+      grid-column-gap: $ui-medium;
+      grid-template-areas:
+        "amount date"
+        "description actions";
+
+      &.header {
+        display: none;
+      }
+
+      &.with-depot {
+        grid-template-columns: 1fr 100px;
+        grid-template-areas:
+          "amount date"
+          "depot actions"
+          "description .";
+      }
+
+      .column-amount {
+        grid-area: amount;
+      }
+
+      .column-date {
+        grid-area: date;
+      }
+
+      .column-depot {
+        grid-area: depot;
+      }
+
+      .column-description {
+        grid-area: description;
+      }
+
+      .column-actions {
+        grid-area: actions;
+      }
+
+      .column-amount {
+        grid-area: amount;
+      }
+    }
+  }
+}

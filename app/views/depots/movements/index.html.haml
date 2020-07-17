@@ -8,7 +8,7 @@
       .ui-card-header-main
         .ui-card-title= depot.name
         %span.depot-balance= display_amount_with_symbol(depot.cached_total_cents, depot.currency_symbol)
-      .ui-card-header-secondary
+      .ui-card-header-secondary.card-actions
         = link_to depot_path(depot), class: "ui-button ui-button-primary outline" do
           %i.icon-wallet
           %span Ver Billetera

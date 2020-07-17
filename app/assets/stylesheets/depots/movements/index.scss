@@ -2,3 +2,11 @@
   margin-top: $ui-small;
   display: block;
 }
+
+.card-actions {
+  display: grid;
+  grid-column-gap: $ui-medium;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: auto;
+  align-items: start;
+}

@@ -1,0 +1,10 @@
+@media (max-width: $ui-tight-max-width) {
+  .ui-card .ui-card-header {
+  }
+}
+
+@media (max-width: $ui-mobile-max-width) {
+  .ui-card .ui-card-header {
+    flex-direction: column-reverse;
+  }
+}

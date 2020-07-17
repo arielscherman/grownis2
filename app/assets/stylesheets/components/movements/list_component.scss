@@ -1,6 +1,6 @@
 .ui-table.movements-list-component {
   .ui-table-row {
-    grid-template-columns: repeat(3, 1fr) minmax(100px, 0fr);
+    grid-template-columns: repeat(3, minmax(150px, 1fr)) minmax(100px, 0fr);
 
     &.with-depot {
       grid-template-columns: repeat(4, 1fr) minmax(100px, 0fr);
