@@ -1,0 +1,75 @@
+.ui-body {
+  display: flex;
+}
+
+.ui-card.public-form {
+  display: flex;
+  margin: auto;
+  width: calc(100% - #{$ui-medium});
+  max-width: 1200px;
+  box-shadow: 0 4px 6px -1px rgba(0,0,0,.1),0 2px 4px -1px rgba(0,0,0,.06);
+}
+
+.public-form-content {
+  padding: $ui-large $ui-xxlarge;
+  width: 800px;
+
+  .ui-brand {
+    font-size: 36px;
+    justify-content: center;
+    border: 0;
+    padding-left: 0;
+
+    i {
+      font-size: 0.8em;
+    }
+  }
+}
+
+.public-form-content .ui-alert {
+  margin-top: $ui-medium;
+}
+
+.public-form-content .ui-separator {
+  margin: $ui-large 0;
+}
+
+.public-form-content .actions .ui-button {
+  margin-top: $ui-medium;
+}
+
+.public-form-content .grouped-fields {
+  display: flex;
+  flex-wrap: wrap-reverse;
+  justify-content: space-between;
+  margin-top: $ui-medium;
+}
+
+.public-form-brand {
+  flex: 1 1 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  flex-direction: column;
+  background: $ui-violet-darker;
+  padding: $ui-medium;
+
+  h1 {
+    font-size: 48px;
+    font-weight: bold;
+    text-align: left;
+    color: $ui-white;
+    margin: 0;
+    max-width: calc(100% - #{$ui-gigantic});
+  }
+
+  p {
+    font-size: 18px;
+    color: lighten($ui-violet-darker, 25%);
+    margin: 0;
+    margin-top: $ui-large;
+    text-align: left;
+    max-width: calc(100% - #{$ui-gigantic});
+  }
+}

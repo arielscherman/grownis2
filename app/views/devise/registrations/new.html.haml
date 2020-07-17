@@ -1,6 +1,11 @@
 .ui-card.public-form
   .public-form-content
-    %h3.brand Grownis
+    .ui-brand
+      = link_to root_path, class: "ui-brand-link" do
+        %span Grown
+        %i.icon-jump
+        %span s
+    %header.ui-header
     = render "devise/shared/error_messages", resource: resource
     = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
       .ui-field

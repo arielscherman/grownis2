@@ -1,0 +1,15 @@
+@media (max-width: $ui-tight-max-width) {
+  .public-form-brand {
+    padding: 0;
+
+    h1 {
+      font-size: 36px;
+    }
+  }
+}
+
+@media (max-width: $ui-mobile-max-width) {
+  .public-form-brand {
+    display: none;
+  }
+}
