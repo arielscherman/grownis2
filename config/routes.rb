@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: 'users/registrations' }
 
-  root to: "depots#index"
+  authenticated :user do
+    root to: "depots#index", as: :authenticated_root
+  end
 
-  get "public/welcome", to: "public/welcome#index"
+  root to: "public/welcome#index"
 
   namespace :charts, constraints: { format: :js } do
     scope "/:depot_id" do
