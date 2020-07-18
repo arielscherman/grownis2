@@ -20,7 +20,7 @@
     - if depot.latest_daily_balance && depot.rate_id
       .ui-card.depot-card-rated-balance
         .ui-card-content
-          .ui-card-title= "Equivalente en #{depot.rate.name}"
+          .ui-card-title= "Equivalente"
           .ui-card-body
             %span.depot-balance= display_amount_with_symbol(depot.latest_daily_balance.cached_depot_total_by_rate_in_cents, depot.rate.to_currency.symbol)
 
@@ -28,7 +28,7 @@
         .ui-card-content
           .ui-card-title= depot.rate.name
           .ui-card-body
-            %span.depot-balance= display_raw_amount_with_symbol(depot.latest_daily_balance.absolute_rate_value, depot.currency.symbol)
+            %span.depot-balance= display_raw_amount_with_symbol(depot.latest_daily_balance.informative_rate_value, depot.latest_daily_balance.informative_rate_currency.symbol)
 
     .ui-card.depot-card-graph
       .ui-card-content

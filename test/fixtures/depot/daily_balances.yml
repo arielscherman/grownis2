@@ -48,3 +48,12 @@ balance_for_american_bank_2_days_ago:
   cached_depot_total_in_cents: 1500_00
   cached_difference_in_cents: 0
   cached_difference_in_percentage: 0.00
+
+balance_for_ledger_btc_1_day_ago:
+  depot: ledger_btc
+  date: <%= 1.day.ago.to_date %>
+  cached_rate_value: 9500
+  cached_depot_total_in_cents: 1500_00
+  cached_depot_total_by_rate_in_cents: 1_50
+  cached_difference_in_cents: 0
+  cached_difference_in_percentage: 0.00

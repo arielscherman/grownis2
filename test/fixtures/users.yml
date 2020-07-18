@@ -2,18 +2,22 @@ valid:
   username: johnbeck
   email: johnbeck@gmail.com
   encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
+  confirmed_at: <%= 1.day.ago %>
 
 valid_with_one_depot:
   username: stuartexxon
   email: stuart@gmail.com
   encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
+  confirmed_at: <%= 1.day.ago %>
 
 valid_without_depots:
   username: joshfoo
   email: joshfoo@gmail.com
   encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
+  confirmed_at: <%= 1.day.ago %>
 
 valid_with_fresh_depot:
   username: danygrol
   email: danygrol@gmail.com
   encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
+  confirmed_at: <%= 1.day.ago %>

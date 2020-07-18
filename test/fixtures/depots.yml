@@ -4,12 +4,22 @@ national_bank:
   currency: ars
   rate: ars_in_dolar_blue
   latest_daily_balance: balance_for_national_bank_1_day_ago
+  cached_total_cents: 150_000_00
 
 american_bank:
   name: Wells Fargo
   user: valid
   currency: usd
   latest_daily_balance: balance_for_american_bank_1_day_ago
+  cached_total_cents: 22_000_00
+
+ledger_btc:
+  name: Ledger BTC
+  user: valid
+  currency: btc
+  rate: btc_in_usd
+  latest_daily_balance: balance_for_ledger_btc_1_day_ago
+  cached_total_cents: 1_50
 
 fresh:
   name: Just created depot
@@ -22,6 +32,7 @@ depot_with_one_movement:
   user: valid_with_one_depot
   currency: ars
   rate: ars_in_dolar_blue
+  cached_total_cents: 120_000_00
 
 deleted_depot:
   name: Deleted depot
@@ -29,3 +40,4 @@ deleted_depot:
   currency: ars
   rate: ars_in_dolar_blue
   deleted_at: <%= 1.day.ago %>
+  cached_total_cents: 80_000_00

@@ -2,7 +2,11 @@ module MoneyHelperSupport
   include ActionView::Helpers::NumberHelper
 
   def amount(amount_in_cents)
-    number_to_currency(amount_in_cents / 100.0, unit: "").strip
+    raw_amount(amount_in_cents / 100.0)
+  end
+
+  def raw_amount(raw_amount)
+    number_to_currency(raw_amount, unit: "").strip
   end
 
   def percentage(number)
@@ -11,6 +15,10 @@ module MoneyHelperSupport
 
   def amount_with_currency(amount_in_cents, currency_symbol)
     "#{amount(amount_in_cents)} #{currency_symbol}"
+  end
+
+  def raw_amount_with_currency(raw_amount, currency_symbol)
+    "#{raw_amount(raw_amount)} #{currency_symbol}"
   end
 
   def amount_for_chart(amount_in_cents)

@@ -17,8 +17,24 @@ class Depot::DailyBalance < ApplicationRecord
     end
   end
 
-  def absolute_rate_value
-    (1 / cached_rate_value).round(2)
+  # In cases like rates in ars, the price to show for the rate is in ARS (ex: USD value is
+  # 120 ARS), however for crypto, the price is measure in the goal currency USD (ex:
+  # BTC is 9500 USD).
+  #
+  def informative_rate_value
+    if depot.rate.measured_in_currency?
+      (1 / cached_rate_value).round(2)
+    else
+      cached_rate_value.round(2)
+    end
+  end
+
+  def informative_rate_currency
+    if depot.rate.measured_in_currency?
+      depot.currency
+    else
+      depot.rate.to_currency
+    end
   end
 
   def cents_in_usd

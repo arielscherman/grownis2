@@ -63,4 +63,18 @@ class Depot::DailyBalanceTest < ActiveSupport::TestCase
     today_by_rate_in_cents     = (16_000_00 * (1/120.0)).to_i
     assert_equal build_balance.cached_difference_by_rate_in_percentage, ((today_by_rate_in_cents / yesterday_by_rate_in_cents.to_r) - 1) * 100
   end
+
+  test "informative_rate_value returns the cached rated value if not measured in origin currency" do
+    daily_balance = depot_daily_balances(:balance_for_national_bank_1_day_ago)
+
+    assert_equal daily_balance.informative_rate_value, (1 / daily_balance.cached_rate_value).round(2)
+    assert_equal daily_balance.informative_rate_currency, currencies(:ars)
+  end
+
+  test "informative_rate_value returns the inverse of cached rated value if measured in origin currency" do
+    daily_balance = depot_daily_balances(:balance_for_ledger_btc_1_day_ago)
+
+    assert_equal daily_balance.informative_rate_value, daily_balance.cached_rate_value.round(2)
+    assert_equal daily_balance.informative_rate_currency, currencies(:usd)
+  end
 end

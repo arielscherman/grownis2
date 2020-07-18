@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_09_222034) do
+ActiveRecord::Schema.define(version: 2020_07_18_005637) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -86,6 +86,7 @@ ActiveRecord::Schema.define(version: 2020_07_09_222034) do
     t.string "key", null: false
     t.uuid "currency_id", null: false
     t.uuid "to_currency_id", null: false
+    t.boolean "measured_in_currency", default: false
     t.index ["currency_id"], name: "index_rates_on_currency_id"
     t.index ["to_currency_id"], name: "index_rates_on_to_currency_id"
   end
