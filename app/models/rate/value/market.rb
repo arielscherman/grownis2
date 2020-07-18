@@ -6,7 +6,9 @@ class Rate::Value::Market
     ars_in_dolar_blue: { DolarsiEndpoint    => "Dolar Blue",
                          BluelyticsEndpoint => "blue" },
     ars_in_dolar_ccl:  { DolarsiEndpoint => "Dolar Contado con Liqui" },
-    ars_in_dolar_mep:  { DolarsiEndpoint => "Dolar Bolsa" }
+    ars_in_dolar_mep:  { DolarsiEndpoint => "Dolar Bolsa" },
+    btc_in_usd:        { CoingeckoEndpoint => "bitcoin" },
+    eth_in_usd:        { CoingeckoEndpoint => "ethereum" }
   }.freeze
 
   def fetch_daily_value_for_rate(rate)
