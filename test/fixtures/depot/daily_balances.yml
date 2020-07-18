@@ -57,3 +57,5 @@ balance_for_ledger_btc_1_day_ago:
   cached_depot_total_by_rate_in_cents: 1_50
   cached_difference_in_cents: 0
   cached_difference_in_percentage: 0.00
+  cached_difference_by_rate_in_cents: 0
+  cached_difference_by_rate_in_percentage: 0.00

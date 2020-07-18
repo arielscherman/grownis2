@@ -20,7 +20,7 @@ export default class extends Controller {
   _fetchRates(currencyId) {
     fetch(this.data.get('ratesUrl') + `?currency_id=${currencyId}`).then(response => response.json()).then(rates => {
       if(rates.length > 0) {
-        const parsedRates = rates.map((rate, i) => { return { value: rate.id, label: rate.name, } })
+        const parsedRates = rates.map((rate, i) => { return { value: rate.id, label: rate.name, selected: rates.length == 1 } })
         this.rateChoices.setChoices(parsedRates, 'value', 'label', true).enable();
         this._showRatePlaceholder();
       }

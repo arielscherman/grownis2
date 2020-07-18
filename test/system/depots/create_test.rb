@@ -56,6 +56,20 @@ class DepotsCreateTest < ApplicationSystemTestCase
     assert_selector ".depot-balance", text: amount_with_currency(0, "ARS")
   end
 
+  test "autoselects rate when currency has only one" do
+    sign_in users(:valid)
+
+    visit depots_url
+
+    click_on "Agregar"
+    fill_in "Nombre", with: "My new depot"
+
+    page.find("#depot_currency_id + .choices__list").click
+    page.find(".choices__item--choice[data-value='#{currencies(:btc).id}']").click
+
+    assert_selector "#depot_rate_id + .choices__list", text: "Bitcoin"
+  end
+
   test "shows an error when trying to save without picking a rate (when currency has rates)" do
     sign_in users(:valid)
 
