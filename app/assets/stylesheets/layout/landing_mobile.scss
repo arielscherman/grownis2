@@ -16,3 +16,30 @@
     }
   }
 }
+
+@media (max-width: $ui-mobile-small-max-width) {
+  nav.ui-nav {
+    grid-template-rows: 130px;
+
+    .ui-nav-content {
+      margin-top: $ui-large;
+      flex-direction: column;
+      justify-content: space-around;
+
+      .ui-brand {
+        font-size: 30px;
+        margin-bottom: $ui-medium;
+      }
+    }
+  }
+
+  .currency-items .currency {
+    &:first-child {
+      margin-left: 0;
+    }
+
+    svg {
+      width: 70px;
+    }
+  }
+}
