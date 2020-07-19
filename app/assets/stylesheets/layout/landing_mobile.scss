@@ -19,7 +19,7 @@
 
 @media (max-width: $ui-mobile-small-max-width) {
   nav.ui-nav {
-    grid-template-rows: 130px;
+    grid-template-rows: 150px;
 
     .ui-nav-content {
       margin-top: $ui-large;
@@ -39,7 +39,7 @@
     }
 
     svg {
-      width: 70px;
+      width: 100%;
     }
   }
 }
