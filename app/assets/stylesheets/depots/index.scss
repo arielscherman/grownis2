@@ -14,10 +14,6 @@
   background: $ui-violet-darkest;
   color: $ui-white;
 
-  .ui-card-content {
-    margin-bottom: $ui-tiny;
-  }
-
   .ui-card-title {
     color: $ui-white;
   }
@@ -39,6 +35,7 @@
   }
 
   .user-totals-card-graph {
+    margin-top: $ui-tiny;
     width: 100%;
   }
 }
