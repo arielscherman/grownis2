@@ -25,7 +25,7 @@ module ApplicationHelper
   end
 
   def svg_tag(filename, options = {})
-    path = image_path filename
+    path = image_path "#{filename}.svg"
     path += "##{filename.rpartition('/').last.gsub(/\.svg+$/, '')}"
     content_tag :svg, options do
       content_tag :use, nil, "xlink:href": path
