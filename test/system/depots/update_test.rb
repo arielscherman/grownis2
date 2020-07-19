@@ -28,4 +28,18 @@ class DepotsUpdateTest < ApplicationSystemTestCase
 
     assert_css "#depot_currency_id[disabled]", visible: false
   end
+
+  test "only displays rates for the depot's selected currency" do
+    depot = depots(:national_bank)
+
+    sign_in users(:valid)
+
+    visit depots_url
+
+    find("a[href='#{edit_depot_path(depot)}']").click
+    find("#depot_rate_id + .choices__list").click
+
+    assert_selector    ".choices__item--choice[data-value='#{rates(:ars_in_dolar_mep).id}']"
+    assert_no_selector ".choices__item--choice[data-value='#{rates(:btc_in_usd).id}']"
+  end
 end

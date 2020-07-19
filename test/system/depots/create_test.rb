@@ -56,6 +56,30 @@ class DepotsCreateTest < ApplicationSystemTestCase
     assert_selector ".depot-balance", text: amount_with_currency(0, "ARS")
   end
 
+  test "only allows selecting rates based on the chosen currency, even after error" do
+    sign_in users(:valid)
+
+    visit depots_url
+
+    click_on "Agregar"
+
+    page.find("#depot_currency_id + .choices__list").click
+    page.find(".choices__item--choice[data-value='#{currencies(:ars).id}']").click
+
+    page.find("#depot_rate_id + .choices__list").click
+
+    assert_selector    ".choices__item--choice[data-value='#{rates(:ars_in_dolar_mep).id}']"
+    assert_no_selector ".choices__item--choice[data-value='#{rates(:btc_in_usd).id}']"
+
+    page.find("#depot_rate_id + .choices__list").click # closes dropdown to allow clicking submit
+
+    click_on "Guardar"
+
+    page.find("#depot_rate_id + .choices__list").click
+    assert_selector    ".choices__item--choice[data-value='#{rates(:ars_in_dolar_mep).id}']"
+    assert_no_selector ".choices__item--choice[data-value='#{rates(:btc_in_usd).id}']"
+  end
+
   test "autoselects rate when currency has only one" do
     sign_in users(:valid)
 
