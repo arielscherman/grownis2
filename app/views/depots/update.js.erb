@@ -2,5 +2,5 @@
 document.getElementById("ui-modal-placeholder").innerHTML = ""; // remove modal
 document.querySelector(".depot[data-id='<%= @depot.id %>']").outerHTML = "<%= j render Depot::CardComponent.new(depot: @depot) %>";
 <% else %>
-document.getElementById("ui-modal-placeholder").innerHTML = "<%= j render('depots/modal_form') %>";
+document.getElementById("ui-modal-placeholder").innerHTML = "<%= j render('depots/modal_form', depot: depot, rates: rates, currency_categories: currency_categories) %>";
 <% end %>

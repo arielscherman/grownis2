@@ -1,23 +1,34 @@
 class DepotsController < ApplicationController
   before_action :authenticate_user!
 
-  helper_method :depot, :currencies, :depots, :rates
-
   def index
     @consolidated = depots.consolidated
+    render :index, locals: { depots: depots }
   end
 
   def new
     @depot = Depot.new
+
+    render :new, locals: { depot: @depot, rates: [], currency_categories: categories }
   end
 
   def create
     @depot = Depot.new(depot_params.merge(user: current_user))
     @depot.save
+
+    rates = Rate.where(currency_id: depot_params[:currency_id])
+
+    render :create, locals: { depot: @depot, rates: rates, currency_categories: categories }
+  end
+
+  def edit
+    render :edit, locals: { depot: depot, rates: depot.currency.rates, currency_categories: categories }
   end
 
   def update
     depot.update(depot_params)
+
+    render :update, locals: { depot: depot, rates: depot.currency.rates, currency_categories: categories }
   end
 
   def show
@@ -44,11 +55,7 @@ class DepotsController < ApplicationController
     @depot ||= Depot.active.find(params.require(:id))
   end
 
-  def currencies
-    @currencies ||= Currency.all
-  end
-
-  def rates
-    @rates ||= Rate.all
+  def categories
+    @categories ||= Currency::Category.includes(:currencies).all
   end
 end

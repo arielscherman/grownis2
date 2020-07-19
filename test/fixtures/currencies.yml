@@ -1,11 +1,14 @@
 usd:
   name: Dolar
   symbol: USD
+  category: category_currency
 
 ars:
   name: Pesos Argentinos
   symbol: ARS
+  category: category_currency
 
 btc:
   name: Bitcoin
   symbol: BTC
+  category: category_crypto

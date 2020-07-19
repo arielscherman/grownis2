@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_18_005637) do
+ActiveRecord::Schema.define(version: 2020_07_18_235837) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -21,8 +21,16 @@ ActiveRecord::Schema.define(version: 2020_07_18_005637) do
     t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.uuid "currency_category_id", null: false
+    t.index ["currency_category_id"], name: "index_currencies_on_currency_category_id"
     t.index ["name"], name: "index_currencies_on_name", unique: true
     t.index ["symbol"], name: "index_currencies_on_symbol", unique: true
+  end
+
+  create_table "currency_categories", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "depot_daily_balances", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -114,6 +122,7 @@ ActiveRecord::Schema.define(version: 2020_07_18_005637) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "currencies", "currency_categories"
   add_foreign_key "depot_daily_balances", "depot_daily_balances", column: "previous_daily_balance_id"
   add_foreign_key "depot_daily_balances", "depots"
   add_foreign_key "depot_movements", "depots"

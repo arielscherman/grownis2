@@ -7,5 +7,5 @@ document.getElementById("ui-modal-placeholder").innerHTML = ""; // remove modal
 placeholder = document.getElementById("depots-list-placeholder")
 placeholder.innerHTML = placeholder.innerHTML + "<%= j render Depot::CardComponent.new(depot: @depot) %>";
 <% else %>
-document.getElementById("ui-modal-placeholder").innerHTML = "<%= j render('depots/modal_form') %>";
+document.getElementById("ui-modal-placeholder").innerHTML = "<%= j render('depots/modal_form', depot: depot, rates: rates, currency_categories: currency_categories) %>";
 <% end %>

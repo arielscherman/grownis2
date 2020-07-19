@@ -18,7 +18,7 @@
           = f.text_field :name, class: "ui-input"
         .ui-field{ class: depot.persisted? ? "ui-placeholder-disabled" : "" }
           = f.label :currency_id, class: "ui-label"
-          = f.select :currency_id, options_for_select(currencies.map { |c| [c.name, c.id] }, depot.currency_id), { include_blank: "Moneda" }, disabled: depot.persisted?, data: { "target": "#{js_controller}.currencySelect" }, class: "ui-input"
+          = f.select :currency_id, option_groups_from_collection_for_select(currency_categories, :currencies, :name, :id, :label, depot.currency_id), { include_blank: "Moneda" }, disabled: depot.persisted?, data: { "target": "#{js_controller}.currencySelect" }, class: "ui-input"
         .ui-field{ class: !depot.rate_required? ? "ui-placeholder-disabled" : "", "data-target" => "#{js_controller}.rateSelectPlaceholder" }
           = f.label :rate_id, class: "ui-label"
           %em Éste es el valor que usaremos para calcular la devaluación/apreciación de tu billetera.
