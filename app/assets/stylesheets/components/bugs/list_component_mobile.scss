@@ -1,0 +1,30 @@
+@media (max-width: $ui-mobile-max-width) {
+  .ui-page-header.bugs-header {
+    flex-direction: column;
+    align-items: initial;
+
+    .ui-button {
+      margin-top: $ui-medium;
+    }
+  }
+
+  .ui-table.bugs-list-component {
+    .ui-table-row {
+      &:nth-child(2) { // first item is header, so second is first row
+        padding-top: 0;
+        border-top: 0;
+      }
+
+      &:last-child {
+        padding-bottom: 0;
+      }
+
+      grid-template-columns: 1fr;
+      grid-column-gap: $ui-medium;
+
+      &.header {
+        display: none;
+      }
+    }
+  }
+}
