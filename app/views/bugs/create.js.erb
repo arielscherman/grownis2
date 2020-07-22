@@ -1,0 +1,6 @@
+<% if bug.valid? %>
+document.getElementById("ui-modal-placeholder").innerHTML = ""; // remove modal
+document.getElementById("bugs-list-component-placeholder").innerHTML = "<%= j render(Bug::ListComponent.new(bugs: bugs)) %>";
+<% else %>
+document.getElementById("ui-modal-placeholder").innerHTML = "<%= j render('bugs/modal_form', bug: bug) %>";
+<% end %>

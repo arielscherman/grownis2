@@ -30,6 +30,11 @@
           = link_to movements_path, class: active_class_for(controller: :movements, action: :index) do
             %i.icon-tab
             %p Movimientos
+        %li.ui-sidebar-link-category Soporte
+        %li.ui-sidebar-link
+          = link_to bugs_path, class: active_class_for(controller: :bugs, action: :index) do
+            %i.icon-bug
+            %p Reportar error
     %section.ui-main
       .ui-page
         - if alert

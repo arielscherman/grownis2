@@ -1,0 +1,23 @@
+%input.ui-modal-check{ type: "checkbox", name: "bug_form_modal", id: "bug_form_modal", checked: "checked" }
+.ui-modal-container.bug-modal-form
+  .ui-modal-medium
+    .ui-modal-head
+      %label.ui-modal-head-close{ for: "bug_form_modal" }
+    = form_for bug, remote: true do |f|
+      .ui-modal-body
+        - if bug.errors.any?
+          .ui-alert.ui-alert-danger
+            %ul
+              - bug.errors.full_messages.each do |error_message|
+                %li= error_message
+
+        .ui-field
+          = f.label :title, class: "ui-label"
+          %em Sobre qué es el error?
+          = f.text_field :title, class: "ui-input"
+        .ui-field
+          = f.label :description, class: "ui-label"
+          %em Por favor, ingresá todos los detalles que puedas sobre el error.
+          = f.text_area :description, class: "ui-input"
+      .ui-modal-foot
+        = f.submit "Guardar", data: { "disable-with": "Guardando..." }, class: "ui-button ui-button-primary"

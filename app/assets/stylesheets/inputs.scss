@@ -3,6 +3,14 @@ $ui-font-size-input: 13px;
 
 .ui-field {
   margin-top: $ui-large;
+
+  .ui-label + em,
+  .field_with_errors + em {
+    display: block;
+    margin-top: $ui-xtiny;
+    font-size: 11px;
+    font-style: normal;
+  }
 }
 
 .ui-field .ui-label{
@@ -11,13 +19,7 @@ $ui-font-size-input: 13px;
   font-weight: bold;
   color: $ui-grey-darkest;
 
-  & + em {
-    display: block;
-    margin-top: $ui-xtiny;
-    font-size: 11px;
-    font-style: normal;
-  }
-
+  
   & ~ .choices {
     margin-top: $ui-xsmall;
 

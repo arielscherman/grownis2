@@ -8,6 +8,8 @@ Rails.application.routes.draw do
 
   root to: "public/welcome#index"
 
+  resources :bugs
+
   namespace :charts, constraints: { format: :js } do
     scope "/:depot_id" do
       resources :daily_balances, only: :index

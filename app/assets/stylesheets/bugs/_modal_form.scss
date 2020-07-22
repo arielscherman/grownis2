@@ -1,0 +1,11 @@
+.bug-modal-form {
+  textarea {
+    resize: vertical;
+  }
+
+  .ui-modal-foot {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: $ui-medium;
+  }
+}

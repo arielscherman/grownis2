@@ -1,0 +1,13 @@
+- if @bugs.present?
+  .ui-table.bugs-list-component
+    .ui-table-row.header
+      .ui-table-column Fecha
+      .ui-table-column Título
+      .ui-table-column Descripción
+    - @bugs.each do |bug|
+      .ui-table-row.bug{ data: { id: bug.id } }
+        .ui-table-column.column-date= I18n.l bug.created_at
+        .ui-table-column.column-title= bug.title
+        .ui-table-column.column-description= bug.description
+- else
+  %p.no-bugs Aún no reportaste ningún bug.

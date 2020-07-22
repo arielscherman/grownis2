@@ -6,6 +6,7 @@ class User < ApplicationRecord
          :confirmable, :trackable
 
   has_many :depots
+  has_many :bugs
 
   validates :username, presence: true
 end

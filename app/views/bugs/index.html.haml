@@ -1,0 +1,10 @@
+.ui-page-header
+  %h1 Tus Errores Reportados
+
+  = link_to "Reportar Error", new_bug_path, remote: true, class: "ui-button ui-button-primary"
+
+.ui-page-content
+  .ui-card.ui-card-full
+    .ui-card-content
+      .ui-card-body#bugs-list-component-placeholder
+        = render(Bug::ListComponent.new(bugs: bugs))
