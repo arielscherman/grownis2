@@ -1,11 +1,10 @@
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+bug:
+  user: valid
+  title: The depots are not working as expected
+  description: There has been some issues with the depots page. If you click the add button it will not display anything and there is no feedback for the user.
 
-one:
-  title: MyString
-  description: MyText
-  date: 2020-07-19 19:40:01
+bug_from_other_user:
+  user: valid_with_one_depot
+  title: I have only one depot
+  description: Not sure what is happening. Can you help me please?
 
-two:
-  title: MyString
-  description: MyText
-  date: 2020-07-19 19:40:01
