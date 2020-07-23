@@ -1,0 +1,9 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+suggestion:
+  description: This is an example of a suggestion
+  user: valid
+
+suggestion_from_other_user:
+  description: My idea
+  user: valid_with_one_depot

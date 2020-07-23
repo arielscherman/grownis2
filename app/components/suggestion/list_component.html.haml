@@ -1,0 +1,11 @@
+- if @suggestions.present?
+  .ui-table.suggestions-list-component
+    .ui-table-row.header
+      .ui-table-column Fecha
+      .ui-table-column Descripción
+    - @suggestions.each do |suggestion|
+      .ui-table-row.suggestion{ data: { id: suggestion.id } }
+        .ui-table-column.column-date= I18n.l suggestion.created_at
+        .ui-table-column.column-description= suggestion.description
+- else
+  %p.no-suggestions Aún no hiciste ninguna sugerencia.

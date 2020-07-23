@@ -1,0 +1,6 @@
+<% if suggestion.valid? %>
+document.getElementById("ui-modal-placeholder").innerHTML = ""; // remove modal
+document.getElementById("suggestions-list-component-placeholder").innerHTML = "<%= j render(Suggestion::ListComponent.new(suggestions: suggestions)) %>";
+<% else %>
+document.getElementById("ui-modal-placeholder").innerHTML = "<%= j render('suggestions/modal_form', suggestion: suggestion) %>";
+<% end %>

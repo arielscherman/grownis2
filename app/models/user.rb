@@ -7,6 +7,7 @@ class User < ApplicationRecord
 
   has_many :depots
   has_many :bugs
+  has_many :suggestions
 
   validates :username, presence: true
 end

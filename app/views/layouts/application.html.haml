@@ -32,6 +32,10 @@
             %p Movimientos
         %li.ui-sidebar-link-category Soporte
         %li.ui-sidebar-link
+          = link_to suggestions_path, class: active_class_for(controller: :suggestions, action: :index) do
+            %i.icon-bubble
+            %p Sugerencias
+        %li.ui-sidebar-link
           = link_to bugs_path, class: active_class_for(controller: :bugs, action: :index) do
             %i.icon-bug
             %p Reportar error

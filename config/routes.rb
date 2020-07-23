@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   root to: "public/welcome#index"
 
   resources :bugs
+  resources :suggestions
 
   namespace :charts, constraints: { format: :js } do
     scope "/:depot_id" do

@@ -1,0 +1,10 @@
+.ui-page-header.suggestions-header
+  %h1 Tus Sugerencias
+
+  = link_to "Agregar Sugerencia", new_suggestion_path, remote: true, class: "ui-button ui-button-primary"
+
+.ui-page-content
+  .ui-card.ui-card-full
+    .ui-card-content
+      .ui-card-body#suggestions-list-component-placeholder
+        = render(Suggestion::ListComponent.new(suggestions: suggestions))

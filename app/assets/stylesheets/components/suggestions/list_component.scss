@@ -1,0 +1,5 @@
+.ui-table.suggestions-list-component {
+  .ui-table-row {
+    grid-template-columns: repeat(2, minmax(150px, 1fr));
+  }
+}
