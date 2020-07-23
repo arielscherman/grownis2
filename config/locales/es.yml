@@ -3,8 +3,12 @@ es:
     models:
       depot: Billetera
       bug: Error
+      suggestion: Sugerencia
       currency: Moneda
     attributes:
+      suggestion:
+        description: Descripción
+        user: Usuario
       bug:
         title: Título
         description: Descripción
