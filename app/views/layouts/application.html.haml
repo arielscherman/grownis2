@@ -20,7 +20,11 @@
       .ui-header-actions
         = link_to "Cerrar Sesión", destroy_user_session_path, method: :delete
     %aside.ui-sidebar
-      %ul
+      = check_box_tag "ui-menu-check", false, false
+      = label_tag "ui-menu-check", class: "ui-menu-toggle" do
+        %i.icon-menu
+        %span Secciones
+      %ul.ui-sidebar-menu
         %li.ui-sidebar-link-category Menu
         %li.ui-sidebar-link
           = link_to depots_path, class: active_class_for(controller: :depots) do

@@ -37,4 +37,13 @@
   font-size: 11px;
   text-transform: uppercase;
   padding-left: $ui-medium;
+
+  &:not(:first-child) {
+    margin-top: $ui-large;
+  }
+}
+
+.ui-sidebar #ui-menu-check,
+.ui-sidebar .ui-menu-toggle {
+  display: none;
 }

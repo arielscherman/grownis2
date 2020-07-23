@@ -1,0 +1,39 @@
+@media (max-width: $ui-mobile-max-width) {
+  .ui-sidebar {
+    padding: $ui-small 0;
+  }
+
+  .ui-sidebar .ui-sidebar-menu {
+    display: none;
+  }
+
+  .ui-sidebar #ui-menu-check:checked {
+    ~ .ui-sidebar-menu {
+      display: block !important;
+    }
+
+    ~ .ui-menu-toggle {
+      font-weight: bold;
+      color: $ui-violet-dark;
+    }
+  }
+
+  .ui-sidebar .ui-menu-toggle {
+    cursor: pointer;
+    text-align: center;
+    display: block;
+
+    &:hover {
+      color: $ui-violet;
+    }
+
+    i {
+      margin-right: $ui-tiny;
+      color: inherit;
+    }
+
+    span {
+      color: inherit;
+    }
+  }
+}
