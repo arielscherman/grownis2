@@ -2,7 +2,6 @@ class DepotsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    fail "this is the error"
     @consolidated = depots.consolidated
     render :index, locals: { depots: depots }
   end
