@@ -86,6 +86,8 @@ Rails.application.configure do
     config.logger    = ActiveSupport::TaggedLogging.new(logger)
   end
 
+  config.logger = Logdna::Ruby.new(ENV["LOGDNA_KEY"], options)
+
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
