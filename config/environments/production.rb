@@ -86,7 +86,10 @@ Rails.application.configure do
     config.logger    = ActiveSupport::TaggedLogging.new(logger)
   end
 
-  config.logger = Logdna::Ruby.new(ENV["LOGDNA_KEY"])
+  # for some reason the heroku default logdna key is a json array, so we
+  # need to parse it
+  # logdna_key = JSON.parse(ENV['LOGDNA_KEY']).first
+  # config.logger = Logdna::Ruby.new(ENV["LOGDNA_KEY"])
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
