@@ -89,7 +89,7 @@ Rails.application.configure do
   # for some reason the heroku default logdna key is a json array, so we
   # need to parse it
   logdna_key = JSON.parse(ENV['LOGDNA_KEY']).first
-  config.logger = Logdna::Ruby.new(logdna_key)
+  config.logger = Logdna::Ruby.new(logdna_key, options: { app: "grownis" })
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
