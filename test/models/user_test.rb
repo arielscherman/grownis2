@@ -12,4 +12,8 @@ class UserTest < ActiveSupport::TestCase
   def test_has_many_depots
     assert_instance_of Depot, users(:valid).depots.first
   end
+
+  def test_support
+    assert_includes User.support, users(:support)
+  end
 end

@@ -21,3 +21,9 @@ valid_with_fresh_depot:
   email: danygrol@gmail.com
   encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
   confirmed_at: <%= 1.day.ago %>
+
+support:
+  username: ascherman
+  email: arielscherman@gmail.com
+  encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
+  confirmed_at: <%= 1.day.ago %>
