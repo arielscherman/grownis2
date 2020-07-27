@@ -12,4 +12,5 @@ class User < ApplicationRecord
   validates :username, presence: true
 
   scope :support, -> { where(email: "arielscherman@gmail.com") }
+  scope :owner, -> { where(email: "arielscherman@gmail.com") }
 end
