@@ -2,6 +2,7 @@ class DepotsController < ApplicationController
   before_action :authenticate_user!
 
   def index
+    fail "temporal error in depots"
     @consolidated = depots.consolidated
     render :index, locals: { depots: depots }
   end
