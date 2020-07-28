@@ -9,10 +9,15 @@
 @import "layout/sidebar";
 @import "layout/sidebar_mobile";
 @import "font-icons";
-@import "font_icons_overrides";
 @import "components/**/*";
 @import "depots/**/*";
 @import "bugs/**/*";
 @import "suggestions/**/*";
 @import "choices_overrides";
 @import "theme";
+
+// override position of all icons in the iconset
+[class^="icon-"], [class*=" icon-"] {
+  position: relative;
+  top: 1px;
+}

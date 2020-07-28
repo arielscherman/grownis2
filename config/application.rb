@@ -23,7 +23,5 @@ module Grownis2
     config.time_zone = "America/Argentina/Buenos_Aires"
 
     config.active_job.queue_adapter = :sidekiq
-
-    config.exceptions_app = self.routes
   end
 end
