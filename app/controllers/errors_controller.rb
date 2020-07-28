@@ -1,4 +1,6 @@
 class ErrorsController < ApplicationController
+  layout "public"
+
   def not_found
     respond_to do |format|
       format.html { render status: 404 }

@@ -1,2 +1,24 @@
-%h1 Ha ocurrido un error
-
+.error-placeholder
+  = svg_tag "internal_error"
+  %h1.error-title
+    %i.icon-notification
+    Ha ocurrido un error
+  .ui-brand
+    = link_to root_path, class: "ui-brand-link" do
+      %span Grown
+      %i.icon-jump
+      %span s
+  %p.error-description
+    Ocurrió un error que debemos solucionar. Volvé al inicio o ayudanos
+    reportando el error, incluyendo todos los detalles que puedas sobre lo que querías hacer
+    para que lo podamos arreglar más rápido.
+  .error-actions
+    = link_to bugs_path, class: "ui-button ui-button-danger outline" do
+      %i.icon-bug
+      Reportar error
+    = link_to root_path, class: "ui-button ui-button-primary" do
+      %i.icon-home
+      Volver a Inicio
+    = link_to suggestions_path, class: "ui-button ui-button-info outline" do
+      %i.icon-bug
+      Hacer sugerencia
