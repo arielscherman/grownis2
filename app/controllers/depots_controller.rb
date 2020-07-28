@@ -2,6 +2,7 @@ class DepotsController < ApplicationController
   before_action :authenticate_user!
 
   def index
+    fail "This is a temporal error raised."
     @consolidated = depots.consolidated
     render :index, locals: { depots: depots }
   end
