@@ -2,7 +2,9 @@
   %h1 Movimientos
 
   - if depots.any?
-    = link_to "Agregar Movimiento", new_movement_path, remote: true, class: "ui-button ui-button-primary"
+    = link_to new_movement_path, remote: true, class: "ui-button ui-button-primary" do
+      %i.icon-plus
+      %span Agregar Movimiento
 
 .ui-page-content
   .ui-card.ui-card-full

@@ -1,7 +1,9 @@
 .ui-page-header.suggestions-header
   %h1 Tus Sugerencias
 
-  = link_to "Agregar Sugerencia", new_suggestion_path, remote: true, class: "ui-button ui-button-primary"
+  = link_to new_suggestion_path, remote: true, class: "ui-button ui-button-primary" do
+    %i.icon-plus
+    %span Agregar Sugerencia
 
 .ui-page-content
   .ui-card.ui-card-full

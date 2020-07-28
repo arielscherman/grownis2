@@ -1,7 +1,9 @@
 .ui-page-header.bugs-header
   %h1 Tus Errores Reportados
 
-  = link_to "Reportar Error", new_bug_path, remote: true, class: "ui-button ui-button-primary"
+  = link_to new_bug_path, remote: true, class: "ui-button ui-button-primary" do
+    %i.icon-plus
+    %span Reportar Error
 
 .ui-page-content
   .ui-card.ui-card-full
