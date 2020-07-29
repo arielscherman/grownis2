@@ -29,7 +29,7 @@ Rails.application.configure do
   config.assets.compile = false
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
-  config.action_controller.asset_host = 'd34axuptu4syec.cloudfront.net'
+  config.action_controller.asset_host = 'd1is8kld56e4az.cloudfront.net'
   config.public_file_server.headers = {
     'Access-Control-Allow-Origin' => '*'
   }
