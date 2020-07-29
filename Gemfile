@@ -34,7 +34,6 @@ gem 'sidekiq'
 gem 'httparty'
 gem "view_component"
 gem "rollbar"
-gem "rack-cors"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
