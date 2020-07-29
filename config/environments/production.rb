@@ -30,6 +30,9 @@ Rails.application.configure do
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
   config.action_controller.asset_host = 'd34axuptu4syec.cloudfront.net'
+  config.public_file_server.headers = {
+    'Access-Control-Allow-Origin' => '*'
+  }
 
   # Specifies the header that your server uses for sending files.
   # config.action_dispatch.x_sendfile_header = 'X-Sendfile' # for Apache
