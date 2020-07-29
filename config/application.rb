@@ -25,5 +25,19 @@ module Grownis2
     config.active_job.queue_adapter = :sidekiq
 
     config.exceptions_app = self.routes
+
+    config.middleware.insert_before 0, Rack::Cors do
+      allow do
+        origins %w[
+          https://grownis.com
+          http://grownis.com
+          https://www.grownis.com
+          http://www.grownis.com
+          https://grownis.herokuapp.com
+          http://grownis.herokuapp.com
+        ]
+        resource '/assets/*', headers: :any, methods: [:get, :post, :options]
+      end
+    end
   end
 end
