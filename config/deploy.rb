@@ -1,7 +1,7 @@
 # config valid for current version and patch releases of Capistrano
 lock "~> 3.14.1"
 
-set :application, "myapp"
+set :application, "webapp"
 set :repo_url, "git@github.com:arielscherman/grownis2.git"
 
 set :branch, ENV['BRANCH'] if ENV['BRANCH']
