@@ -119,5 +119,7 @@ Rails.application.configure do
     :authentication => :plain,
     :enable_starttls_auto => true
   }
-  config.action_mailer.default_url_options = { :host => 'https://grownis.com' }
+  config.action_mailer.default_url_options = { :host => 'grownis.com' }
+  config.to_prepare { Devise::SessionsController.force_ssl }
+  config.to_prepare { Devise::RegistrationsController.force_ssl }
 end
