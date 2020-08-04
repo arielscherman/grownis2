@@ -1,6 +1,6 @@
 class BugMailer < ApplicationMailer
   default to: -> { User.support.pluck(:email) },
-          from: 'notifications@grownis.com'
+          from: 'notifications@grownis.app'
 
   def bug_email
     @bug = params[:bug]

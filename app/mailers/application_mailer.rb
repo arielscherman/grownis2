@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'notifications@grownis.com'
+  default from: 'notifications@grownis.app'
   layout 'mailer'
 end

@@ -113,11 +113,11 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = {
     :user_name => ENV['SENDGRID_USERNAME'],
     :password => ENV['SENDGRID_PASSWORD'],
-    :domain => 'grownis.com',
+    :domain => 'grownis.app',
     :address => 'smtp.sendgrid.net',
     :port => 587,
     :authentication => :plain,
     :enable_starttls_auto => true
   }
-  config.action_mailer.default_url_options = { :host => 'grownis.com' }
+  config.action_mailer.default_url_options = { :host => 'grownis.app' }
 end
