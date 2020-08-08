@@ -1,4 +1,6 @@
 class Charts::Users::ConsolidatedBalanceComponent < ViewComponent::Base
+  LIMIT_DATES = 30.freeze
+
   def initialize(daily_balances)
     @daily_balances = daily_balances
   end
@@ -21,7 +23,7 @@ class Charts::Users::ConsolidatedBalanceComponent < ViewComponent::Base
   private
 
   def data
-    @data ||= @daily_balances.consolidated_by_date
+    @data ||= @daily_balances.consolidated_by_date.last(LIMIT_DATES)
   end
 
   def formatted_data
