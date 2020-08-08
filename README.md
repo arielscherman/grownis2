@@ -1,24 +1,17 @@
-# README
+# Grownis
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Grownis is a webapp that tracks variations in prices to show its users reports on how much money the won/lost.
 
-Things you may want to cover:
+# Setup
 
-* Ruby version
+First run seeds to create currencies and rates:
 
-* System dependencies
+```bash
+bundle exec rails db:seed
+```
 
-* Configuration
+And then, if you like, run this task to generate some sample data:
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```bash
+bundle exec rails generate_sample
+```
