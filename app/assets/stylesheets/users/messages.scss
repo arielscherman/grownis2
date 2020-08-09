@@ -1,0 +1,24 @@
+.ui-message {
+  margin: $ui-medium $ui-medium $ui-tiny;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+
+  a {
+    color: $ui-other-grey;
+
+    span { color: inherit; }
+
+    &:hover {
+      color: $ui-other-grey-darker;
+
+      i { color: inherit; }
+    }
+  }
+
+  p {
+    color: inherit;
+    margin: 0;
+  }
+}

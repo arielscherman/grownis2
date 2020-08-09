@@ -6,6 +6,8 @@
     %span Agregar Billetera
   
 .ui-page-content
+  .ui-messages-placeholder
+    = render "users/messages", messages: messages
   #depots-list-placeholder.depots-list
     .ui-card.dashboard-balance
       .ui-card-content

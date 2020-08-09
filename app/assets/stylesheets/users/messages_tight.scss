@@ -1,0 +1,10 @@
+@media (max-width: $ui-mobile-max-width) {
+  .ui-message {
+    text-align: center;
+    justify-content: center;
+
+    a {
+      margin-top: $ui-small;
+    }
+  }
+}

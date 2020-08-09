@@ -3,7 +3,7 @@ class DepotsController < ApplicationController
 
   def index
     @consolidated = depots.consolidated
-    render :index, locals: { depots: depots }
+    render :index, locals: { depots: depots, messages: current_user.messages.unread }
   end
 
   def new
@@ -18,7 +18,7 @@ class DepotsController < ApplicationController
 
     rates = Rate.where(currency_id: depot_params[:currency_id])
 
-    render :create, locals: { depot: @depot, rates: rates, currency_categories: categories }
+    render :create, locals: { depot: @depot, rates: rates, currency_categories: categories, messages: current_user.messages.unread }
   end
 
   def edit

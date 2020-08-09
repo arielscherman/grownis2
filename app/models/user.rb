@@ -8,6 +8,7 @@ class User < ApplicationRecord
   has_many :depots
   has_many :bugs
   has_many :suggestions
+  has_many :messages, class_name: "User::Message"
 
   validates :username, presence: true
 

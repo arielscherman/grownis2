@@ -33,6 +33,10 @@ Rails.application.routes.draw do
     end
   end
 
+  namespace :users, shallow: true do
+    resources :messages, only: :update
+  end
+
   get '/404', to: "errors#not_found"
   get '/422', to: "errors#unacceptable"
   get '/500', to: "errors#internal_error"

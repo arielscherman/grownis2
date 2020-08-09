@@ -109,4 +109,46 @@ class DepotsCreateTest < ApplicationSystemTestCase
 
     assert_selector ".ui-alert", text: "Valor de referencia no puede estar en blanco"
   end
+
+  test "displays the wait for report message when creating first depot and can acknowledge it" do
+    sign_in users(:valid_without_depots)
+
+    visit depots_url
+
+    click_on "Agregar"
+    fill_in "Nombre", with: "My new depot"
+
+    page.find("#depot_currency_id + .choices__list").click
+    page.find(".choices__item--choice[data-value='#{currencies(:ars).id}']").click
+
+    page.find("#depot_rate_id + .choices__list").click
+    page.find(".choices__item--choice[data-value='#{rates(:ars_in_dolar_mep).id}']").click
+
+    click_on "Guardar"
+
+    assert_selector ".ui-message", text: ::User::Message::REPORT_BEING_GENERATED_MESSAGE
+
+    page.find(".ui-message a").click
+
+    assert_no_selector ".ui-message", text: ::User::Message::REPORT_BEING_GENERATED_MESSAGE
+  end
+
+  test "does not display the wait for report message when creating second depot" do
+    sign_in users(:valid)
+
+    visit depots_url
+
+    click_on "Agregar"
+    fill_in "Nombre", with: "My new depot"
+
+    page.find("#depot_currency_id + .choices__list").click
+    page.find(".choices__item--choice[data-value='#{currencies(:ars).id}']").click
+
+    page.find("#depot_rate_id + .choices__list").click
+    page.find(".choices__item--choice[data-value='#{rates(:ars_in_dolar_mep).id}']").click
+
+    click_on "Guardar"
+
+    assert_no_selector ".ui-message", text: ::User::Message::REPORT_BEING_GENERATED_MESSAGE
+  end
 end

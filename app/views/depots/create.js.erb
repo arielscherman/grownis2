@@ -6,6 +6,9 @@ if(document.querySelector(".no-depots")){
 document.getElementById("ui-modal-placeholder").innerHTML = ""; // remove modal
 placeholder = document.getElementById("depots-list-placeholder")
 placeholder.innerHTML = placeholder.innerHTML + "<%= j render Depot::CardComponent.new(depot: @depot) %>";
+
+// update messages
+document.querySelector(".ui-messages-placeholder").innerHTML = "<%= j render("users/messages", messages: messages) %>";
 <% else %>
 document.getElementById("ui-modal-placeholder").innerHTML = "<%= j render('depots/modal_form', depot: depot, rates: rates, currency_categories: currency_categories) %>";
 <% end %>

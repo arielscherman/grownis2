@@ -12,6 +12,8 @@ class Depot < ApplicationRecord
   validates :name, presence: true
   validates :rate, presence: true, if: :currency_has_rates?
 
+  after_create :create_user_message, if: proc { |depot| depot.first_created_depot? }
+
   delegate :symbol, to: :currency, prefix: true
 
   class << self
@@ -33,6 +35,10 @@ class Depot < ApplicationRecord
     currency.rates.any?
   end
 
+  def first_created_depot?
+    user.depots.count == 1
+  end
+
   private
 
   def rate_or_currency_changed?
@@ -42,5 +48,9 @@ class Depot < ApplicationRecord
   def currency_has_rates?
     return false unless currency_id_changed? || rate_id_changed?
     rate_required?
+  end
+
+  def create_user_message
+    User::Message.on_first_depot_created!(user)
   end
 end

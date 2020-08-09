@@ -1,0 +1,6 @@
+- messages.each do |message|
+  .ui-alert.ui-alert-info.ui-message{ "data-id": message.id }
+    %p= message.description
+    = link_to users_message_path(message, message: { acknowledged: true }), method: :put, remote: true do
+      %i.icon-check
+      %span Entendido
