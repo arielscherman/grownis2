@@ -13,10 +13,14 @@ export default class extends Controller {
       chart: {
         height: 380,
         width: "100%",
-        type: "line",
-        fontFamily: 'Overpass, sans-serif'
+        type: "area",
+        fontFamily: 'Overpass, sans-serif',
+        toolbar: { show: false },
       },
       grid: { show: false },
+      stroke: {
+        curve: "smooth"
+      },
       colors: [this.colors.primary, this.colors.secondary],
       series: JSON.parse(this.data.get('series')),
       xaxis: {
