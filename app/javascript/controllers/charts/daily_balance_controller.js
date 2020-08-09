@@ -4,8 +4,8 @@ import ApexCharts from 'apexcharts'
 export default class extends Controller {
   static targets = [ "placeholder" ]
   colors = {
-    primary: "#004a99",
-    secondary: "#ff0d49"
+    primary: "#4e5bf2",
+    secondary: "#10b759"
   }
 
   connect() {
