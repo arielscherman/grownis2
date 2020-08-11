@@ -5,7 +5,7 @@
   .ui-modal-medium
     .ui-modal-head
       %label.ui-modal-head-close{ for: "depot_form_modal" }
-    = form_for depot, remote: true do |f|
+    = form_for depot, remote: true, html: { class: "ui-modal-form" } do |f|
       .ui-modal-body
         - if depot.errors.any?
           .ui-alert.ui-alert-danger

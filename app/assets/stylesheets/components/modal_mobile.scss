@@ -1,0 +1,16 @@
+@media (max-width: $ui-mobile-max-width) {
+  %ui-modal,
+  .ui-modal {
+    max-width: calc(100vw - #{$ui-medium});
+    max-height: calc(100vh - #{$ui-medium});
+  }
+
+  .ui-modal-body {
+    padding-left: $ui-medium;
+    padding-right: $ui-medium;
+  }
+
+  .ui-modal-form {
+    overflow-y: auto;
+  }
+}

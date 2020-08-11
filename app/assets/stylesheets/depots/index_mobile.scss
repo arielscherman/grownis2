@@ -1,0 +1,5 @@
+@media (max-width: $ui-mobile-max-width) {
+  .depots-list {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+}

@@ -4,8 +4,8 @@ export default class extends Controller {
   static targets = [ "currencySelect", "rateSelect", "rateSelectPlaceholder" ]
 
   connect() {
-    new Choices(this.currencySelectTarget, { searchPlaceholderValue: "Busca una moneda" })
-    this.rateChoices = new Choices(this.rateSelectTarget, { searchPlaceholderValue: "Busca un valor de referencia" })
+    new Choices(this.currencySelectTarget, { searchPlaceholderValue: "Busca una moneda", position: "bottom" })
+    this.rateChoices = new Choices(this.rateSelectTarget, { searchPlaceholderValue: "Busca un valor de referencia", position: "bottom" })
     this.currencySelectTarget.addEventListener('choice', event => { this._onCurrencyChange(event.detail.choice.value) });
   }
 

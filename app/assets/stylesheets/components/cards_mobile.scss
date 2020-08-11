@@ -7,4 +7,8 @@
   .ui-card .ui-card-header {
     flex-direction: column-reverse;
   }
+
+  .ui-card  .ui-card-footer {
+    flex-wrap: wrap;
+  }
 }
