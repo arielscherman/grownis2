@@ -15,6 +15,7 @@
 
         .ui-field
           = f.label :name, class: "ui-label"
+          %em Cómo querés identificar esta cuenta? (ej: "Cuenta BBVA", "Colchón", "Ledger - BTC").
           = f.text_field :name, class: "ui-input"
         .ui-field{ class: depot.persisted? ? "ui-placeholder-disabled" : "" }
           = f.label :currency_id, class: "ui-label"
