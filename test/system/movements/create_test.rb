@@ -17,9 +17,6 @@ class MovementsCreateTest < ApplicationSystemTestCase
     fill_in "Total", with: "300.00"
     fill_in "Descripción", with: "Personal note"
 
-    find("#depot_movement_date").click
-    find(".flatpickr-day.today").click
-
     click_on "Guardar"
 
     movement = Depot::Movement.last
@@ -50,9 +47,6 @@ class MovementsCreateTest < ApplicationSystemTestCase
 
     fill_in "Total", with: "300.00"
     fill_in "Descripción", with: "Personal note"
-
-    find("#depot_movement_date").click
-    find(".flatpickr-day.today").click
 
     click_on "Guardar"
 

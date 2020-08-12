@@ -17,9 +17,6 @@
           = f.label :depot_id, class: "ui-label"
           = f.select :depot_id, options_for_select(depots.map { |c| [c.name, c.id] }, @depot_id || @movement.depot_id), { include_blank: "Billetera" }, disabled: @depot_id.present?, data: { "target": "#{js_controller}.depotSelect" }, class: "ui-input"
         .ui-field
-          = f.label :date, class: "ui-label"
-          = f.text_field :date, data: { "target": "#{js_controller}.dateInput" }, class: "ui-input"
-        .ui-field
           = f.label :total, class: "ui-label"
           = f.text_field :total, value: @movement.total || 0, data: { "target": "#{js_controller}.totalInput" }, class: "ui-input"
         .ui-field

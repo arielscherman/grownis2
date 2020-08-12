@@ -4,6 +4,7 @@ class Depot::Movement < ApplicationRecord
   validates :date, presence: true
   validates :total_cents, presence: true, numericality: { other_than: 0 }
 
+  before_validation :set_current_date
   before_save :update_depot
   before_destroy :substract_from_depot
 
@@ -17,6 +18,10 @@ class Depot::Movement < ApplicationRecord
   end
 
   private
+
+  def set_current_date
+    self.date ||= Date.current
+  end
 
   def update_depot
     depot.update_total!(total_cents - total_cents_was.to_i)

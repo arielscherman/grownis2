@@ -9,14 +9,6 @@ class Depot::MovementTest < ActiveSupport::TestCase
     assert movement.errors.details.has_key?(:depot)
   end
 
-  def test_presence_of_date
-    movement = depot_movements(:deposit)
-    movement.date = nil
-
-    movement.valid?
-    assert movement.errors.details.has_key?(:date)
-  end
-
   def test_presence_of_total_cents
     movement = depot_movements(:deposit)
     movement.total_cents = nil
@@ -35,5 +27,13 @@ class Depot::MovementTest < ActiveSupport::TestCase
 
     movement.valid?
     assert movement.errors.details.has_key?(:total_cents)
+  end
+
+  def test_set_current_date
+    movement = depot_movements(:deposit)
+    movement.date = nil
+
+    movement.valid?
+    assert_not movement.errors.details.has_key?(:date)
   end
 end

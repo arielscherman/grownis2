@@ -11,9 +11,6 @@ class Depots::MovementsCreateTest < ApplicationSystemTestCase
     fill_in "Total", with: "300.00"
     fill_in "Descripción", with: "Personal note"
 
-    find("#depot_movement_date").click
-    find(".flatpickr-day.today").click
-
     click_on "Guardar"
 
     assert_selector ".movement", text: amount(300_00)
@@ -35,9 +32,6 @@ class Depots::MovementsCreateTest < ApplicationSystemTestCase
     fill_in "Total", with: "300.00"
     fill_in "Descripción", with: "Personal note"
 
-    find("#depot_movement_date").click
-    find(".flatpickr-day.today").click
-
     click_on "Guardar"
 
     assert_no_selector ".no-movements"
@@ -55,9 +49,6 @@ class Depots::MovementsCreateTest < ApplicationSystemTestCase
     click_on "Agregar Movimiento"
 
     fill_in "Total", with: "300.00"
-
-    find("#depot_movement_date").click
-    find(".flatpickr-day.today").click
 
     click_on "Guardar"
 
