@@ -27,4 +27,9 @@
 
 .depot-dashboard .depot-card-graph{
   grid-area: depot-graph;
+
+  .daily-balance-chart {
+    margin-left: -$ui-medium;
+    margin-right: -$ui-medium;
+  }
 }

@@ -10,9 +10,9 @@
 @media (max-width: $ui-mobile-max-width) {
   .card-actions {
     padding-bottom: $ui-large;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: auto;
-    grid-row-gap: 0;
-    grid-column-gap: $ui-medium;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(2, auto);
+    grid-row-gap: $ui-small;
+    grid-column-gap: 0;
   }
 }

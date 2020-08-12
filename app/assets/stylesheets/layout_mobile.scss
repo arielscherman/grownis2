@@ -1,6 +1,6 @@
 @media (max-width: $ui-mobile-max-width) {
   .ui-body {
-    grid-template-columns: 240px 1fr 1fr 1fr;
+    grid-template-columns: 180px 1fr 1fr 1fr;
     grid-template-rows: 60px auto 1fr;
     grid-template-areas: 
       "brand header header header"
@@ -15,5 +15,15 @@
   .ui-header {
     box-shadow: none;
     border-bottom: 1px solid $ui-grey-lighter;
+  }
+
+  .ui-page .ui-page-header {
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    h1 {
+      margin-bottom: $ui-small;
+    }
   }
 }

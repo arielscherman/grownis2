@@ -21,6 +21,7 @@ export default class extends Controller {
       stroke: {
         curve: "smooth"
       },
+      dataLabels: { enabled: false },
       colors: [this.colors.primary, this.colors.secondary],
       series: JSON.parse(this.data.get('series')),
       xaxis: {
