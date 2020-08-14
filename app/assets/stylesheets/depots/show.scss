@@ -23,6 +23,20 @@
 
   .ui-card-title { color: $ui-white; }
   .depot-balance { color: $ui-white; }
+
+  .ui-card-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .view-rate {
+    border-radius: 30px;
+    padding: 2px 13px;
+    font-size: 0.8em;
+    i { color: inherit; }
+    span { color: inherit; }
+  }
 }
 
 .depot-dashboard .depot-card-graph{

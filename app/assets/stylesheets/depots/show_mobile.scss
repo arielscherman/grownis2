@@ -13,10 +13,15 @@
     .rate-card-value .ui-card-content {
       display: flex;
       justify-content: space-between;
+      flex-wrap: wrap;
       align-items: center;
 
       .ui-card-body {
         margin: 0;
+      }
+
+      .view-rate {
+        margin-left: $ui-small;
       }
     }
   }
@@ -40,6 +45,10 @@
       .ui-card-body {
         margin: 0;
       }
+    }
+
+    .rate-card-value .ui-card-title {
+      width: 100%;
     }
   }
 }

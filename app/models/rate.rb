@@ -12,4 +12,8 @@ class Rate < ApplicationRecord
       new_rate_value.value = market.fetch_daily_value_for_rate(self)
     end
   end
+
+  def informative_currency
+    measured_in_currency? ? currency : to_currency
+  end
 end

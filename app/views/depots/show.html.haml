@@ -26,7 +26,11 @@
 
       .ui-card.rate-card-value
         .ui-card-content
-          .ui-card-title= depot.rate.name
+          .ui-card-title
+            = depot.rate.name
+            = link_to rate_path(depot.rate), class: "ui-button ui-button-info outline view-rate" do
+              %i.icon-graph
+              %span Historial
           .ui-card-body
             %span.depot-balance= display_raw_amount_with_symbol(depot.latest_daily_balance.informative_rate_value, depot.latest_daily_balance.informative_rate_currency.symbol)
 

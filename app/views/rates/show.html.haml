@@ -1,0 +1,14 @@
+%ol.ui-breadcrumb
+  %li Precios
+  %li= rate.name
+
+.ui-page-header
+  %h1= rate.name
+
+.ui-page-content
+  .rate-dashboard
+    .ui-card.rate-values-card-graph
+      .ui-card-content
+        .ui-card-title= "Evolución del #{rate.name}"
+        .ui-card-body
+          = async_loader("rate-values-card-graph", charts_rate_path(rate, format: :js))

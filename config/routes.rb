@@ -16,6 +16,8 @@ Rails.application.routes.draw do
       resources :daily_balances, only: :index
     end
 
+    resources :rates, only: :show
+
     namespace :users do
       resource :consolidated_balance, only: :show
     end
@@ -32,6 +34,8 @@ Rails.application.routes.draw do
       resources :movements, only: [:index]
     end
   end
+
+  resources :rates, only: :show
 
   namespace :users, shallow: true do
     resources :messages, only: :update
