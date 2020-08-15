@@ -1,5 +1,5 @@
 .ui-page-header
-  %h1 Monedas
+  %h1 Precios
 
 .ui-page-content
   .ui-card.ui-card-full
@@ -11,7 +11,7 @@
             .ui-table-column Precio
             .ui-table-column Última Actualización
           - rates.each do |rate|
-            .ui-table-row.movement{ data: { id: rate.id } }
+            .ui-table-row.rate{ data: { id: rate.id } }
               .ui-table-column.column-rate= link_to rate.name, rate_path(rate)
               .ui-table-column.column-value
                 - if rate.latest_value

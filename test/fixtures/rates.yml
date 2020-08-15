@@ -3,6 +3,7 @@ ars_in_dolar_blue:
   key: "ars_in_dolar_blue"
   currency: ars
   to_currency: usd
+  latest_value: dolar_blue_1_day_ago
   measured_in_currency: true
 
 ars_in_dolar_mep:
