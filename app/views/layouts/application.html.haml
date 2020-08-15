@@ -34,6 +34,10 @@
           = link_to movements_path, class: active_class_for(controller: :movements, action: :index) do
             %i.icon-tab
             %p Movimientos
+        %li.ui-sidebar-link
+          = link_to rates_path, class: active_class_for(controller: :rates) do
+            %i.icon-chart-growth
+            %p Precios
         %li.ui-sidebar-link-category Soporte
         %li.ui-sidebar-link
           = link_to suggestions_path, class: active_class_for(controller: :suggestions, action: :index) do

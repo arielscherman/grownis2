@@ -1,0 +1,21 @@
+.ui-page-header
+  %h1 Monedas
+
+.ui-page-content
+  .ui-card.ui-card-full
+    .ui-card-content
+      .ui-card-body
+        .ui-table.rates-list
+          .ui-table-row.header
+            .ui-table-column Activo
+            .ui-table-column Precio
+            .ui-table-column Última Actualización
+          - rates.each do |rate|
+            .ui-table-row.movement{ data: { id: rate.id } }
+              .ui-table-column.column-rate= link_to rate.name, rate_path(rate)
+              .ui-table-column.column-value
+                - if rate.latest_value
+                  = display_raw_amount_with_symbol(rate.latest_value.informative_value, rate.informative_currency.symbol)
+              .ui-table-column.column-last-update
+                - if rate.latest_value
+                  = I18n.l rate.latest_value.created_at

@@ -1,0 +1,5 @@
+.ui-table.rates-list {
+  .ui-table-row {
+    grid-template-columns: repeat(3, minmax(150px, 1fr));
+  }
+}

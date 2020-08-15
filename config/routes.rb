@@ -35,7 +35,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :rates, only: :show
+  resources :rates, only: [:index, :show]
 
   namespace :users, shallow: true do
     resources :messages, only: :update
