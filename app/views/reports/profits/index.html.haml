@@ -1,0 +1,32 @@
+- js_controller = 'reports--profits'
+
+.reports-profit-dashboard{ "data-controller" => js_controller, "data-#{js_controller}-start-date" => start_date, "data-#{js_controller}-end-date" => end_date }
+  .ui-page-header
+    %h1 Reporte de Activos
+    .report-criteria
+      = label_tag "date_range", "Período", class: "ui-label"
+      = text_field_tag "date_range", nil, "data-target": "#{js_controller}.dateRange", class: "ui-input"
+
+  .ui-page-content
+    .report-profits
+      .ui-card.report-profits-depots-total
+        .ui-card-content
+          .ui-card-title Tus Activos en USD
+          .ui-card-body
+            = async_loader("report-profits-depots-total", reports_profits_balance_path(start_date: start_date, end_date: end_date, format: :js), data: { target: "#{js_controller}.refreshable" })
+      .ui-card.report-profits-rate
+        .ui-card-content
+          .ui-card-title Monedas
+          .ui-card-body
+      .ui-card.report-profits-balance-chart
+        .ui-card-content
+          .ui-card-title Balance
+          .ui-card-body
+      .ui-card.report-profits-depots-list
+        .ui-card-content
+          .ui-card-title Tus Billeteras
+          .ui-card-body
+      .ui-card.report-profits-depots-pie
+        .ui-card-content
+          .ui-card-title Composición de tus ahorros
+          .ui-card-body

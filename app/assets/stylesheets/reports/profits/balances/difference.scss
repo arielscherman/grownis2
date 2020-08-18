@@ -1,0 +1,36 @@
+.reports-profits-balance-difference {
+  .balance-difference-date-range {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    border-bottom: 1px solid $ui-grey;
+    padding-bottom: $ui-small;
+  }
+
+  .icon-arrow-right {
+    font-size: 20px;
+    color: $ui-violet;
+  }
+
+  .balance-date {
+    color: $ui-other-grey-dark;
+  }
+
+  .balance-difference-values {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: $ui-medium;
+    color: $ui-other-grey-dark;
+
+    .difference-component {
+      font-size: 20px;
+
+      i {
+      font-size: 18px;
+      }
+    }
+  }
+}

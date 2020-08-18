@@ -9,6 +9,7 @@
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
     %link{ href: "https://fonts.googleapis.com/css2?family=Overpass:wght@100;200;300;400;600;700;800;900&display=swap", rel: "stylesheet" }
+    %script{:src => "https://npmcdn.com/flatpickr/dist/l10n/es.js"}
   %body.ui-body
     .ui-brand
       = link_to root_path, class: "ui-brand-link" do
@@ -38,6 +39,10 @@
           = link_to rates_path, class: active_class_for(controller: :rates) do
             %i.icon-chart-growth
             %p Precios
+        %li.ui-sidebar-link
+          = link_to reports_profits_path, class: active_class_for(controller: :profits) do
+            %i.icon-pie-chart2
+            %p Reporte
         %li.ui-sidebar-link-category Soporte
         %li.ui-sidebar-link
           = link_to suggestions_path, class: active_class_for(controller: :suggestions, action: :index) do

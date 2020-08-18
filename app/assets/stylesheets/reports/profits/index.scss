@@ -1,0 +1,30 @@
+.report-profits {
+  display: grid;
+  margin: 0 $ui-medium;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-areas: 
+    "depots-total rate ."
+    "balance-chart balance-chart balance-chart"
+    "depots-list depots-list depots-pie";
+  column-gap: $ui-medium;
+}
+
+.report-profits .report-profits-depots-total {
+  grid-area: depots-total;
+}
+
+.report-profits .report-profits-rate {
+  grid-area: rate;
+}
+
+.report-profits .report-profits-balance-chart {
+  grid-area: balance-chart;
+}
+
+.report-profits .report-profits-depots-list {
+  grid-area: depots-list;
+}
+
+.report-profits .report-profits-depots-pie {
+  grid-area: depots-pie;
+}

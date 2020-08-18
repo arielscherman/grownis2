@@ -1,6 +1,6 @@
 module ApplicationHelper
-  def async_loader(id, url)
-    content_tag(:div, nil, class: id, data: { controller: "async-card", "async-card-url": url, "async-card-placeholder-id": id }) do
+  def async_loader(id, url, data: {})
+    content_tag(:div, nil, class: id, data: { controller: "async-card", "async-card-url": url, "async-card-placeholder-id": id }.merge(data)) do
       concat spinner
     end
   end

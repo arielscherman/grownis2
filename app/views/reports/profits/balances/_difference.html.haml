@@ -1,0 +1,17 @@
+.reports-profits-balance-difference
+  .balance-difference-date-range
+    .balance-difference-before
+      .balance-in-usd
+        = display_amount_with_symbol(consolidated.start_balance_in_usd, "USD")
+      .balance-date
+        = I18n.l(consolidated.start_date)
+    %i.icon-arrow-right
+    .balance-difference-after
+      .balance-in-usd
+        = display_amount_with_symbol(consolidated.end_balance_in_usd, "USD")
+      .balance-date
+        = I18n.l(consolidated.end_date)
+  .balance-difference-values
+    .balance-difference-in-usd
+      = render(DifferenceComponent.new(consolidated.difference_in_usd)) do
+        = display_amount_with_symbol(consolidated.difference_in_usd, "USD")

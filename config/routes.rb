@@ -11,6 +11,13 @@ Rails.application.routes.draw do
   resources :bugs
   resources :suggestions
 
+  namespace :reports do
+    resources :profits, only: :index
+    namespace :profits do
+      resource :balance, only: :show
+    end
+  end
+
   namespace :charts, constraints: { format: :js } do
     scope "/:depot_id" do
       resources :daily_balances, only: :index
