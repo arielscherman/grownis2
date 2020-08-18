@@ -1,3 +1,21 @@
+.reports-profit-dashboard .ui-page-header {
+  align-items: baseline;
+
+  .report-criteria {
+    display: flex;
+    align-items: baseline;
+
+    .ui-label {
+      margin-right: $ui-medium;
+    }
+
+    .flatpickr-input {
+      width: 210px;
+      text-align: center;
+    }
+  }
+}
+
 .report-profits {
   display: grid;
   margin: 0 $ui-medium;
