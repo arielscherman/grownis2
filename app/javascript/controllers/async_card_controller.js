@@ -20,7 +20,7 @@ export default class extends Controller {
   }
 
   _spinnerHtml() {
-    "<div clss='ui-loading'><i class='ui-spinner'></i><p class='ui-spin'>Cargando</p></div>"
+    return "<div class='ui-loading'><i class='ui-spinner'></i><p class='ui-spin'>Cargando</p></div>"
   }
 
   _url() {
