@@ -1,0 +1,56 @@
+.report-profits-depots-total.ui-card {
+  display: flex;
+  flex-direction: column;
+
+  .ui-card-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+
+    .ui-card-body {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+  }
+}
+
+.reports-profits-rates-difference {
+  display: flex;
+  justify-content: space-around;
+
+  .reports-consolidated-rate-difference {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    i.rate-value-diff-icon {
+      font-size: 16px;
+      color: $ui-violet;
+    }
+    
+    .rate-value-with-date {
+      display: flex;
+      align-items: center;
+      margin-top: $ui-tiny;
+      padding: $ui-tiny 0;
+      text-align: center;
+    }
+
+    .rate-value {
+      margin: 0;
+    }
+
+    .date {
+      color: $ui-other-grey-dark;
+      font-size: 11px;
+      margin-left: $ui-tiny;
+    }
+
+    .difference-component {
+      padding-top: $ui-tiny;
+      border-top: 1px solid $ui-grey;
+    }
+  }
+}

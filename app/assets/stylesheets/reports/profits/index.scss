@@ -21,7 +21,7 @@
   margin: 0 $ui-medium;
   grid-template-columns: repeat(3, 1fr);
   grid-template-areas: 
-    "depots-total rate ."
+    "depots-total rate rate"
     "balance-chart balance-chart balance-chart"
     "depots-list depots-list depots-pie";
   column-gap: $ui-medium;

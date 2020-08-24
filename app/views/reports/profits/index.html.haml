@@ -5,7 +5,7 @@
     %h1 Reporte de Activos
     .report-criteria
       = label_tag "date_range", "Período", class: "ui-label"
-      = text_field_tag "date_range", nil, "data-target": "#{js_controller}.dateRange", class: "ui-input"
+      = text_field_tag "date_range", nil, "data-target": "#{js_controller}.dateRange", class: "ui-input", placeholder: "Seleccionar Fechas"
 
   .ui-page-content
     .report-profits
@@ -18,6 +18,7 @@
         .ui-card-content
           .ui-card-title Monedas
           .ui-card-body
+            = async_loader("report-profits-rates", reports_profits_rates_path(start_date: start_date, end_date: end_date, format: :js), data: { target: "#{js_controller}.refreshable" })
       .ui-card.report-profits-balance-chart
         .ui-card-content
           .ui-card-title Balance

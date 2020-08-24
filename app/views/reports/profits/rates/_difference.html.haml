@@ -1,0 +1,13 @@
+.reports-profits-rates-difference
+  - consolidated.each do |consolidated_rate|
+    .reports-consolidated-rate-difference
+      %h4= link_to consolidated_rate[:name], rate_path(consolidated_rate[:id]), target: "_blank"
+      .rate-value-with-date
+        %p.rate-value= display_raw_amount_with_symbol(consolidated_rate[:starting_price], consolidated_rate[:value_symbol])
+        %span.date= I18n.l(consolidated_rate[:start_date])
+      %i.rate-value-diff-icon.icon-arrow-down
+      .rate-value-with-date
+        %p.rate-value= display_raw_amount_with_symbol(consolidated_rate[:ending_price], consolidated_rate[:value_symbol])
+        %span.date= I18n.l(consolidated_rate[:end_date])
+      = render(DifferenceComponent.new(consolidated_rate[:difference])) do
+        = display_raw_amount_with_symbol(consolidated_rate[:difference], consolidated_rate[:value_symbol])
