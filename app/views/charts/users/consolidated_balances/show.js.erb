@@ -1,1 +1,1 @@
-document.querySelector("[data-async-card-placeholder-id='<%= placeholder_id %>']").innerHTML = "<%= j render(Charts::Users::ConsolidatedBalanceComponent.new(daily_balances)) %>";
+document.querySelector("[data-async-card-placeholder-id='<%= placeholder_id %>']").innerHTML = "<%= j render(Charts::Users::ConsolidatedBalanceComponent.new(daily_balances, chart_type)) %>";

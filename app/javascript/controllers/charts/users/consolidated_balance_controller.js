@@ -9,14 +9,15 @@ export default class extends Controller {
   connect() {
     var options = {
       chart: {
-        height: 60,
+        height: this._isMinimalStyle() ? 60 : 400,
         type: "area",
         fontFamily: 'Overpass, sans-serif',
         toolbar: { show: false },
         sparkline: {
-          enabled: true
+          enabled: this._isMinimalStyle()
         }
       },
+      legend: { show: true },
       stroke: {
         width: 2,
         curve: "smooth"
@@ -24,10 +25,10 @@ export default class extends Controller {
       grid: { 
         show: false,
         xaxis: {
-          lines: { show: false }
+          lines: { show: !this._isMinimalStyle() }
         },
         yaxis: {
-          lines: { show: false }
+          lines: { show: !this._isMinimalStyle() }
         }
       },
       colors: [this.colors.primary],
@@ -35,16 +36,20 @@ export default class extends Controller {
       dataLabels: { enabled: false },
       xaxis: {
         categories: JSON.parse(this.data.get('categories')),
-        labels: { show: false },
+        labels: { show: !this._isMinimalStyle() },
         tooltip: { enabled: false }
       },
       yaxis: {
-        labels: { show: false }
+        labels: { show: !this._isMinimalStyle() }
       }
     };
 
     var chart = new ApexCharts(this.placeholderTarget, options);
 
     chart.render();
+  }
+
+  _isMinimalStyle() {
+    return this.data.get('chartType') == 'minimal'
   }
 }

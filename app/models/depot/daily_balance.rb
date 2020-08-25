@@ -7,6 +7,14 @@ class Depot::DailyBalance < ApplicationRecord
 
   scope :for_user, ->(user) { joins(depot: :user).where(depots: { user: user }).merge(Depot.active) }
 
+  scope :between_dates, ->(start_date, end_date) do
+    if start_date && end_date
+      where(date: start_date..end_date)
+    else
+      all # no dates given, return all
+    end
+  end
+
   class << self
     def consolidated_by_date
       consolidated = ConsolidatedByDate.new

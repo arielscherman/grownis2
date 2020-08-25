@@ -1,8 +1,11 @@
 class Charts::Users::ConsolidatedBalanceComponent < ViewComponent::Base
   LIMIT_DATES = 30.freeze
 
-  def initialize(daily_balances)
+  attr_reader :chart_type
+
+  def initialize(daily_balances, chart_type)
     @daily_balances = daily_balances
+    @chart_type     = chart_type
   end
 
   # It doesn't make sense to render just one day, so let's not do that
