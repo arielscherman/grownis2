@@ -17,7 +17,6 @@ export default class extends Controller {
           enabled: this._isMinimalStyle()
         }
       },
-      legend: { show: true },
       stroke: {
         width: 2,
         curve: "smooth"
