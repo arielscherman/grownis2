@@ -1,3 +1,7 @@
+.reports-profit-dashboard {
+  padding-bottom: $ui-medium;
+}
+
 .reports-profit-dashboard .ui-page-header {
   align-items: baseline;
 
@@ -23,7 +27,7 @@
   grid-template-areas: 
     "depots-total rate rate"
     "balance-chart balance-chart balance-chart"
-    "depots-list depots-list depots-pie";
+    "depots-list depots-list depots-list";
   column-gap: $ui-medium;
 }
 

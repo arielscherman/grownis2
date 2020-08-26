@@ -2,14 +2,13 @@ class Rate::ValuesBetweenDateRange
   attr_reader :start_date, :end_date
 
   def initialize(user, start_date, end_date)
-    @result     = Hash.new(0)
     @user       = user
     @start_date = start_date
     @end_date   = end_date
   end
 
   def prices
-    Rate.includes(:depots, :values).where(depots: { user: @user }).map do |rate|
+    Rate.includes(:depots, :values).where(depots: { deleted_at: nil, user: @user }).map do |rate|
       fetch_prices(rate)
     end
   end

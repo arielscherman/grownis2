@@ -1,0 +1,14 @@
+.reports-profits-balance-by-depots-difference
+  .ui-table.balance-by-depots-list
+    .ui-table-row.header
+      .ui-table-column Billetera
+      .ui-table-column Saldo Inicio
+      .ui-table-column Saldo Fin
+      .ui-table-column Diferencia
+    - consolidated.each do |balance|
+      .ui-table-row
+        .ui-table-column= link_to balance[:name], depot_path(balance[:id]), target: "_blank"
+        .ui-table-column= display_amount_with_symbol(balance[:starting_balance], "USD")
+        .ui-table-column= display_amount_with_symbol(balance[:ending_balance], "USD")
+        = render(DifferenceComponent.new(balance[:difference])) do
+          = display_amount_with_symbol(balance[:difference], "USD")

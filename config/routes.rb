@@ -16,6 +16,7 @@ Rails.application.routes.draw do
     namespace :profits do
       resource :balance, only: :show
       resources :rates, only: :index
+      resources :balance_by_depots, only: :index
     end
   end
 

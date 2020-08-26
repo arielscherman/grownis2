@@ -35,7 +35,7 @@ class Depot::DailyBalance::ConsolidatedBetweenDateRange
   end
 
   def user_balances
-    ::Depot::DailyBalance.includes(depot: [:currency, :user]).where(depots: { users: { id: @user.id }})
+    ::Depot::DailyBalance.includes(depot: [:currency, :user]).where(depots: { deleted_at: nil, users: { id: @user.id }})
   end
 
   def starting_balances
