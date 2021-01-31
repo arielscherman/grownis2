@@ -1,10 +1,10 @@
 crypto = Currency::Category.create!(name: "Crypto")
 currency = Currency::Category.create!(name: "Moneda")
 
-usd = Currency.create!(name: "Dolar", symbol: "USD", category: currency)
-ars = Currency.create!(name: "Peso Argentino", symbol: "ARS", category: currency)
-btc = Currency.create!(name: "Bitcoin", symbol: "BTC", category: crypto)
-eth = Currency.create!(name: "Ethereum", symbol: "ETH", category: crypto)
+usd = Currency.find_or_create_by(name: "Dolar", symbol: "USD", category: currency)
+ars = Currency.find_or_create_by(name: "Peso Argentino", symbol: "ARS", category: currency)
+btc = Currency.find_or_create_by(name: "Bitcoin", symbol: "BTC", category: crypto)
+eth = Currency.find_or_create_by(name: "Ethereum", symbol: "ETH", category: crypto)
 
 Rate.create!([
   { name: "Dolar Blue", key: "ars_in_dolar_blue", currency: ars, to_currency: usd, measured_in_currency: true },
