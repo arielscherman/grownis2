@@ -1,7 +1,7 @@
 class Rate < ApplicationRecord
   belongs_to :currency
   belongs_to :to_currency, class_name: "Currency"
-  belongs_to :latest_value, class_name: "Rate::Value"
+  belongs_to :latest_value, class_name: "Rate::Value", optional: true
   has_many :values, class_name: "Rate::Value", inverse_of: :rate, dependent: :destroy
   has_many :depots, inverse_of: :rate, dependent: :restrict_with_exception
 
