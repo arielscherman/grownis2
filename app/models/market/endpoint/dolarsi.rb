@@ -1,13 +1,14 @@
 class Market::Endpoint::Dolarsi < Market::Endpoint::Base
   URL = "https://www.dolarsi.com/api/api.php?type=valoresprincipales".freeze
 
-  def fetch!(value_to_fetch)
+  def source_url
+    URL
+  end
+
+  def find_value_in_response(json_response, value_to_fetch)
     if(raw_value = values_for_key(value_to_fetch).fetch("compra"))
       1 / parse_number(raw_value)
     end
-  rescue StandardError => ex
-    Rollbar.warning("Couldn't fetch #{value_to_fetch} from Dolarsi", ex: ex, json_response: json_response)
-    nil
   end
 
   private
@@ -18,12 +19,5 @@ class Market::Endpoint::Dolarsi < Market::Endpoint::Base
 
   def parse_number(raw)
     raw.gsub(",", ".").to_f
-  end
-
-  def json_response
-    @json_response ||= begin
-      response = HTTParty.get(URL)
-      JSON.parse(response.body)
-    end
   end
 end
