@@ -1,7 +1,7 @@
 class Rate::Value::Market
-  class ValueNotFoundError < StandardError; end
-
   VALUE_NOT_FOUND_ERROR_MESSAGE = "We couldn't find the value for %s on any Endpoint"
+
+  ValueNotFoundError = Class.new(StandardError)
 
   MAPPINGS = {
     ars_in_dolar_blue:    { DolarsiEndpoint    => "Dolar Blue",
