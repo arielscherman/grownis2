@@ -18,7 +18,7 @@ class Depot::DailyBalance::Generator
   private
 
   def market
-    @market ||= Rate::Value::Market.new
+    @market ||= ::Market.new
   end
 
   def daily_rate_values

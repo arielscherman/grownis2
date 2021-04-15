@@ -1,7 +1,7 @@
 require 'test_helper'
 
-class Rate::Value::Market::DolarsiEndpointTest < ActiveSupport::TestCase
-  def described_class; Rate::Value::Market::DolarsiEndpoint; end
+class Market::Endpoint::DolarsiTest < ActiveSupport::TestCase
+  def described_class; Market::Endpoint::Dolarsi; end
 
   VALID_RESPONSE_EXAMPLE = '[{"casa":{"compra":"116,450","venta":"126,000","nombre":"Dolar Blue","variacion":"2,440"}}]'.freeze
 

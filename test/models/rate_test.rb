@@ -39,7 +39,7 @@ class RateTest < ActiveSupport::TestCase
   end
 
   def test_fetch_daily_value_creates_a_value_for_today_rate
-    market_stub = Rate::Value::Market.new
+    market_stub = Market.new
     rate        = rates(:ars_in_dolar_blue)
 
     market_stub.stubs(:fetch_daily_value_for_rate).with(rate).returns(0.008)
@@ -54,7 +54,7 @@ class RateTest < ActiveSupport::TestCase
   end
 
   def test_fetch_daily_value_does_not_duplicate_value_if_already_created
-    market_stub = Rate::Value::Market.new
+    market_stub = Market.new
     rate        = rates(:ars_in_dolar_blue)
     rate.values.create!(value: 0.008, date: Time.zone.today)
 

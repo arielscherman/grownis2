@@ -1,4 +1,4 @@
-class Rate::Value::Market::BluelyticsEndpoint
+class Market::Endpoint::Bluelytics < Market::Endpoint::Base
   URL = "https://api.bluelytics.com.ar/v2/latest".freeze
 
   def fetch!(value_to_fetch)

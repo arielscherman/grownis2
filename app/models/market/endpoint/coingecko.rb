@@ -1,4 +1,4 @@
-class Rate::Value::Market::CoingeckoEndpoint
+class Market::Endpoint::Coingecko < Market::Endpoint::Base
   URL = "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin%2Cethereum&vs_currencies=usd".freeze
 
   def fetch!(value_to_fetch)
@@ -10,13 +10,10 @@ class Rate::Value::Market::CoingeckoEndpoint
     nil
   end
 
-
   private
 
   def json_response
-    @json_response ||= begin
-      response = HTTParty.get(URL)
-      JSON.parse(response.body)
-    end
+    response = HTTParty.get(URL)
+    JSON.parse(response.body)
   end
 end

@@ -1,14 +1,14 @@
 require 'test_helper'
 
-class Rate::Value::Market::BluelyticsEndpointTest < ActiveSupport::TestCase
-  def described_class; Rate::Value::Market::BluelyticsEndpoint; end
+class Market::Endpoint::CoingeckoTest < ActiveSupport::TestCase
+  def described_class; Market::Endpoint::Coingecko; end
 
-  VALID_RESPONSE_EXAMPLE = '{"blue":{"value_avg":122.00,"value_sell":126.00,"value_buy":118.55}}'.freeze
+  VALID_RESPONSE_EXAMPLE = '{"bitcoin":{"usd":9159.58}}'.freeze
 
   def test_fetch_returns_parsed_value
     stub_request(:any, described_class::URL).to_return(body: VALID_RESPONSE_EXAMPLE)
 
-    assert_equal described_class.new.fetch!("blue"), 118.55
+    assert_equal described_class.new.fetch!("bitcoin"), 9159.58
   end
 
   def test_non_existing_value_returns_nil
@@ -18,17 +18,17 @@ class Rate::Value::Market::BluelyticsEndpointTest < ActiveSupport::TestCase
   end
 
   def test_response_is_not_a_hash_returns_nil
-    response = '[{"blue":{"value_avg":122.00,"value_sell":126.00,"value_buy":118.55}}]' # not hash
+    response = '[{"bitcoin":{"usd":9159.58}}]' # not hash
     stub_request(:any, described_class::URL).to_return(body: response)
 
-    assert_nil described_class.new.fetch!("blue")
+    assert_nil described_class.new.fetch!("bitcoin")
   end
 
   def test_response_without_expected_key_returns_nil
-    response = '{"blue":{"value_avg":122.00,"value_sell":126.00}}' # missing "value_buy"
+    response = '{"bitcoin":{"wrong_key":9159.58}}' # missing "usd"
 
     stub_request(:any, described_class::URL).to_return(body: response)
 
-    assert_nil described_class.new.fetch!("blue")
+    assert_nil described_class.new.fetch!("bitcoin")
   end
 end

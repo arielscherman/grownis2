@@ -1,17 +1,17 @@
-class Rate::Value::Market
+class Market
   VALUE_NOT_FOUND_ERROR_MESSAGE = "We couldn't find the value for %s on any Endpoint"
 
   ValueNotFoundError = Class.new(StandardError)
 
   MAPPINGS = {
-    ars_in_dolar_blue:    { DolarsiEndpoint    => "Dolar Blue",
-                            BluelyticsEndpoint => "blue" },
-    ars_in_dolar_oficial: { DolarsiEndpoint    => "Dolar Oficial",
-                            BluelyticsEndpoint => "oficial" },
-    ars_in_dolar_ccl:     { DolarsiEndpoint    => "Dolar Contado con Liqui" },
-    ars_in_dolar_mep:     { DolarsiEndpoint    => "Dolar Bolsa" },
-    btc_in_usd:           { CoingeckoEndpoint  => "bitcoin" },
-    eth_in_usd:           { CoingeckoEndpoint  => "ethereum" }
+    ars_in_dolar_blue:    { Endpoint::Dolarsi    => "Dolar Blue",
+                            Endpoint::Bluelytics => "blue" },
+    ars_in_dolar_oficial: { Endpoint::Dolarsi    => "Dolar Oficial",
+                            Endpoint::Bluelytics => "oficial" },
+    ars_in_dolar_ccl:     { Endpoint::Dolarsi    => "Dolar Contado con Liqui" },
+    ars_in_dolar_mep:     { Endpoint::Dolarsi    => "Dolar Bolsa" },
+    btc_in_usd:           { Endpoint::Coingecko  => "bitcoin" },
+    eth_in_usd:           { Endpoint::Coingecko  => "ethereum" }
   }.freeze
 
   def fetch_daily_value_for_rate(rate)

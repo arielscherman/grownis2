@@ -1,4 +1,4 @@
-class Rate::Value::Market::DolarsiEndpoint
+class Market::Endpoint::Dolarsi < Market::Endpoint::Base
   URL = "https://www.dolarsi.com/api/api.php?type=valoresprincipales".freeze
 
   def fetch!(value_to_fetch)
