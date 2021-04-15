@@ -1,5 +1,6 @@
 class Rate::Value::Market
   class ValueNotFoundError < StandardError; end
+
   VALUE_NOT_FOUND_ERROR_MESSAGE = "We couldn't find the value for %s on any Endpoint"
 
   MAPPINGS = {
@@ -7,10 +8,10 @@ class Rate::Value::Market
                             BluelyticsEndpoint => "blue" },
     ars_in_dolar_oficial: { DolarsiEndpoint    => "Dolar Oficial",
                             BluelyticsEndpoint => "oficial" },
-    ars_in_dolar_ccl:     { DolarsiEndpoint => "Dolar Contado con Liqui" },
-    ars_in_dolar_mep:     { DolarsiEndpoint => "Dolar Bolsa" },
-    btc_in_usd:           { CoingeckoEndpoint => "bitcoin" },
-    eth_in_usd:           { CoingeckoEndpoint => "ethereum" }
+    ars_in_dolar_ccl:     { DolarsiEndpoint    => "Dolar Contado con Liqui" },
+    ars_in_dolar_mep:     { DolarsiEndpoint    => "Dolar Bolsa" },
+    btc_in_usd:           { CoingeckoEndpoint  => "bitcoin" },
+    eth_in_usd:           { CoingeckoEndpoint  => "ethereum" }
   }.freeze
 
   def fetch_daily_value_for_rate(rate)
@@ -23,7 +24,7 @@ class Rate::Value::Market
     value = nil
 
     endpoints_for_key(rate.key.to_sym).each do |endpoint_class, endpoint_value_to_fetch|
-      value = endpoints(endpoint_class).fetch!(endpoint_value_to_fetch)
+      value = endpoint_instance_for(endpoint_class).fetch!(endpoint_value_to_fetch)
       break if value
     end
 
@@ -37,7 +38,7 @@ class Rate::Value::Market
   # Returns the instance for the given endpoint (if initialized already)
   # to prevent triggering multiple requests to each.
   #
-  def endpoints(klass)
+  def endpoint_instance_for(klass)
     @endpoints ||= Hash.new { |h, key| h[key] = key.new }
     @endpoints[klass]
   end
