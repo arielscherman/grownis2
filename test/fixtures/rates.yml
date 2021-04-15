@@ -19,3 +19,10 @@ btc_in_usd:
   currency: btc
   to_currency: usd
   measured_in_currency: false
+
+eth_in_usd:
+  name: "Ethereum"
+  key: "eth_in_usd"
+  currency: eth
+  to_currency: usd
+  measured_in_currency: false

@@ -41,4 +41,19 @@ class MarketTest < ActiveSupport::TestCase
       described_class.new.fetch_daily_value_for_rate(new_rate)
     end
   end
+
+  def test_fetching_multiple_values_from_same_source_does_not_retrigger_http_calls
+    btc = rates(:btc_in_usd)
+    eth = rates(:eth_in_usd)
+
+    response = '{"bitcoin":{"usd":9159.58}, "ethereum":{"usd": 1244.50}}'
+
+    stub_request(:any, Market::Endpoint::Coingecko::URL).to_return(body: response)
+
+    market = described_class.new
+    market.fetch_daily_value_for_rate(btc)
+    market.fetch_daily_value_for_rate(eth)
+
+    assert_requested :get, Market::Endpoint::Coingecko::URL, times: 1
+  end
 end

@@ -12,3 +12,8 @@ btc:
   name: Bitcoin
   symbol: BTC
   category: category_crypto
+
+eth:
+  name: Ethereum
+  symbol: ETH
+  category: category_crypto

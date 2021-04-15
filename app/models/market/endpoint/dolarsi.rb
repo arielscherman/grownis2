@@ -6,14 +6,14 @@ class Market::Endpoint::Dolarsi < Market::Endpoint::Base
   end
 
   def find_value_in_response(json_response, value_to_fetch)
-    if(raw_value = values_for_key(value_to_fetch).fetch("compra"))
+    if(raw_value = values_for_key(json_response, value_to_fetch).fetch("compra"))
       1 / parse_number(raw_value)
     end
   end
 
   private
 
-  def values_for_key(key)
+  def values_for_key(json_response, key)
     json_response.map { |h| h["casa"] }.find { |h| h["nombre"] == key }.presence || {}
   end
 

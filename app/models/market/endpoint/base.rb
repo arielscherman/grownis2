@@ -1,8 +1,10 @@
 class Market::Endpoint::Base
-  def fetch!(value_to_fetch)
-    find_value_in_response(json_response, value_to_fetch)
+  attr_accessor :on_json_response
+
+  def fetch!(value_to_fetch, cached_response=nil)
+    find_value_in_response(cached_response || fetch_json, value_to_fetch)
   rescue StandardError => ex
-    Rollbar.warning("Couldn't fetch #{value_to_fetch} from #{self.class.name}", ex: ex, json_response: json_response)
+    Rollbar.warning("Couldn't fetch #{value_to_fetch} from #{self.class.name}", ex: ex)
     nil
   end
 
@@ -16,10 +18,12 @@ class Market::Endpoint::Base
 
   private
 
-  def json_response
-    @json_response ||= begin
-      response = HTTParty.get(source_url)
-      JSON.parse(response.body)
-    end
+  def fetch_json
+    response = HTTParty.get(source_url)
+    json_response = JSON.parse(response.body)
+
+    on_json_response.call(json_response) if on_json_response
+
+    json_response
   end
 end

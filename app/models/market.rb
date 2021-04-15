@@ -3,7 +3,7 @@ class Market
 
   ValueNotFoundError = Class.new(StandardError)
 
-  MAPPINGS = {
+  SOURCE_FOR_RATE_KEYS = {
     ars_in_dolar_blue:    { Endpoint::Dolarsi    => "Dolar Blue",
                             Endpoint::Bluelytics => "blue" },
     ars_in_dolar_oficial: { Endpoint::Dolarsi    => "Dolar Oficial",
@@ -32,14 +32,17 @@ class Market
   end
 
   def endpoints_for_key(rate_key)
-    MAPPINGS.fetch(rate_key)
+    SOURCE_FOR_RATE_KEYS.fetch(rate_key)
   end
 
   # Returns the instance for the given endpoint (if initialized already)
   # to prevent triggering multiple requests to each.
   #
   def endpoint_instance_for(klass)
-    @endpoints ||= Hash.new { |h, key| h[key] = key.new }
+    @endpoints ||= Hash.new do |h, endpoint_class|
+      h[endpoint_class] = CachedResponseWrapper.new(endpoint_class.new)
+    end
+
     @endpoints[klass]
   end
 end
